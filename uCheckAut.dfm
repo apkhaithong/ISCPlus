@@ -27,29 +27,47 @@ object FChkmenu1: TFChkmenu1
     Width = 424
     Height = 371
     Align = alClient
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'MS Sans Serif'
+    BevelOuter = bvNone
+    Color = 16445929
+    Font.Charset = THAI_CHARSET
+    Font.Color = 7485192
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
-    Caption.Font.Charset = DEFAULT_CHARSET
-    Caption.Font.Color = clWindowText
-    Caption.Font.Height = -13
-    Caption.Font.Name = 'MS Sans Serif'
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
+    Caption.Font.Charset = THAI_CHARSET
+    Caption.Font.Color = clBlack
+    Caption.Font.Height = -11
+    Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label1: TLabel
@@ -67,9 +85,9 @@ object FChkmenu1: TFChkmenu1
       Visible = False
     end
     object RzSeparator1: TRzSeparator
-      Left = 1
-      Top = 1
-      Width = 422
+      Left = 0
+      Top = 0
+      Width = 424
       Height = 217
       HighlightColor = 8421440
       HighlightLocation = hlLowerRight
@@ -77,6 +95,9 @@ object FChkmenu1: TFChkmenu1
       Align = alTop
       Color = clBtnFace
       ParentColor = False
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 422
     end
     object Image1: TImage
       Left = 10
@@ -6523,12 +6544,15 @@ object FChkmenu1: TFChkmenu1
         end>
     end
     object ProgressBar1: TProgressBar
-      Left = 1
-      Top = 353
-      Width = 422
+      Left = 0
+      Top = 354
+      Width = 424
       Height = 17
       Align = alBottom
       TabOrder = 2
+      ExplicitLeft = 1
+      ExplicitTop = 353
+      ExplicitWidth = 422
     end
     object EnqBtn: TAdvGlowButton
       Left = 1

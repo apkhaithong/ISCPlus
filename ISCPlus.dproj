@@ -97,7 +97,7 @@
         <DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
         <DCC_Hints>false</DCC_Hints>
         <DCC_Warnings>false</DCC_Warnings>
-        <DCC_ExeOutput>D:\Programs\ISC-INVENT</DCC_ExeOutput>
+        <DCC_ExeOutput>D:\Programs\ISCPlus</DCC_ExeOutput>
         <DCC_DcuOutput>D:\Temp</DCC_DcuOutput>
         <DCC_UsePackage>vcl;rtl;dbrtl;adortl;vcldb;vclx;bdertl;vcldbx;ibxpress;dsnap;cds;bdecds;qrpt;teeui;teedb;tee;teeqr;visualclx;visualdbclx;dsnapcrba;dsnapcon;VclSmp;vclshlctrls;vclie;xmlrtl;inet;inetdbbde;inetdbxpress;inetdb;nmfast;webdsnap;dbexpress;dbxcds;indy;dclOffice2k;Tn2wMoney;QExportRT_D6;SncVolga;ADO_QImport2RT_D6;QImport2RT_D6;Ean6;PieLib;websnap;dss;QExportRT_D7;Rz30Ctls70;Rz30DBCtls70;vclactnband;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_UNSAFE_TYPE>true</DCC_UNSAFE_TYPE>
@@ -148,6 +148,7 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>

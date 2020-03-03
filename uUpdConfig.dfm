@@ -28,8 +28,10 @@ object frUpdConfig: TfrUpdConfig
     Width = 782
     Height = 603
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -37,28 +39,47 @@ object frUpdConfig: TfrUpdConfig
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Bevel1: TBevel
-      Left = 1
-      Top = 1
-      Width = 780
+      Left = 0
+      Top = 0
+      Width = 782
       Height = 88
       Align = alTop
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 780
     end
     object Label5: TLabel
       Left = 13
@@ -406,9 +427,9 @@ object frUpdConfig: TfrUpdConfig
       Width = 206
     end
     object dxStatusBar1: TdxStatusBar
-      Left = 1
-      Top = 582
-      Width = 780
+      Left = 0
+      Top = 583
+      Width = 782
       Height = 20
       Panels = <
         item
@@ -435,10 +456,13 @@ object frUpdConfig: TfrUpdConfig
       Font.Style = []
       ShowHint = False
       ParentShowHint = False
+      ExplicitLeft = 1
+      ExplicitTop = 582
+      ExplicitWidth = 780
     end
     object cxRadioGroup1: TcxRadioGroup
-      Left = 1
-      Top = 89
+      Left = 0
+      Top = 88
       Align = alTop
       Caption = 'MRPPlus Main menus'
       ParentFont = False
@@ -475,14 +499,17 @@ object frUpdConfig: TfrUpdConfig
       StyleDisabled.LookAndFeel.NativeStyle = False
       StyleDisabled.LookAndFeel.SkinName = 'Office2007Green'
       TabOrder = 7
+      ExplicitLeft = 1
+      ExplicitTop = 89
+      ExplicitWidth = 780
       Height = 58
-      Width = 780
+      Width = 782
     end
     object cxGrid1: TcxGrid
-      Left = 1
-      Top = 147
-      Width = 780
-      Height = 435
+      Left = 0
+      Top = 146
+      Width = 782
+      Height = 437
       Align = alClient
       Font.Charset = THAI_CHARSET
       Font.Color = clWindowText
@@ -494,6 +521,10 @@ object frUpdConfig: TfrUpdConfig
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'LiquidSky'
+      ExplicitLeft = 1
+      ExplicitTop = 147
+      ExplicitWidth = 780
+      ExplicitHeight = 435
       object cxGridTran: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False

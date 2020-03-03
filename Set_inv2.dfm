@@ -28,8 +28,10 @@ object SetInvloc: TSetInvloc
     Width = 707
     Height = 550
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -37,20 +39,36 @@ object SetInvloc: TSetInvloc
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label17: TLabel
@@ -1023,8 +1041,8 @@ object SetInvloc: TSetInvloc
       Width = 339
     end
     object cxGroupBox1: TcxGroupBox
-      Left = 1
-      Top = 336
+      Left = 0
+      Top = 337
       Align = alBottom
       Caption = #3588#3621#3633#3591#3626#3636#3609#3588#3657#3634#3607#3637#3656#3648#3585#3655#3610' :'
       ParentFont = False
@@ -1035,19 +1053,20 @@ object SetInvloc: TSetInvloc
       Style.Font.Style = []
       Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 23
+      Transparent = True
       Height = 193
-      Width = 705
+      Width = 707
       object ac: TcxGrid
-        Left = 3
-        Top = 18
-        Width = 699
-        Height = 166
+        Left = 2
+        Top = 21
+        Width = 703
+        Height = 170
         Align = alClient
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -1059,6 +1078,10 @@ object SetInvloc: TSetInvloc
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'LiquidSky'
+        ExplicitLeft = 3
+        ExplicitTop = 18
+        ExplicitWidth = 699
+        ExplicitHeight = 166
         object acDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = Dm_set1.DataSource1
@@ -1100,13 +1123,13 @@ object SetInvloc: TSetInvloc
       end
     end
     object AdvPanel2: TAdvPanel
-      Left = 1
-      Top = 1
-      Width = 705
+      Left = 0
+      Top = 0
+      Width = 707
       Height = 51
       Align = alTop
       BevelOuter = bvNone
-      Color = 16645114
+      Color = 16445929
       Font.Charset = THAI_CHARSET
       Font.Color = 7485192
       Font.Height = -11
@@ -1119,8 +1142,8 @@ object SetInvloc: TSetInvloc
       UseDockManager = True
       Version = '2.5.8.0'
       BorderColor = 16765615
-      Caption.Color = 16575452
-      Caption.ColorTo = 16571329
+      Caption.Color = 16773091
+      Caption.ColorTo = 16765615
       Caption.Font.Charset = THAI_CHARSET
       Caption.Font.Color = clBlack
       Caption.Font.Height = -11
@@ -1131,22 +1154,27 @@ object SetInvloc: TSetInvloc
       Caption.ShadeLight = 255
       CollapsColor = clNone
       CollapsDelay = 0
-      ColorTo = 16643051
+      ColorTo = 15587527
+      ColorMirror = 15587527
+      ColorMirrorTo = 16773863
       DoubleBuffered = True
       ShadowColor = clBlack
       ShadowOffset = 0
-      StatusBar.BorderColor = 13542013
+      StatusBar.BorderColor = 16765615
       StatusBar.BorderStyle = bsSingle
       StatusBar.Font.Charset = DEFAULT_CHARSET
       StatusBar.Font.Color = 7485192
       StatusBar.Font.Height = -11
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
-      StatusBar.Color = 16575452
-      StatusBar.ColorTo = 16571329
+      StatusBar.Color = 16245715
+      StatusBar.ColorTo = 16109747
       StatusBar.GradientDirection = gdVertical
       Styler = SFMain.AdvPanelStyler1
       Text = ''
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 705
       FullHeight = 51
       object AdvToolBar2: TAdvToolBar
         Left = 0
@@ -1643,9 +1671,9 @@ object SetInvloc: TSetInvloc
       end
     end
     object dxStatusBar1: TdxStatusBar
-      Left = 1
-      Top = 529
-      Width = 705
+      Left = 0
+      Top = 530
+      Width = 707
       Height = 20
       Panels = <
         item
@@ -1676,6 +1704,9 @@ object SetInvloc: TSetInvloc
       Font.Style = []
       ShowHint = False
       ParentShowHint = False
+      ExplicitLeft = 1
+      ExplicitTop = 529
+      ExplicitWidth = 705
     end
     object cxDBButtonEdit2: TcxDBButtonEdit
       Left = 312

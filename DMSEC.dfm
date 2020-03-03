@@ -11,13 +11,13 @@ object DM_SEC: TDM_SEC
       'Server=119.59.112.76'
       'Port=50000'
       'DriverID=DB2')
-    FormatOptions.AssignedValues = [fvMapRules, fvDefaultParamDataType]
+    FormatOptions.AssignedValues = [fvMapRules, fvMaxBcdScale, fvDefaultParamDataType]
     FormatOptions.OwnMapRules = True
     FormatOptions.MapRules = <
       item
         PrecMax = 18
         PrecMin = 1
-        ScaleMax = 4
+        ScaleMax = 6
         ScaleMin = 2
         SourceDataType = dtBCD
         TargetDataType = dtDouble
@@ -43,11 +43,19 @@ object DM_SEC: TDM_SEC
       item
         SourceDataType = dtDateTimeStamp
         TargetDataType = dtDateTime
+      end
+      item
+        PrecMax = 19
+        PrecMin = 9
+        ScaleMax = 0
+        ScaleMin = 0
+        SourceDataType = dtBCD
+        TargetDataType = dtDouble
       end>
+    FormatOptions.MaxBcdScale = 6
     FormatOptions.DefaultParamDataType = ftVariant
     TxOptions.DisconnectAction = xdRollback
     TxOptions.EnableNested = False
-    Connected = True
     LoginPrompt = False
     OnRecover = HI_DBMSRecover
     BeforeStartTransaction = HI_DBMSBeforeStartTransaction

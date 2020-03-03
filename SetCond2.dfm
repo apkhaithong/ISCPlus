@@ -29,8 +29,10 @@ object SetCmpForm2: TSetCmpForm2
     Width = 623
     Height = 501
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -38,20 +40,36 @@ object SetCmpForm2: TSetCmpForm2
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label32: TLabel
@@ -111,9 +129,9 @@ object SetCmpForm2: TSetCmpForm2
       ParentFont = False
     end
     object cxPageControl1: TcxPageControl
-      Left = 1
-      Top = 208
-      Width = 621
+      Left = 0
+      Top = 209
+      Width = 623
       Height = 272
       Align = alBottom
       TabOrder = 0
@@ -122,7 +140,7 @@ object SetCmpForm2: TSetCmpForm2
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'iMaginary'
       ClientRectBottom = 272
-      ClientRectRight = 621
+      ClientRectRight = 623
       ClientRectTop = 24
       object cxTabSheet1: TcxTabSheet
         Caption = 'Tax Rate'
@@ -130,11 +148,13 @@ object SetCmpForm2: TSetCmpForm2
         object AdvPanel2: TAdvPanel
           Left = 0
           Top = 0
-          Width = 621
+          Width = 623
           Height = 248
           Align = alClient
+          BevelOuter = bvNone
+          Color = 16445929
           Font.Charset = THAI_CHARSET
-          Font.Color = clWindowText
+          Font.Color = 7485192
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -142,28 +162,46 @@ object SetCmpForm2: TSetCmpForm2
           TabOrder = 0
           UseDockManager = True
           Version = '2.5.8.0'
-          Caption.Color = clHighlight
-          Caption.ColorTo = clNone
+          BorderColor = 16765615
+          Caption.Color = 16773091
+          Caption.ColorTo = 16765615
           Caption.Font.Charset = THAI_CHARSET
-          Caption.Font.Color = clWindowText
+          Caption.Font.Color = clBlack
           Caption.Font.Height = -11
           Caption.Font.Name = 'Tahoma'
           Caption.Font.Style = []
-          Caption.Indent = 0
+          Caption.GradientDirection = gdVertical
+          Caption.Indent = 2
+          Caption.ShadeLight = 255
+          CollapsColor = clNone
+          CollapsDelay = 0
+          ColorTo = 15587527
+          ColorMirror = 15587527
+          ColorMirrorTo = 16773863
           DoubleBuffered = True
+          ShadowColor = clBlack
+          ShadowOffset = 0
+          StatusBar.BorderColor = 16765615
+          StatusBar.BorderStyle = bsSingle
           StatusBar.Font.Charset = DEFAULT_CHARSET
-          StatusBar.Font.Color = clWindowText
+          StatusBar.Font.Color = 7485192
           StatusBar.Font.Height = -11
           StatusBar.Font.Name = 'Tahoma'
           StatusBar.Font.Style = []
+          StatusBar.Color = 16245715
+          StatusBar.ColorTo = 16109747
+          StatusBar.GradientDirection = gdVertical
+          Styler = SFMain.AdvPanelStyler1
           Text = ''
           FullHeight = 200
           object Bevel7: TBevel
-            Left = 1
-            Top = 1
-            Width = 619
+            Left = 0
+            Top = 0
+            Width = 623
             Height = 130
             Align = alTop
+            ExplicitLeft = 1
+            ExplicitTop = 1
             ExplicitWidth = 609
           end
           object Label56: TLabel
@@ -258,11 +296,13 @@ object SetCmpForm2: TSetCmpForm2
             ParentFont = False
           end
           object Bevel9: TBevel
-            Left = 1
-            Top = 131
-            Width = 619
+            Left = 0
+            Top = 130
+            Width = 623
             Height = 94
             Align = alTop
+            ExplicitLeft = 1
+            ExplicitTop = 131
             ExplicitWidth = 609
           end
           object Label83: TLabel
@@ -319,7 +359,7 @@ object SetCmpForm2: TSetCmpForm2
             ParentFont = False
           end
           object cxDBCheckBox4: TcxDBCheckBox
-            Left = 253
+            Left = 268
             Top = 99
             Caption = #3627#3657#3634#3617' Key in'
             DataBinding.DataField = 'L_PRC4'
@@ -343,9 +383,10 @@ object SetCmpForm2: TSetCmpForm2
             StyleHot.LookAndFeel.NativeStyle = False
             StyleHot.LookAndFeel.SkinName = 'McSkin'
             TabOrder = 0
+            Transparent = True
           end
           object cxDBCheckBox2: TcxDBCheckBox
-            Left = 253
+            Left = 268
             Top = 56
             Caption = #3627#3657#3634#3617' Key in'
             DataBinding.DataField = 'L_PRC2'
@@ -369,9 +410,10 @@ object SetCmpForm2: TSetCmpForm2
             StyleHot.LookAndFeel.NativeStyle = False
             StyleHot.LookAndFeel.SkinName = 'McSkin'
             TabOrder = 1
+            Transparent = True
           end
           object cxDBCheckBox3: TcxDBCheckBox
-            Left = 253
+            Left = 268
             Top = 77
             Caption = #3627#3657#3634#3617' Key in'
             DataBinding.DataField = 'L_PRC3'
@@ -395,6 +437,7 @@ object SetCmpForm2: TSetCmpForm2
             StyleHot.LookAndFeel.NativeStyle = False
             StyleHot.LookAndFeel.SkinName = 'McSkin'
             TabOrder = 2
+            Transparent = True
           end
           object DBEdit23: TcxDBTextEdit
             Left = 141
@@ -578,11 +621,13 @@ object SetCmpForm2: TSetCmpForm2
         object AdvPanel3: TAdvPanel
           Left = 0
           Top = 0
-          Width = 621
+          Width = 623
           Height = 248
           Align = alClient
+          BevelOuter = bvNone
+          Color = 16445929
           Font.Charset = THAI_CHARSET
-          Font.Color = clWindowText
+          Font.Color = 7485192
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -590,35 +635,53 @@ object SetCmpForm2: TSetCmpForm2
           TabOrder = 0
           UseDockManager = True
           Version = '2.5.8.0'
-          Caption.Color = clHighlight
-          Caption.ColorTo = clNone
+          BorderColor = 16765615
+          Caption.Color = 16773091
+          Caption.ColorTo = 16765615
           Caption.Font.Charset = THAI_CHARSET
-          Caption.Font.Color = clWindowText
+          Caption.Font.Color = clBlack
           Caption.Font.Height = -11
           Caption.Font.Name = 'Tahoma'
           Caption.Font.Style = []
-          Caption.Indent = 0
+          Caption.GradientDirection = gdVertical
+          Caption.Indent = 2
+          Caption.ShadeLight = 255
+          CollapsColor = clNone
+          CollapsDelay = 0
+          ColorTo = 15587527
+          ColorMirror = 15587527
+          ColorMirrorTo = 16773863
           DoubleBuffered = True
+          ShadowColor = clBlack
+          ShadowOffset = 0
+          StatusBar.BorderColor = 16765615
+          StatusBar.BorderStyle = bsSingle
           StatusBar.Font.Charset = DEFAULT_CHARSET
-          StatusBar.Font.Color = clWindowText
+          StatusBar.Font.Color = 7485192
           StatusBar.Font.Height = -11
           StatusBar.Font.Name = 'Tahoma'
           StatusBar.Font.Style = []
+          StatusBar.Color = 16245715
+          StatusBar.ColorTo = 16109747
+          StatusBar.GradientDirection = gdVertical
+          Styler = SFMain.AdvPanelStyler1
           Text = ''
           FullHeight = 200
           object cxGroupBox1: TcxGroupBox
             Left = 10
             Top = 6
+            ParentBackground = False
             ParentColor = False
             Style.BorderColor = clBlack
             Style.Color = clBtnFace
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.SkinName = ''
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 0
+            Transparent = True
             Height = 160
             Width = 225
             object Label13: TLabel
@@ -979,16 +1042,18 @@ object SetCmpForm2: TSetCmpForm2
           object cxGroupBox2: TcxGroupBox
             Left = 242
             Top = 6
+            ParentBackground = False
             ParentColor = False
             Style.BorderColor = clBlack
             Style.Color = clBtnFace
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.SkinName = ''
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 1
+            Transparent = True
             Height = 208
             Width = 263
             object Label45: TLabel
@@ -1383,16 +1448,18 @@ object SetCmpForm2: TSetCmpForm2
           object cxGroupBox3: TcxGroupBox
             Left = 10
             Top = 165
+            ParentBackground = False
             ParentColor = False
             Style.BorderColor = clBlack
             Style.Color = clBtnFace
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.SkinName = ''
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 2
+            Transparent = True
             Height = 49
             Width = 225
             object Label91: TLabel
@@ -1463,11 +1530,13 @@ object SetCmpForm2: TSetCmpForm2
         object AdvPanel4: TAdvPanel
           Left = 0
           Top = 0
-          Width = 621
+          Width = 623
           Height = 248
           Align = alClient
+          BevelOuter = bvNone
+          Color = 16445929
           Font.Charset = THAI_CHARSET
-          Font.Color = clWindowText
+          Font.Color = 7485192
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -1475,27 +1544,44 @@ object SetCmpForm2: TSetCmpForm2
           TabOrder = 0
           UseDockManager = True
           Version = '2.5.8.0'
-          Caption.Color = clHighlight
-          Caption.ColorTo = clNone
+          BorderColor = 16765615
+          Caption.Color = 16773091
+          Caption.ColorTo = 16765615
           Caption.Font.Charset = THAI_CHARSET
-          Caption.Font.Color = clWindowText
+          Caption.Font.Color = clBlack
           Caption.Font.Height = -11
           Caption.Font.Name = 'Tahoma'
           Caption.Font.Style = []
-          Caption.Indent = 0
+          Caption.GradientDirection = gdVertical
+          Caption.Indent = 2
+          Caption.ShadeLight = 255
+          CollapsColor = clNone
+          CollapsDelay = 0
+          ColorTo = 15587527
+          ColorMirror = 15587527
+          ColorMirrorTo = 16773863
           DoubleBuffered = True
+          ShadowColor = clBlack
+          ShadowOffset = 0
+          StatusBar.BorderColor = 16765615
+          StatusBar.BorderStyle = bsSingle
           StatusBar.Font.Charset = DEFAULT_CHARSET
-          StatusBar.Font.Color = clWindowText
+          StatusBar.Font.Color = 7485192
           StatusBar.Font.Height = -11
           StatusBar.Font.Name = 'Tahoma'
           StatusBar.Font.Style = []
+          StatusBar.Color = 16245715
+          StatusBar.ColorTo = 16109747
+          StatusBar.GradientDirection = gdVertical
+          Styler = SFMain.AdvPanelStyler1
           Text = ''
           FullHeight = 200
           object cxGroupBox7: TcxGroupBox
-            Left = 1
-            Top = 1
+            Left = 0
+            Top = 0
             Align = alClient
             Caption = #3586#3634#3618#3627#3609#3657#3634#3619#3657#3634#3609
+            ParentBackground = False
             ParentColor = False
             ParentFont = False
             Style.BorderColor = clBlack
@@ -1505,16 +1591,17 @@ object SetCmpForm2: TSetCmpForm2
             Style.Font.Height = -13
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = []
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
+            Style.LookAndFeel.SkinName = ''
             Style.IsFontAssigned = True
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 0
-            Height = 246
-            Width = 619
+            Transparent = True
+            Height = 248
+            Width = 623
             object Label1: TLabel
               Left = 232
               Top = 42
@@ -2016,11 +2103,13 @@ object SetCmpForm2: TSetCmpForm2
         object AdvPanel5: TAdvPanel
           Left = 0
           Top = 0
-          Width = 621
+          Width = 623
           Height = 248
           Align = alClient
+          BevelOuter = bvNone
+          Color = 16445929
           Font.Charset = THAI_CHARSET
-          Font.Color = clWindowText
+          Font.Color = 7485192
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -2028,26 +2117,43 @@ object SetCmpForm2: TSetCmpForm2
           TabOrder = 0
           UseDockManager = True
           Version = '2.5.8.0'
-          Caption.Color = clHighlight
-          Caption.ColorTo = clNone
+          BorderColor = 16765615
+          Caption.Color = 16773091
+          Caption.ColorTo = 16765615
           Caption.Font.Charset = THAI_CHARSET
-          Caption.Font.Color = clWindowText
+          Caption.Font.Color = clBlack
           Caption.Font.Height = -11
           Caption.Font.Name = 'Tahoma'
           Caption.Font.Style = []
-          Caption.Indent = 0
+          Caption.GradientDirection = gdVertical
+          Caption.Indent = 2
+          Caption.ShadeLight = 255
+          CollapsColor = clNone
+          CollapsDelay = 0
+          ColorTo = 15587527
+          ColorMirror = 15587527
+          ColorMirrorTo = 16773863
           DoubleBuffered = True
+          ShadowColor = clBlack
+          ShadowOffset = 0
+          StatusBar.BorderColor = 16765615
+          StatusBar.BorderStyle = bsSingle
           StatusBar.Font.Charset = DEFAULT_CHARSET
-          StatusBar.Font.Color = clWindowText
+          StatusBar.Font.Color = 7485192
           StatusBar.Font.Height = -11
           StatusBar.Font.Name = 'Tahoma'
           StatusBar.Font.Style = []
+          StatusBar.Color = 16245715
+          StatusBar.ColorTo = 16109747
+          StatusBar.GradientDirection = gdVertical
+          Styler = SFMain.AdvPanelStyler1
           Text = ''
           FullHeight = 200
           object cxGroupBox12: TcxGroupBox
             Left = 294
             Top = 75
             Caption = #3607#3633#3656#3623#3652#3611
+            ParentBackground = False
             ParentColor = False
             ParentFont = False
             Style.BorderColor = clBlack
@@ -2057,14 +2163,15 @@ object SetCmpForm2: TSetCmpForm2
             Style.Font.Height = -13
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = []
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
+            Style.LookAndFeel.SkinName = ''
             Style.IsFontAssigned = True
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 0
+            Transparent = True
             Height = 70
             Width = 286
             object cxDBCheckBox53: TcxDBCheckBox
@@ -2112,6 +2219,7 @@ object SetCmpForm2: TSetCmpForm2
             Left = 8
             Top = 147
             Caption = #3629#3633#3605#3619#3634#3616#3634#3625#3637
+            ParentBackground = False
             ParentColor = False
             ParentFont = False
             Style.BorderColor = clBlack
@@ -2121,16 +2229,17 @@ object SetCmpForm2: TSetCmpForm2
             Style.Font.Height = -13
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = []
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
+            Style.LookAndFeel.SkinName = ''
             Style.IsFontAssigned = True
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 1
+            Transparent = True
             Height = 68
-            Width = 286
+            Width = 285
             object cxDBCheckBox55: TcxDBCheckBox
               Left = 7
               Top = 14
@@ -2176,6 +2285,7 @@ object SetCmpForm2: TSetCmpForm2
             Left = 294
             Top = 147
             Caption = #3626#3656#3623#3609#3621#3604
+            ParentBackground = False
             ParentColor = False
             ParentFont = False
             Style.BorderColor = clBlack
@@ -2185,14 +2295,15 @@ object SetCmpForm2: TSetCmpForm2
             Style.Font.Height = -13
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = []
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
+            Style.LookAndFeel.SkinName = ''
             Style.IsFontAssigned = True
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 2
+            Transparent = True
             Height = 68
             Width = 286
             object DBCheckBox46: TcxDBCheckBox
@@ -2220,6 +2331,7 @@ object SetCmpForm2: TSetCmpForm2
             Left = 7
             Top = 5
             Caption = #3619#3632#3610#3610#3626#3633#3656#3591#3595#3639#3657#3629
+            ParentBackground = False
             ParentColor = False
             ParentFont = False
             Style.BorderColor = clBlack
@@ -2229,14 +2341,15 @@ object SetCmpForm2: TSetCmpForm2
             Style.Font.Height = -13
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = []
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
+            Style.LookAndFeel.SkinName = ''
             Style.IsFontAssigned = True
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 3
+            Transparent = True
             Height = 68
             Width = 286
             object cxDBCheckBox45: TcxDBCheckBox
@@ -2310,14 +2423,15 @@ object SetCmpForm2: TSetCmpForm2
             Style.Font.Height = -13
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = []
-            Style.LookAndFeel.Kind = lfOffice11
+            Style.LookAndFeel.Kind = lfUltraFlat
             Style.LookAndFeel.NativeStyle = False
-            Style.LookAndFeel.SkinName = 'McSkin'
+            Style.LookAndFeel.SkinName = ''
             Style.IsFontAssigned = True
-            StyleDisabled.LookAndFeel.Kind = lfOffice11
+            StyleDisabled.LookAndFeel.Kind = lfUltraFlat
             StyleDisabled.LookAndFeel.NativeStyle = False
-            StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+            StyleDisabled.LookAndFeel.SkinName = ''
             TabOrder = 4
+            Transparent = True
             Height = 69
             Width = 286
           end
@@ -2450,13 +2564,13 @@ object SetCmpForm2: TSetCmpForm2
       Width = 260
     end
     object AdvPanel9: TAdvPanel
-      Left = 1
-      Top = 1
-      Width = 621
+      Left = 0
+      Top = 0
+      Width = 623
       Height = 51
       Align = alTop
       BevelOuter = bvNone
-      Color = 16645114
+      Color = 16445929
       Font.Charset = THAI_CHARSET
       Font.Color = 7485192
       Font.Height = -11
@@ -2469,8 +2583,8 @@ object SetCmpForm2: TSetCmpForm2
       UseDockManager = True
       Version = '2.5.8.0'
       BorderColor = 16765615
-      Caption.Color = 16575452
-      Caption.ColorTo = 16571329
+      Caption.Color = 16773091
+      Caption.ColorTo = 16765615
       Caption.Font.Charset = THAI_CHARSET
       Caption.Font.Color = clBlack
       Caption.Font.Height = -11
@@ -2481,19 +2595,21 @@ object SetCmpForm2: TSetCmpForm2
       Caption.ShadeLight = 255
       CollapsColor = clNone
       CollapsDelay = 0
-      ColorTo = 16643051
+      ColorTo = 15587527
+      ColorMirror = 15587527
+      ColorMirrorTo = 16773863
       DoubleBuffered = True
       ShadowColor = clBlack
       ShadowOffset = 0
-      StatusBar.BorderColor = 13542013
+      StatusBar.BorderColor = 16765615
       StatusBar.BorderStyle = bsSingle
       StatusBar.Font.Charset = DEFAULT_CHARSET
       StatusBar.Font.Color = 7485192
       StatusBar.Font.Height = -11
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
-      StatusBar.Color = 16575452
-      StatusBar.ColorTo = 16571329
+      StatusBar.Color = 16245715
+      StatusBar.ColorTo = 16109747
       StatusBar.GradientDirection = gdVertical
       Styler = SFMain.AdvPanelStyler1
       Text = ''
@@ -2528,7 +2644,6 @@ object SetCmpForm2: TSetCmpForm2
           Height = 47
           SeparatorStyle = ssBlank
           LineColor = clBtnShadow
-          Visible = False
         end
         object AdvToolBarSeparator4: TAdvToolBarSeparator
           Left = 60
@@ -2655,9 +2770,9 @@ object SetCmpForm2: TSetCmpForm2
       end
     end
     object dxStatusBar1: TdxStatusBar
-      Left = 1
-      Top = 480
-      Width = 621
+      Left = 0
+      Top = 481
+      Width = 623
       Height = 20
       Panels = <
         item

@@ -18,7 +18,7 @@ uses
   cxNavigator, cxDBLookupComboBox, RzDbkbd, dxStatusBar, cxMemo, frxExportXLSX,
   frxRich, frxTableObject, frxClass, frxDCtrl, frxFDComponents, frxGradient,
   frxExportImage, frxExportPDF, frxBDEComponents, frxExportBaseDialog,
-  frxExportCSV, frxCross, frxChBox, frxChart, frxBarcode;
+  frxExportCSV, frxCross, frxChBox, frxChart, frxBarcode, cxCalc, System.Math;
 
 type
   TFPr_inv02 = class(TForm)
@@ -77,7 +77,6 @@ type
     QPoinv1VAT: TFloatField;
     QPoinv1TOTAL: TFloatField;
     QPoinv1DISCT: TFloatField;
-    QPoinv1NETCOST: TFloatField;
     QPoinv1VATAMT: TFloatField;
     QPoinv1TOTCOST: TFloatField;
     QPoinv1OFFICCOD: TStringField;
@@ -98,7 +97,6 @@ type
     QPoinv1TPCODE: TStringField;
     QPoinv1RLCODE: TStringField;
     QPoinv1MEMO1: TMemoField;
-    QPoinv1CREDTM: TFloatField;
     QPoinv1PRCFLG: TStringField;
     QPoinv1VATTYPE: TStringField;
     QPoTrn: TFDQuery;
@@ -179,6 +177,8 @@ type
     frxReportTableObject1: TfrxReportTableObject;
     frxRichObject1: TfrxRichObject;
     frxXLSXExport1: TfrxXLSXExport;
+    QPoinv1CREDTM: TIntegerField;
+    QPoinv1NETCOST: TFloatField;
     procedure InsBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure DataSource1StateChange(Sender: TObject);
@@ -689,7 +689,7 @@ begin
       QPoTrn.FieldByName('ORDCOST').AsFloat := Qtemp.FieldByname('ONHN').AsFloat;
       QPoTrn.FieldByName('NETFL').Asstring := Qtemp.FieldByname('Locat').AsString;
       QPoTrn.FieldByName('REDU').AsFloat := 0;
-      QPoTrnNetcost.Asfloat := QPoTrnORDCOST.VALUE * (1 - QPoTrnRedu.Asfloat / 100);
+      QPoTrnNetcost.Asfloat := SimpleRoundTo(QPoTrnORDCOST.VALUE * (1 - QPoTrnRedu.Asfloat / 100), -2);
       QPoTrnTOTCOST.Asfloat := QPoTrnORDQTY.Value * QPoTrnNetcost.Asfloat;
       QPoTrn.Next;
       Qtemp.Next;
@@ -1234,14 +1234,19 @@ procedure TFPr_inv02.QPoTrnORDCOSTValidate(Sender: TField);
 begin
   if (QPoTrnORDCOST.AsFloat = 0) and (QPoTrnPARTNO.AsString <> '') then
     SFMain.RaiseException('ราคาต้นทุนยอดเป็น 0');
-
-  QPoTrnNetcost.Asfloat := FRound(QPoTrnORDCOST.Asfloat * (1 - QPoTrnRedu.Asfloat / 100), 4);
+  if QPoTrnRedu.Asfloat > 0 then
+    QPoTrnNetcost.Asfloat := FRound(QPoTrnORDCOST.Asfloat * (1 - QPoTrnRedu.Asfloat / 100), 4)
+  else
+    QPoTrnNetcost.Asfloat := QPoTrnORDCOST.Asfloat;
   QPoTrnTOTCOST.Asfloat := QPoTrnORDQTY.Asfloat * QPoTrnNetcost.Asfloat;
 end;
 
 procedure TFPr_inv02.QPoTrnREDUValidate(Sender: TField);
 begin
-  QPoTrnNetcost.Asfloat := FRound(QPoTrnORDCOST.Asfloat * (1 - QPoTrnRedu.Asfloat / 100), 4);
+  if QPoTrnRedu.Asfloat > 0 then
+    QPoTrnNetcost.Asfloat := FRound(QPoTrnORDCOST.Asfloat * (1 - QPoTrnRedu.Asfloat / 100), 4)
+  else
+    QPoTrnNetcost.Asfloat := QPoTrnORDCOST.Asfloat;
   QPoTrnTOTCOST.Asfloat := QPoTrnORDQTY.Asfloat * QPoTrnNetcost.Asfloat;
 end;
 

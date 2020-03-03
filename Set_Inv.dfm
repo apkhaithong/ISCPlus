@@ -29,8 +29,10 @@ object SetInvMst: TSetInvMst
     Width = 706
     Height = 459
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -38,20 +40,36 @@ object SetInvMst: TSetInvMst
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label17: TLabel
@@ -377,13 +395,13 @@ object SetInvMst: TSetInvMst
       ParentFont = False
     end
     object AdvPanel2: TAdvPanel
-      Left = 1
-      Top = 1
-      Width = 704
+      Left = 0
+      Top = 0
+      Width = 706
       Height = 51
       Align = alTop
       BevelOuter = bvNone
-      Color = 16645114
+      Color = 16445929
       Font.Charset = THAI_CHARSET
       Font.Color = 7485192
       Font.Height = -11
@@ -396,8 +414,8 @@ object SetInvMst: TSetInvMst
       UseDockManager = True
       Version = '2.5.8.0'
       BorderColor = 16765615
-      Caption.Color = 16575452
-      Caption.ColorTo = 16571329
+      Caption.Color = 16773091
+      Caption.ColorTo = 16765615
       Caption.Font.Charset = THAI_CHARSET
       Caption.Font.Color = clBlack
       Caption.Font.Height = -11
@@ -408,22 +426,27 @@ object SetInvMst: TSetInvMst
       Caption.ShadeLight = 255
       CollapsColor = clNone
       CollapsDelay = 0
-      ColorTo = 16643051
+      ColorTo = 15587527
+      ColorMirror = 15587527
+      ColorMirrorTo = 16773863
       DoubleBuffered = True
       ShadowColor = clBlack
       ShadowOffset = 0
-      StatusBar.BorderColor = 13542013
+      StatusBar.BorderColor = 16765615
       StatusBar.BorderStyle = bsSingle
       StatusBar.Font.Charset = DEFAULT_CHARSET
       StatusBar.Font.Color = 7485192
       StatusBar.Font.Height = -11
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
-      StatusBar.Color = 16575452
-      StatusBar.ColorTo = 16571329
+      StatusBar.Color = 16245715
+      StatusBar.ColorTo = 16109747
       StatusBar.GradientDirection = gdVertical
       Styler = SFMain.AdvPanelStyler1
       Text = ''
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 704
       FullHeight = 51
       object AdvToolBar1: TAdvToolBar
         Left = 0
@@ -984,12 +1007,13 @@ object SetInvMst: TSetInvMst
       Style.Font.Style = []
       Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 1
+      Transparent = True
       Height = 67
       Width = 550
       object DBAdvOfficeCheckBox1: TcxDBCheckBox
@@ -1540,9 +1564,9 @@ object SetInvMst: TSetInvMst
       Width = 121
     end
     object dxStatusBar1: TdxStatusBar
-      Left = 1
-      Top = 438
-      Width = 704
+      Left = 0
+      Top = 439
+      Width = 706
       Height = 20
       Panels = <
         item
@@ -1573,6 +1597,9 @@ object SetInvMst: TSetInvMst
       Font.Style = []
       ShowHint = False
       ParentShowHint = False
+      ExplicitLeft = 1
+      ExplicitTop = 438
+      ExplicitWidth = 704
     end
     object cxDBButtonEdit1: TcxDBButtonEdit
       Left = 93

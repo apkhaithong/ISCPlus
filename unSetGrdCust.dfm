@@ -28,8 +28,10 @@ object FSetGrdCust: TFSetGrdCust
     Width = 465
     Height = 207
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -37,20 +39,36 @@ object FSetGrdCust: TFSetGrdCust
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label1: TLabel
@@ -159,15 +177,16 @@ object FSetGrdCust: TFSetGrdCust
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 2
+      Transparent = True
     end
     object AdvPanel2: TAdvPanel
-      Left = 1
-      Top = 1
-      Width = 463
+      Left = 0
+      Top = 0
+      Width = 465
       Height = 51
       Align = alTop
       BevelOuter = bvNone
-      Color = 16645114
+      Color = 16445929
       Font.Charset = THAI_CHARSET
       Font.Color = 7485192
       Font.Height = -11
@@ -180,8 +199,8 @@ object FSetGrdCust: TFSetGrdCust
       UseDockManager = True
       Version = '2.5.8.0'
       BorderColor = 16765615
-      Caption.Color = 16575452
-      Caption.ColorTo = 16571329
+      Caption.Color = 16773091
+      Caption.ColorTo = 16765615
       Caption.Font.Charset = THAI_CHARSET
       Caption.Font.Color = clBlack
       Caption.Font.Height = -11
@@ -192,22 +211,27 @@ object FSetGrdCust: TFSetGrdCust
       Caption.ShadeLight = 255
       CollapsColor = clNone
       CollapsDelay = 0
-      ColorTo = 16643051
+      ColorTo = 15587527
+      ColorMirror = 15587527
+      ColorMirrorTo = 16773863
       DoubleBuffered = True
       ShadowColor = clBlack
       ShadowOffset = 0
-      StatusBar.BorderColor = 13542013
+      StatusBar.BorderColor = 16765615
       StatusBar.BorderStyle = bsSingle
       StatusBar.Font.Charset = DEFAULT_CHARSET
       StatusBar.Font.Color = 7485192
       StatusBar.Font.Height = -11
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
-      StatusBar.Color = 16575452
-      StatusBar.ColorTo = 16571329
+      StatusBar.Color = 16245715
+      StatusBar.ColorTo = 16109747
       StatusBar.GradientDirection = gdVertical
       Styler = SFMain.AdvPanelStyler1
       Text = ''
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 463
       FullHeight = 51
       object AdvToolBar2: TAdvToolBar
         Left = -6
@@ -591,9 +615,9 @@ object FSetGrdCust: TFSetGrdCust
       end
     end
     object dxStatusBar1: TdxStatusBar
-      Left = 1
-      Top = 186
-      Width = 463
+      Left = 0
+      Top = 187
+      Width = 465
       Height = 20
       Panels = <
         item
@@ -624,6 +648,9 @@ object FSetGrdCust: TFSetGrdCust
       Font.Style = []
       ShowHint = False
       ParentShowHint = False
+      ExplicitLeft = 1
+      ExplicitTop = 186
+      ExplicitWidth = 463
     end
   end
   object DataSource1: TDataSource
@@ -637,7 +664,8 @@ object FSetGrdCust: TFSetGrdCust
     BeforeDelete = qrGrdCustBeforeDelete
     AfterDelete = qrGrdCustAfterPost
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AutoIncFields = 'IDNO'
     SQL.Strings = (
       'SELECT  * FROM  SETGRADE')
     Left = 345

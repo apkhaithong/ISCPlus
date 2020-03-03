@@ -30,7 +30,7 @@ object frApmaster: TfrApmaster
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -43,8 +43,8 @@ object frApmaster: TfrApmaster
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -55,19 +55,21 @@ object frApmaster: TfrApmaster
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -470,8 +472,10 @@ object frApmaster: TfrApmaster
     Width = 567
     Height = 539
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -479,30 +483,51 @@ object frApmaster: TfrApmaster
     TabOrder = 1
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object cxGroupBox1: TcxGroupBox
-      Left = 1
-      Top = 1
+      Left = 0
+      Top = 0
       Align = alClient
       Style.BorderStyle = ebsNone
       TabOrder = 0
-      Height = 537
-      Width = 565
+      Transparent = True
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 565
+      ExplicitHeight = 537
+      Height = 539
+      Width = 567
       object Label7: TLabel
         Left = 57
         Top = 26
@@ -831,8 +856,8 @@ object frApmaster: TfrApmaster
       end
       object dxStatusBar1: TdxStatusBar
         Left = 2
-        Top = 515
-        Width = 561
+        Top = 517
+        Width = 563
         Height = 20
         Panels = <
           item
@@ -863,6 +888,8 @@ object frApmaster: TfrApmaster
         Font.Style = []
         ShowHint = False
         ParentShowHint = False
+        ExplicitTop = 515
+        ExplicitWidth = 561
       end
       object cxDBTextEdit1: TcxDBTextEdit
         Left = 135
@@ -1472,7 +1499,7 @@ object frApmaster: TfrApmaster
     OnNewRecord = qrApmasterNewRecord
     CachedUpdates = True
     OnUpdateError = qrApmasterUpdateError
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM APMAST')
     Left = 290
@@ -1497,9 +1524,6 @@ object frApmaster: TfrApmaster
       FieldName = 'ACC_CODE'
       OnValidate = qrApmasterACC_CODEValidate
       Size = 12
-    end
-    object qrApmasterCREDTM: TFloatField
-      FieldName = 'CREDTM'
     end
     object qrApmasterAPGRP: TStringField
       FieldName = 'APGRP'
@@ -1614,6 +1638,10 @@ object frApmaster: TfrApmaster
       FixedChar = True
       Size = 6
     end
+    object qrApmasterCREDTM: TIntegerField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+    end
   end
   object DBkbd1: TDBkbd
     IgNoreUpDown = False
@@ -1636,7 +1664,7 @@ object frApmaster: TfrApmaster
   end
   object Query1: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     Left = 472
     Top = 79
   end
@@ -1647,7 +1675,7 @@ object frApmaster: TfrApmaster
   end
   object qrHelp1: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT APTYPCOD,RTRIM(APTYPNAM) APTYPNAM FROM  APTYPE')
     Left = 506
@@ -1669,7 +1697,7 @@ object frApmaster: TfrApmaster
   end
   object qrHelp: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT APNAME FROM APMAST')
     Left = 358

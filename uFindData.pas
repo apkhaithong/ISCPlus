@@ -1429,7 +1429,7 @@ begin
                  '(CASE A.ACCTYPJOB WHEN ''1'' THEN ''บัญชีคุม'' ELSE ''บัญชีย่อย'' END) AS ACCTYPJOB,'+
                  'A.ACCFLAG,A.ACCFLAGUSE,A.ACCGRPCOD '+
                  'FROM ACCMST A,ACCGROUP G WHERE A.ACCGRPCOD=G.ACCGRPCOD '+
-                 'AND ((A.ACCMSTCOD LIKE :EDIT1) or (A.ACCMSTNAM LIKE :EDIT1)) AND A.ACCFLAG LIKE :EDIT2 AND '+
+                 'AND ((A.ACCMSTCOD LIKE :EDIT0) or (A.ACCMSTNAM LIKE :EDIT1)) AND A.ACCFLAG LIKE :EDIT2 AND '+
                  'A.ACCFLAGUSE LIKE :EDIT3 AND A.ACCGRPCOD LIKE :EDIT4 ORDER BY A.ACCMSTCOD');
         if OrderCombo.ItemIndex <> 2 then
          Begin
@@ -1438,6 +1438,7 @@ begin
             qrFindDat.Params[3].AsString := Accgrpcod+'%';
          End else
          begin
+            qrFindDat.Params[1].AsString := Uppercase('%'+SearchEd.Text+'%');
             qrFindDat.Params[2].AsString := Accflag+'%';
             qrFindDat.Params[3].AsString := AccFlagUse+'%';
             qrFindDat.Params[4].AsString := Accgrpcod+'%';

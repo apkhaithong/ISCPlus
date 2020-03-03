@@ -29,7 +29,7 @@ object frBankbook: TfrBankbook
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -42,8 +42,8 @@ object frBankbook: TfrBankbook
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -54,19 +54,21 @@ object frBankbook: TfrBankbook
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -469,8 +471,10 @@ object frBankbook: TfrBankbook
     Width = 566
     Height = 355
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -478,30 +482,51 @@ object frBankbook: TfrBankbook
     TabOrder = 1
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object cxGroupBox1: TcxGroupBox
-      Left = 1
-      Top = 1
+      Left = 0
+      Top = 0
       Align = alClient
       Style.BorderStyle = ebsNone
       TabOrder = 0
-      Height = 353
-      Width = 564
+      Transparent = True
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 564
+      ExplicitHeight = 353
+      Height = 355
+      Width = 566
       object Label7: TLabel
         Left = 55
         Top = 21
@@ -1045,8 +1070,8 @@ object frBankbook: TfrBankbook
       end
       object dxStatusBar1: TdxStatusBar
         Left = 2
-        Top = 331
-        Width = 560
+        Top = 333
+        Width = 562
         Height = 20
         Panels = <
           item
@@ -1077,6 +1102,8 @@ object frBankbook: TfrBankbook
         Font.Style = []
         ShowHint = False
         ParentShowHint = False
+        ExplicitTop = 331
+        ExplicitWidth = 560
       end
       object cxDBCalcEdit1: TcxDBCalcEdit
         Left = 125
@@ -1107,7 +1134,7 @@ object frBankbook: TfrBankbook
   end
   object Query1: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'DBSoft'
+    Connection = DM_SEC.HI_DBMS
     Left = 584
     Top = 15
   end
@@ -1122,7 +1149,7 @@ object frBankbook: TfrBankbook
     AfterCancel = qrBankbookAfterCancel
     AfterDelete = qrBankbookAfterDelete
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM BANKBOOK')
     Left = 306
@@ -1205,7 +1232,7 @@ object frBankbook: TfrBankbook
   end
   object qrHelp1: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT BANKCOD,RTRIM(BANKNAM) BANKNAM FROM  SETBANK')
     Left = 482
@@ -1227,7 +1254,7 @@ object frBankbook: TfrBankbook
   end
   object qrHelp2: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT BANKLOCCOD,RTRIM(BANKLOCNAM) BANKLOCNAM FROM  BANKLOCAT')
     Left = 482
@@ -1249,7 +1276,7 @@ object frBankbook: TfrBankbook
   end
   object qrHelp3: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT BOOKTYPCOD,RTRIM(BOOKTYPNAM) BOOKTYPNAM FROM  BKBOOKTYPE')
     Left = 482

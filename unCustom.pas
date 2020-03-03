@@ -35,7 +35,6 @@ type
     QCustmastISSUBY: TStringField;
     QCustmastISSUDT: TDateField;
     QCustmastEXPDT: TDateField;
-    QCustmastAGE: TFloatField;
     QCustmastNATION: TStringField;
     QCustmastOCCUP: TStringField;
     QCustmastOFFIC: TStringField;
@@ -48,7 +47,6 @@ type
     QCustmastMEMBCOD: TStringField;
     QCustmastGRPCUS: TStringField;
     QCustmastPICTURE: TStringField;
-    QCustmastCREDIT: TFloatField;
     QCustmastDISCT: TFloatField;
     QCustmastSALLEV: TStringField;
     QCustmastSINCOME: TFloatField;
@@ -190,6 +188,8 @@ type
     QCustmastLOCATLIST: TStringField;
     cxDBTextEdit16: TcxDBTextEdit;
     Label12: TLabel;
+    QCustmastAGE: TIntegerField;
+    QCustmastCREDIT: TIntegerField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DataSource1StateChange(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);

@@ -61,37 +61,59 @@ object FDlgptkit: TFDlgptkit
     Width = 772
     Height = 489
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
+    Font.Color = 7485192
+    Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 1
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Bevel2: TBevel
-      Left = 1
-      Top = 83
-      Width = 770
-      Height = 405
+      Left = 0
+      Top = 82
+      Width = 772
+      Height = 407
       Align = alClient
+      ExplicitLeft = 1
+      ExplicitTop = 83
+      ExplicitWidth = 770
+      ExplicitHeight = 405
     end
     object Label7: TLabel
       Left = 43
@@ -126,17 +148,20 @@ object FDlgptkit: TFDlgptkit
       ShowHint = True
     end
     object Bevel1: TBevel
-      Left = 1
-      Top = 1
-      Width = 770
+      Left = 0
+      Top = 0
+      Width = 772
       Height = 82
       Align = alTop
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 770
     end
     object cxGrid2: TcxGrid
-      Left = 1
-      Top = 83
-      Width = 770
-      Height = 405
+      Left = 0
+      Top = 82
+      Width = 772
+      Height = 407
       Align = alClient
       Font.Charset = THAI_CHARSET
       Font.Color = clWindowText
@@ -148,6 +173,10 @@ object FDlgptkit: TFDlgptkit
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'LiquidSky'
+      ExplicitLeft = 1
+      ExplicitTop = 83
+      ExplicitWidth = 770
+      ExplicitHeight = 405
       object cxGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False
@@ -308,7 +337,7 @@ object FDlgptkit: TFDlgptkit
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -321,8 +350,8 @@ object FDlgptkit: TFDlgptkit
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -333,19 +362,21 @@ object FDlgptkit: TFDlgptkit
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -789,7 +820,7 @@ object FDlgptkit: TFDlgptkit
   object QKittrn: TFDQuery
     OnNewRecord = QKittrnNewRecord
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM PTKITTRN WHERE KITCODE ='#39#39)
     Left = 89
@@ -840,7 +871,7 @@ object FDlgptkit: TFDlgptkit
     end
   end
   object Query1: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     Left = 445
     Top = 52
   end
@@ -878,7 +909,7 @@ object FDlgptkit: TFDlgptkit
     AfterDelete = QKitinvAfterDelete
     OnNewRecord = QKitinvNewRecord
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM PTKITINV')
     Left = 81
@@ -987,7 +1018,7 @@ object FDlgptkit: TFDlgptkit
     AfterDelete = QKitinvAfterDelete
     OnNewRecord = QKitinvNewRecord
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM SETUNIT')
     Left = 537

@@ -15,6 +15,7 @@ object frBanklocat: TfrBanklocat
   FormStyle = fsStayOnTop
   KeyPreview = True
   OldCreateOrder = True
+  Position = poDesktopCenter
   Scaled = False
   OnClose = FormClose
   OnCreate = FormCreate
@@ -28,7 +29,7 @@ object frBanklocat: TfrBanklocat
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -41,8 +42,8 @@ object frBanklocat: TfrBanklocat
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -53,19 +54,21 @@ object frBanklocat: TfrBanklocat
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -468,8 +471,10 @@ object frBanklocat: TfrBanklocat
     Width = 497
     Height = 204
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -477,30 +482,51 @@ object frBanklocat: TfrBanklocat
     TabOrder = 1
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object cxGroupBox1: TcxGroupBox
-      Left = 1
-      Top = 1
+      Left = 0
+      Top = 0
       Align = alClient
       Style.BorderStyle = ebsNone
       TabOrder = 0
-      Height = 202
-      Width = 495
+      Transparent = True
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 495
+      ExplicitHeight = 202
+      Height = 204
+      Width = 497
       object Label3: TLabel
         Left = -8
         Top = 25
@@ -685,11 +711,12 @@ object frBanklocat: TfrBanklocat
         StyleFocused.LookAndFeel.NativeStyle = False
         StyleHot.LookAndFeel.NativeStyle = False
         TabOrder = 5
+        Transparent = True
       end
       object dxStatusBar1: TdxStatusBar
         Left = 2
-        Top = 180
-        Width = 491
+        Top = 182
+        Width = 493
         Height = 20
         Panels = <
           item
@@ -720,6 +747,8 @@ object frBanklocat: TfrBanklocat
         Font.Style = []
         ShowHint = False
         ParentShowHint = False
+        ExplicitTop = 180
+        ExplicitWidth = 491
       end
     end
   end
@@ -820,6 +849,7 @@ object frBanklocat: TfrBanklocat
     BeforeDelete = qrBanklocatBeforeDelete
     AfterDelete = qrBanklocatAfterDelete
     CachedUpdates = True
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM BANKLOCAT')
     Left = 372
@@ -850,9 +880,10 @@ object frBanklocat: TfrBanklocat
       FieldName = 'BKADDR2'
       Size = 100
     end
-    object qrBanklocatMEMO1: TStringField
+    object qrBanklocatMEMO1: TMemoField
       FieldName = 'MEMO1'
-      Size = 512
+      Origin = 'MEMO1'
+      BlobType = ftMemo
     end
   end
 end

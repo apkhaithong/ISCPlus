@@ -25,7 +25,6 @@ type
     qrApmasterAPNMEN: TStringField;
     qrApmasterAPEMAIL: TStringField;
     qrApmasterACC_CODE: TStringField;
-    qrApmasterCREDTM: TFloatField;
     qrApmasterAPGRP: TStringField;
     qrApmasterCREDAMT: TFloatField;
     qrApmasterCREDDISC: TFloatField;
@@ -120,6 +119,7 @@ type
     qrApmasterLOCATLIST: TStringField;
     cxDBTextEdit16: TcxDBTextEdit;
     Label19: TLabel;
+    qrApmasterCREDTM: TIntegerField;
 
     procedure DataSource1StateChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

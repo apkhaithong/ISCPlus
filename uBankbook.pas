@@ -166,7 +166,7 @@ begin
                             ((DBKbd1.AllowEditing) or(DBkbd1.AllowInsert));
   CancBtn.Visible        := SaveBtn.Visible;
   AutoRun.Properties.ReadOnly := ((Not SaveBtn.Visible) and (Datasource1.State=Dsbrowse));
-  AGBInsert.Enabled      := SaveBtn.Visible;
+  AGBInsert.Visible      := SaveBtn.Visible;
 
   if (DataSource1.Dataset.State = DsEdit) Then
       cxDBTextEdit1.Properties.ReadOnly     := True;

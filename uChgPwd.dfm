@@ -28,37 +28,59 @@ object frChgPwd: TfrChgPwd
     Width = 406
     Height = 214
     Align = alClient
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    BevelOuter = bvNone
+    Color = 16445929
+    Font.Charset = THAI_CHARSET
+    Font.Color = 7485192
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
-    Caption.Font.Charset = DEFAULT_CHARSET
-    Caption.Font.Color = clWindowText
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
+    Caption.Font.Charset = THAI_CHARSET
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
-    Caption.Font.Name = 'MS Sans Serif'
+    Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Bevel2: TBevel
-      Left = 1
-      Top = 1
-      Width = 404
-      Height = 192
+      Left = 0
+      Top = 0
+      Width = 406
+      Height = 194
       Align = alClient
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 404
+      ExplicitHeight = 192
     end
     object Label1: TLabel
       Left = 30
@@ -237,9 +259,9 @@ object frChgPwd: TfrChgPwd
       Enabled = False
     end
     object dxStatusBar1: TdxStatusBar
-      Left = 1
-      Top = 193
-      Width = 404
+      Left = 0
+      Top = 194
+      Width = 406
       Height = 20
       Panels = <
         item
@@ -266,6 +288,9 @@ object frChgPwd: TfrChgPwd
       Font.Style = []
       ShowHint = False
       ParentShowHint = False
+      ExplicitLeft = 1
+      ExplicitTop = 193
+      ExplicitWidth = 404
     end
   end
   object DBkbd1: TDBkbd

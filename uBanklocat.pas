@@ -47,7 +47,7 @@ type
     qrBanklocatBANKLOCENG: TStringField;
     qrBanklocatBKADDR1: TStringField;
     qrBanklocatBKADDR2: TStringField;
-    qrBanklocatMEMO1: TStringField;
+    qrBanklocatMEMO1: TMemoField;
     procedure DataSource1StateChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CloseBtnClick(Sender: TObject);
@@ -216,7 +216,8 @@ end;
 
 procedure TfrBanklocat.FormCreate(Sender: TObject);
 begin
-  SFMain.Check_right('HDSET', 'HDSET2_3');
+//  SFMain.Check_right('HDSET', 'HDSET2_3');
+  SFMain.Check_right('HDSET','HDSET04_3');
   DBkbd1.AllowInsert := SFMain.Insert_Right;
   DBkbd1.AllowEditing := SFMain.Edit_Right;
   DBkbd1.AllowDelete := SFMain.Del_Right;

@@ -996,11 +996,11 @@ begin
   CR_DATE := qrgetdtFrmDB.fieldbyname('CURDATE').AsDateTime;
   CR_DATETIME := qrgetdtFrmDB.fieldbyname('CURTIMESTAMP').AsDateTime;
   StsMain.Panels.Items[0].Text := 'SCHEMA : ' + Dm_Sec.XSchema;
-  StsMain.Panels.Items[7].Text := 'Working Date : ' + DateToStr(XCurDtFrmDB);
   StsMain.Panels.Items[1].Text := 'Computer : ' + Get_ComputerName;
   StsMain.Panels.Items[2].Text := 'Windows Logon : ' + Get_UserName;
   StsMain.Panels.Items[3].Text := LocalIP;
-  StsMain.Panels.Items[8].Text := '<A href="http://www.igroupall.com">http://www.igroupall.com</A>';
+  StsMain.Panels.Items[4].Text := 'Working Date : ' + DateToStr(XCurDtFrmDB);
+  StsMain.Panels.Items[5].Text := '<A href="http://www.igroupall.com">http://www.igroupall.com</A>';
 
   TextItem1.Caption := 'Program : ISCPlus V1.0';
   TextItem2.Caption := 'Modified : ' + FileLastModified(Command);
