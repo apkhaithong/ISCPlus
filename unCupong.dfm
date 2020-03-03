@@ -1,0 +1,915 @@
+object FCamp: TFCamp
+  Left = 190
+  Top = 138
+  BorderStyle = bsDialog
+  Caption = #3585#3635#3627#3609#3604#3594#3609#3636#3604#3588#3641#3611#3629#3591
+  ClientHeight = 379
+  ClientWidth = 661
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = True
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Bevel1: TBevel
+    Left = 0
+    Top = 0
+    Width = 661
+    Height = 61
+    Align = alTop
+  end
+  object Label1: TLabel
+    Left = 17
+    Top = 11
+    Width = 55
+    Height = 16
+    Caption = #3619#3627#3633#3626' KIND'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 208
+    Top = 11
+    Width = 51
+    Height = 16
+    Caption = #3619#3634#3618#3621#3632#3648#3629#3637#3618#3604
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 18
+    Top = 35
+    Width = 70
+    Height = 16
+    Caption = #3585#3636#3650#3621#3648#3617#3605#3619#3651#3594#3657#3591#3634#3609
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 209
+    Top = 35
+    Width = 40
+    Height = 16
+    Caption = #3585#3636#3650#3621#3648#3617#3605#3619
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 763
+    Top = 561
+    Width = 8
+    Height = 13
+    Caption = '%'
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Top = 318
+    Width = 661
+    Height = 42
+    Cursor = crHandPoint
+    Align = alBottom
+    ButtonHeight = 24
+    ButtonWidth = 71
+    Caption = 'ToolBar1'
+    Color = clBtnFace
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    ShowCaptions = True
+    TabOrder = 0
+    object InsBtn: TToolButton
+      Left = 0
+      Top = 0
+      Caption = #3648#3614#3636#3656#3617#3586#3657#3629#3617#3641#3621
+      ImageIndex = 0
+      OnClick = InsBtnClick
+    end
+    object DelBtn: TToolButton
+      Left = 71
+      Top = 0
+      Caption = #3621#3610#3586#3657#3629#3617#3641#3621
+      ImageIndex = 1
+      OnClick = DelBtnClick
+    end
+    object EnqBtn: TToolButton
+      Left = 142
+      Top = 0
+      Caption = #3626#3629#3610#3606#3634#3617#3586#3657#3629#3617#3641#3621
+      ImageIndex = 2
+      OnClick = EnqBtnClick
+    end
+    object SavBtn: TToolButton
+      Left = 213
+      Top = 0
+      Caption = #3610#3633#3609#3607#3638#3585#3586#3657#3629#3617#3641#3621
+      ImageIndex = 3
+      OnClick = SavBtnClick
+    end
+    object CancBtn: TToolButton
+      Left = 284
+      Top = 0
+      Caption = #3618#3585#3648#3621#3636#3585#3586#3657#3629#3617#3641#3621
+      ImageIndex = 4
+      OnClick = CancBtnClick
+    end
+    object CloseBtn: TToolButton
+      Left = 355
+      Top = 0
+      Caption = #3611#3636#3604#3627#3609#3657#3634#3592#3629
+      ImageIndex = 5
+      OnClick = CloseBtnClick
+    end
+  end
+  object RzStatusBar1: TRzStatusBar
+    Left = 0
+    Top = 360
+    Width = 661
+    Height = 19
+    SimpleCaption = 
+      'F2:'#3610#3633#3609#3607#3638#3585'          F7:'#3626#3629#3610#3606#3634#3617'          F4:'#3649#3585#3657#3652#3586'          F5:'#3648#3614#3636#3656#3617 +
+      '           F8:'#3621#3610
+    SimpleFrameStyle = fsStatus
+    SimpleStatus = True
+    BorderInner = fsNone
+    BorderOuter = fsNone
+    BorderSides = [sdLeft, sdTop, sdRight, sdBottom]
+    BorderWidth = 0
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 61
+    Width = 661
+    Height = 243
+    ActivePage = TabSheet2
+    Align = alTop
+    Style = tsFlatButtons
+    TabOrder = 2
+    object TabSheet1: TTabSheet
+      Caption = #3585#3635#3627#3609#3604#3619#3634#3618#3585#3634#3619#3629#3632#3652#3627#3621#3656
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
+      object NextBtn: TRzRapidFireButton
+        Left = 0
+        Top = 158
+        Width = 48
+        Height = 22
+        Cursor = crHandPoint
+        Caption = #3648#3614#3636#3656#3617
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Glyph.Data = {
+          36060000424D3606000000000000360400002800000020000000100000000100
+          08000000000000020000830B0000830B00000001000000010000000000003300
+          00006600000099000000CC000000FF0000000033000033330000663300009933
+          0000CC330000FF33000000660000336600006666000099660000CC660000FF66
+          000000990000339900006699000099990000CC990000FF99000000CC000033CC
+          000066CC000099CC0000CCCC0000FFCC000000FF000033FF000066FF000099FF
+          0000CCFF0000FFFF000000003300330033006600330099003300CC003300FF00
+          330000333300333333006633330099333300CC333300FF333300006633003366
+          33006666330099663300CC663300FF6633000099330033993300669933009999
+          3300CC993300FF99330000CC330033CC330066CC330099CC3300CCCC3300FFCC
+          330000FF330033FF330066FF330099FF3300CCFF3300FFFF3300000066003300
+          66006600660099006600CC006600FF0066000033660033336600663366009933
+          6600CC336600FF33660000666600336666006666660099666600CC666600FF66
+          660000996600339966006699660099996600CC996600FF99660000CC660033CC
+          660066CC660099CC6600CCCC6600FFCC660000FF660033FF660066FF660099FF
+          6600CCFF6600FFFF660000009900330099006600990099009900CC009900FF00
+          990000339900333399006633990099339900CC339900FF339900006699003366
+          99006666990099669900CC669900FF6699000099990033999900669999009999
+          9900CC999900FF99990000CC990033CC990066CC990099CC9900CCCC9900FFCC
+          990000FF990033FF990066FF990099FF9900CCFF9900FFFF99000000CC003300
+          CC006600CC009900CC00CC00CC00FF00CC000033CC003333CC006633CC009933
+          CC00CC33CC00FF33CC000066CC003366CC006666CC009966CC00CC66CC00FF66
+          CC000099CC003399CC006699CC009999CC00CC99CC00FF99CC0000CCCC0033CC
+          CC0066CCCC0099CCCC00CCCCCC00FFCCCC0000FFCC0033FFCC0066FFCC0099FF
+          CC00CCFFCC00FFFFCC000000FF003300FF006600FF009900FF00CC00FF00FF00
+          FF000033FF003333FF006633FF009933FF00CC33FF00FF33FF000066FF003366
+          FF006666FF009966FF00CC66FF00FF66FF000099FF003399FF006699FF009999
+          FF00CC99FF00FF99FF0000CCFF0033CCFF0066CCFF0099CCFF00CCCCFF00FFCC
+          FF0000FFFF0033FFFF0066FFFF0099FFFF00CCFFFF00FFFFFF00000080000080
+          000000808000800000008000800080800000C0C0C00080808000191919004C4C
+          4C00B2B2B200E5E5E500C8AC2800E0CC6600F2EABF00B59B2400D8E9EC009933
+          6600D075A300ECC6D900646F710099A8AC00E2EFF10000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          09090909E8E8E8E8E8E8E8E8E8E8E8E881818181E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E809090909
+          0910100909090909E8E8E8E88181818181ACAC8181818181E8E8E8E809101010
+          1010101010101009E8E8E8E881ACACACACACACACACACAC81E8E8E8E809101010
+          1010101010101009E8E8E8E881ACACACACACACACACACAC81E8E8E8E809090909
+          0910100909090909E8E8E8E88181818181ACAC8181818181E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09090909E8E8E8E8E8E8E8E8E8E8E8E881818181E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8}
+        NumGlyphs = 2
+        ParentFont = False
+        OnClick = NextBtnClick
+      end
+      object DeleBtn: TRzRapidFireButton
+        Left = 49
+        Top = 158
+        Width = 48
+        Height = 22
+        Cursor = crHandPoint
+        Caption = #3621#3610
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Glyph.Data = {
+          36060000424D3606000000000000360400002800000020000000100000000100
+          08000000000000020000630E0000630E00000001000000010000000000003300
+          00006600000099000000CC000000FF0000000033000033330000663300009933
+          0000CC330000FF33000000660000336600006666000099660000CC660000FF66
+          000000990000339900006699000099990000CC990000FF99000000CC000033CC
+          000066CC000099CC0000CCCC0000FFCC000000FF000033FF000066FF000099FF
+          0000CCFF0000FFFF000000003300330033006600330099003300CC003300FF00
+          330000333300333333006633330099333300CC333300FF333300006633003366
+          33006666330099663300CC663300FF6633000099330033993300669933009999
+          3300CC993300FF99330000CC330033CC330066CC330099CC3300CCCC3300FFCC
+          330000FF330033FF330066FF330099FF3300CCFF3300FFFF3300000066003300
+          66006600660099006600CC006600FF0066000033660033336600663366009933
+          6600CC336600FF33660000666600336666006666660099666600CC666600FF66
+          660000996600339966006699660099996600CC996600FF99660000CC660033CC
+          660066CC660099CC6600CCCC6600FFCC660000FF660033FF660066FF660099FF
+          6600CCFF6600FFFF660000009900330099006600990099009900CC009900FF00
+          990000339900333399006633990099339900CC339900FF339900006699003366
+          99006666990099669900CC669900FF6699000099990033999900669999009999
+          9900CC999900FF99990000CC990033CC990066CC990099CC9900CCCC9900FFCC
+          990000FF990033FF990066FF990099FF9900CCFF9900FFFF99000000CC003300
+          CC006600CC009900CC00CC00CC00FF00CC000033CC003333CC006633CC009933
+          CC00CC33CC00FF33CC000066CC003366CC006666CC009966CC00CC66CC00FF66
+          CC000099CC003399CC006699CC009999CC00CC99CC00FF99CC0000CCCC0033CC
+          CC0066CCCC0099CCCC00CCCCCC00FFCCCC0000FFCC0033FFCC0066FFCC0099FF
+          CC00CCFFCC00FFFFCC000000FF003300FF006600FF009900FF00CC00FF00FF00
+          FF000033FF003333FF006633FF009933FF00CC33FF00FF33FF000066FF003366
+          FF006666FF009966FF00CC66FF00FF66FF000099FF003399FF006699FF009999
+          FF00CC99FF00FF99FF0000CCFF0033CCFF0066CCFF0099CCFF00CCCCFF00FFCC
+          FF0000FFFF0033FFFF0066FFFF0099FFFF00CCFFFF00FFFFFF00000080000080
+          000000808000800000008000800080800000C0C0C00080808000191919004C4C
+          4C00B2B2B200E5E5E500C8AC2800E0CC6600F2EABF00B59B2400D8E9EC009933
+          6600D075A300ECC6D900646F710099A8AC00E2EFF10000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E86CE8E8
+          E8E8E8E8E8E8E8E8B4E8E8E8E881E8E8E8E8E8E8E8E8E8E8ACE8E8E897B46CE8
+          E8E8E8E8E8E8E8E8E8E8E8E881AC81E8E8E8E8E8E8E8E8E8E8E8E8E897C7B46C
+          E8E8E8E8E8E8E8B4E8E8E8E881E3AC81E8E8E8E8E8E8E8ACE8E8E8E8E897C090
+          E8E8E8E8E8E8B4E8E8E8E8E8E881E381E8E8E8E8E8E8ACE8E8E8E8E8E8E890B4
+          6CE8E8E8E8B46CE8E8E8E8E8E8E881AC81E8E8E8E8AC81E8E8E8E8E8E8E8E890
+          B46CE8E8B46CE8E8E8E8E8E8E8E8E881AC81E8E8AC81E8E8E8E8E8E8E8E8E8E8
+          90B46CB46CE8E8E8E8E8E8E8E8E8E8E881AC81AC81E8E8E8E8E8E8E8E8E8E8E8
+          E890B46CE8E8E8E8E8E8E8E8E8E8E8E8E881AC81E8E8E8E8E8E8E8E8E8E8E8E8
+          90B46C906CE8E8E8E8E8E8E8E8E8E8E881AC818181E8E8E8E8E8E8E8E8E8E890
+          B46CE8E8906CE8E8E8E8E8E8E8E8E881AC81E8E88181E8E8E8E8E8E8E890B4B4
+          6CE8E8E8E8906CE8E8E8E8E8E881ACAC81E8E8E8E88181E8E8E8E8E890C7B46C
+          E8E8E8E8E8E8906CE8E8E8E881E3AC81E8E8E8E8E8E88181E8E8E8E87A907AE8
+          E8E8E8E8E8E8E8E890E8E8E8AC81ACE8E8E8E8E8E8E8E8E881E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8}
+        NumGlyphs = 2
+        ParentFont = False
+        OnClick = DeleBtnClick
+      end
+      object Label9: TLabel
+        Left = 437
+        Top = 163
+        Width = 66
+        Height = 16
+        Caption = #3619#3623#3617#3592#3635#3609#3623#3609#3648#3591#3636#3609
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 626
+        Top = 161
+        Width = 20
+        Height = 16
+        Caption = #3610#3634#3607
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object DBEdit6: TDBEdit
+        Left = 521
+        Top = 158
+        Width = 101
+        Height = 21
+        DataField = 'PTR_RAT1'
+        DataSource = DataSource1
+        TabOrder = 0
+      end
+      object DBGrid1: TRzDBGrid
+        Left = 1
+        Top = 1
+        Width = 622
+        Height = 154
+        DataSource = Sopart
+        FixedColor = 16766894
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        OnColExit = DBGrid1ColExit
+        OnDblClick = DBGrid1DblClick
+        OnEditButtonClick = DBGrid1EditButtonClick
+        Columns = <
+          item
+            ButtonStyle = cbsEllipsis
+            Expanded = False
+            FieldName = 'PARTNO'
+            Title.Caption = #3619#3627#3633#3626#3626#3636#3609#3588#3657#3634
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Width = 73
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DESC1'
+            Title.Caption = #3594#3639#3656#3629#3626#3636#3609#3588#3657#3634
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Width = 141
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'QTY'
+            Title.Caption = #3592#3635#3609#3623#3609
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Width = 44
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'PRICE'
+            Title.Caption = #3619#3634#3588#3634#3605#3656#3629#3627#3609#3656#3623#3618
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DISCT'
+            Title.Caption = #3626#3656#3623#3609#3621#3604'(%)'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DISAMT'
+            Title.Caption = #3626#3656#3623#3609#3621#3604'('#3610#3634#3607')'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NETAMT'
+            Title.Caption = #3619#3634#3588#3634#3626#3640#3607#3608#3636
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TOTAMT'
+            Title.Caption = #3618#3629#3604#3619#3623#3617
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = []
+            Visible = True
+          end>
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = #3585#3635#3627#3609#3604#3619#3634#3618#3585#3634#3619#3588#3656#3634#3649#3619#3591
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ImageIndex = 1
+      ParentFont = False
+      object NextBtn2: TRzRapidFireButton
+        Left = 2
+        Top = 157
+        Width = 48
+        Height = 22
+        Cursor = crHandPoint
+        Caption = #3648#3614#3636#3656#3617
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Glyph.Data = {
+          36060000424D3606000000000000360400002800000020000000100000000100
+          08000000000000020000830B0000830B00000001000000010000000000003300
+          00006600000099000000CC000000FF0000000033000033330000663300009933
+          0000CC330000FF33000000660000336600006666000099660000CC660000FF66
+          000000990000339900006699000099990000CC990000FF99000000CC000033CC
+          000066CC000099CC0000CCCC0000FFCC000000FF000033FF000066FF000099FF
+          0000CCFF0000FFFF000000003300330033006600330099003300CC003300FF00
+          330000333300333333006633330099333300CC333300FF333300006633003366
+          33006666330099663300CC663300FF6633000099330033993300669933009999
+          3300CC993300FF99330000CC330033CC330066CC330099CC3300CCCC3300FFCC
+          330000FF330033FF330066FF330099FF3300CCFF3300FFFF3300000066003300
+          66006600660099006600CC006600FF0066000033660033336600663366009933
+          6600CC336600FF33660000666600336666006666660099666600CC666600FF66
+          660000996600339966006699660099996600CC996600FF99660000CC660033CC
+          660066CC660099CC6600CCCC6600FFCC660000FF660033FF660066FF660099FF
+          6600CCFF6600FFFF660000009900330099006600990099009900CC009900FF00
+          990000339900333399006633990099339900CC339900FF339900006699003366
+          99006666990099669900CC669900FF6699000099990033999900669999009999
+          9900CC999900FF99990000CC990033CC990066CC990099CC9900CCCC9900FFCC
+          990000FF990033FF990066FF990099FF9900CCFF9900FFFF99000000CC003300
+          CC006600CC009900CC00CC00CC00FF00CC000033CC003333CC006633CC009933
+          CC00CC33CC00FF33CC000066CC003366CC006666CC009966CC00CC66CC00FF66
+          CC000099CC003399CC006699CC009999CC00CC99CC00FF99CC0000CCCC0033CC
+          CC0066CCCC0099CCCC00CCCCCC00FFCCCC0000FFCC0033FFCC0066FFCC0099FF
+          CC00CCFFCC00FFFFCC000000FF003300FF006600FF009900FF00CC00FF00FF00
+          FF000033FF003333FF006633FF009933FF00CC33FF00FF33FF000066FF003366
+          FF006666FF009966FF00CC66FF00FF66FF000099FF003399FF006699FF009999
+          FF00CC99FF00FF99FF0000CCFF0033CCFF0066CCFF0099CCFF00CCCCFF00FFCC
+          FF0000FFFF0033FFFF0066FFFF0099FFFF00CCFFFF00FFFFFF00000080000080
+          000000808000800000008000800080800000C0C0C00080808000191919004C4C
+          4C00B2B2B200E5E5E500C8AC2800E0CC6600F2EABF00B59B2400D8E9EC009933
+          6600D075A300ECC6D900646F710099A8AC00E2EFF10000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          09090909E8E8E8E8E8E8E8E8E8E8E8E881818181E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E809090909
+          0910100909090909E8E8E8E88181818181ACAC8181818181E8E8E8E809101010
+          1010101010101009E8E8E8E881ACACACACACACACACACAC81E8E8E8E809101010
+          1010101010101009E8E8E8E881ACACACACACACACACACAC81E8E8E8E809090909
+          0910100909090909E8E8E8E88181818181ACAC8181818181E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09101009E8E8E8E8E8E8E8E8E8E8E8E881ACAC81E8E8E8E8E8E8E8E8E8E8E8E8
+          09090909E8E8E8E8E8E8E8E8E8E8E8E881818181E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8}
+        NumGlyphs = 2
+        ParentFont = False
+        OnClick = NextBtn2Click
+      end
+      object DeleBtn2: TRzRapidFireButton
+        Left = 50
+        Top = 157
+        Width = 48
+        Height = 22
+        Cursor = crHandPoint
+        Caption = #3621#3610
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Glyph.Data = {
+          36060000424D3606000000000000360400002800000020000000100000000100
+          08000000000000020000630E0000630E00000001000000010000000000003300
+          00006600000099000000CC000000FF0000000033000033330000663300009933
+          0000CC330000FF33000000660000336600006666000099660000CC660000FF66
+          000000990000339900006699000099990000CC990000FF99000000CC000033CC
+          000066CC000099CC0000CCCC0000FFCC000000FF000033FF000066FF000099FF
+          0000CCFF0000FFFF000000003300330033006600330099003300CC003300FF00
+          330000333300333333006633330099333300CC333300FF333300006633003366
+          33006666330099663300CC663300FF6633000099330033993300669933009999
+          3300CC993300FF99330000CC330033CC330066CC330099CC3300CCCC3300FFCC
+          330000FF330033FF330066FF330099FF3300CCFF3300FFFF3300000066003300
+          66006600660099006600CC006600FF0066000033660033336600663366009933
+          6600CC336600FF33660000666600336666006666660099666600CC666600FF66
+          660000996600339966006699660099996600CC996600FF99660000CC660033CC
+          660066CC660099CC6600CCCC6600FFCC660000FF660033FF660066FF660099FF
+          6600CCFF6600FFFF660000009900330099006600990099009900CC009900FF00
+          990000339900333399006633990099339900CC339900FF339900006699003366
+          99006666990099669900CC669900FF6699000099990033999900669999009999
+          9900CC999900FF99990000CC990033CC990066CC990099CC9900CCCC9900FFCC
+          990000FF990033FF990066FF990099FF9900CCFF9900FFFF99000000CC003300
+          CC006600CC009900CC00CC00CC00FF00CC000033CC003333CC006633CC009933
+          CC00CC33CC00FF33CC000066CC003366CC006666CC009966CC00CC66CC00FF66
+          CC000099CC003399CC006699CC009999CC00CC99CC00FF99CC0000CCCC0033CC
+          CC0066CCCC0099CCCC00CCCCCC00FFCCCC0000FFCC0033FFCC0066FFCC0099FF
+          CC00CCFFCC00FFFFCC000000FF003300FF006600FF009900FF00CC00FF00FF00
+          FF000033FF003333FF006633FF009933FF00CC33FF00FF33FF000066FF003366
+          FF006666FF009966FF00CC66FF00FF66FF000099FF003399FF006699FF009999
+          FF00CC99FF00FF99FF0000CCFF0033CCFF0066CCFF0099CCFF00CCCCFF00FFCC
+          FF0000FFFF0033FFFF0066FFFF0099FFFF00CCFFFF00FFFFFF00000080000080
+          000000808000800000008000800080800000C0C0C00080808000191919004C4C
+          4C00B2B2B200E5E5E500C8AC2800E0CC6600F2EABF00B59B2400D8E9EC009933
+          6600D075A300ECC6D900646F710099A8AC00E2EFF10000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E86CE8E8
+          E8E8E8E8E8E8E8E8B4E8E8E8E881E8E8E8E8E8E8E8E8E8E8ACE8E8E897B46CE8
+          E8E8E8E8E8E8E8E8E8E8E8E881AC81E8E8E8E8E8E8E8E8E8E8E8E8E897C7B46C
+          E8E8E8E8E8E8E8B4E8E8E8E881E3AC81E8E8E8E8E8E8E8ACE8E8E8E8E897C090
+          E8E8E8E8E8E8B4E8E8E8E8E8E881E381E8E8E8E8E8E8ACE8E8E8E8E8E8E890B4
+          6CE8E8E8E8B46CE8E8E8E8E8E8E881AC81E8E8E8E8AC81E8E8E8E8E8E8E8E890
+          B46CE8E8B46CE8E8E8E8E8E8E8E8E881AC81E8E8AC81E8E8E8E8E8E8E8E8E8E8
+          90B46CB46CE8E8E8E8E8E8E8E8E8E8E881AC81AC81E8E8E8E8E8E8E8E8E8E8E8
+          E890B46CE8E8E8E8E8E8E8E8E8E8E8E8E881AC81E8E8E8E8E8E8E8E8E8E8E8E8
+          90B46C906CE8E8E8E8E8E8E8E8E8E8E881AC818181E8E8E8E8E8E8E8E8E8E890
+          B46CE8E8906CE8E8E8E8E8E8E8E8E881AC81E8E88181E8E8E8E8E8E8E890B4B4
+          6CE8E8E8E8906CE8E8E8E8E8E881ACAC81E8E8E8E88181E8E8E8E8E890C7B46C
+          E8E8E8E8E8E8906CE8E8E8E881E3AC81E8E8E8E8E8E88181E8E8E8E87A907AE8
+          E8E8E8E8E8E8E8E890E8E8E8AC81ACE8E8E8E8E8E8E8E8E881E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8
+          E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8E8}
+        NumGlyphs = 2
+        ParentFont = False
+        OnClick = DeleBtn2Click
+      end
+      object Label8: TLabel
+        Left = 451
+        Top = 160
+        Width = 66
+        Height = 16
+        Caption = #3619#3623#3617#3592#3635#3609#3623#3609#3648#3591#3636#3609
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label11: TLabel
+        Left = 626
+        Top = 160
+        Width = 20
+        Height = 16
+        Caption = #3610#3634#3607
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object DBEdit5: TDBEdit
+        Left = 523
+        Top = 158
+        Width = 97
+        Height = 21
+        DataField = 'SVR_RAT1'
+        DataSource = DataSource1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+      object DBGrid2: TRzDBGrid
+        Left = 4
+        Top = 7
+        Width = 642
+        Height = 150
+        DataSource = SoServ
+        FixedColor = 16766894
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        OnColExit = DBGrid2ColExit
+        OnDblClick = DBGrid2DblClick
+        OnEditButtonClick = DBGrid2EditButtonClick
+        Columns = <
+          item
+            ButtonStyle = cbsEllipsis
+            Expanded = False
+            FieldName = 'CODE'
+            Title.Caption = #3619#3627#3633#3626#3610#3619#3636#3585#3634#3619
+            Width = 101
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DESC1'
+            Title.Caption = #3619#3634#3618#3621#3632#3648#3629#3637#3618#3604
+            Width = 139
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FRT'
+            Width = 53
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'PRICE'
+            Title.Caption = #3619#3634#3588#3634#3605#3656#3629#3627#3609#3656#3623#3618
+            Width = 72
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DISCT'
+            Title.Caption = #3626#3656#3623#3609#3621#3604'(%)'
+            Width = 58
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DISAMT'
+            Title.Caption = #3626#3656#3623#3609#3621#3604'('#3610#3634#3607')'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NETAMT'
+            Title.Caption = #3619#3634#3588#3634#3626#3640#3607#3608#3636
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TOTAMT'
+            Title.Caption = #3618#3629#3604#3619#3623#3617
+            Visible = True
+          end>
+      end
+    end
+  end
+  object DBEdit1: TDBEdit
+    Left = 95
+    Top = 10
+    Width = 106
+    Height = 21
+    DataField = 'CAMPNO'
+    DataSource = DataSource1
+    TabOrder = 3
+  end
+  object DBEdit2: TDBEdit
+    Left = 262
+    Top = 10
+    Width = 199
+    Height = 21
+    DataField = 'CAMPNAM'
+    DataSource = DataSource1
+    TabOrder = 4
+  end
+  object DBEdit7: TDBEdit
+    Left = 95
+    Top = 33
+    Width = 104
+    Height = 21
+    DataField = 'CAMPNAM'
+    DataSource = DataSource1
+    TabOrder = 5
+  end
+  object DataSource1: TDataSource
+    DataSet = QCamp
+    OnStateChange = DataSource1StateChange
+    Left = 478
+    Top = 49
+  end
+  object Qpart: TFDQuery
+    OnNewRecord = QpartNewRecord
+    CachedUpdates = True
+    ConnectionName = 'HI_DBMS'
+    SQL.Strings = (
+      'SELECT * FROM CAMPPART')
+    Left = 313
+    Top = 48
+    object QpartCAMPNO: TStringField
+      FieldName = 'CAMPNO'
+      FixedChar = True
+      Size = 5
+    end
+    object QpartPARTNO: TStringField
+      FieldName = 'PARTNO'
+      FixedChar = True
+    end
+    object QpartDESC1: TStringField
+      FieldName = 'DESC1'
+      FixedChar = True
+      Size = 45
+    end
+    object QpartQTY: TFloatField
+      FieldName = 'QTY'
+      DisplayFormat = '##,##0.00'
+    end
+    object QpartPRICE: TFloatField
+      FieldName = 'PRICE'
+      DisplayFormat = '##,##0.00'
+    end
+    object QpartDISCT: TFloatField
+      FieldName = 'DISCT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QpartDISAMT: TFloatField
+      FieldName = 'DISAMT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QpartNETAMT: TFloatField
+      FieldName = 'NETAMT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QpartTOTAMT: TFloatField
+      FieldName = 'TOTAMT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QpartGROUP1: TStringField
+      FieldName = 'GROUP1'
+      FixedChar = True
+      Size = 5
+    end
+  end
+  object Sopart: TDataSource
+    DataSet = Qpart
+    Left = 369
+    Top = 48
+  end
+  object QServ: TFDQuery
+    OnNewRecord = QServNewRecord
+    CachedUpdates = True
+    ConnectionName = 'HI_DBMS'
+    SQL.Strings = (
+      'SELECT * FROM CAMPSERV')
+    Left = 341
+    Top = 48
+    object QServCAMPNO: TStringField
+      FieldName = 'CAMPNO'
+      FixedChar = True
+      Size = 5
+    end
+    object QServCODE: TStringField
+      FieldName = 'CODE'
+      FixedChar = True
+      Size = 15
+    end
+    object QServDESC1: TStringField
+      FieldName = 'DESC1'
+      FixedChar = True
+      Size = 70
+    end
+    object QServFRT: TFloatField
+      FieldName = 'FRT'
+    end
+    object QServPRICE: TFloatField
+      FieldName = 'PRICE'
+      DisplayFormat = '##,##0.00'
+    end
+    object QServDISCT: TFloatField
+      FieldName = 'DISCT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QServDISAMT: TFloatField
+      FieldName = 'DISAMT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QServNETAMT: TFloatField
+      FieldName = 'NETAMT'
+      DisplayFormat = '##,##0.00'
+    end
+    object QServTOTAMT: TFloatField
+      FieldName = 'TOTAMT'
+      DisplayFormat = '##,##0.00'
+    end
+  end
+  object SoServ: TDataSource
+    DataSet = QServ
+    Left = 397
+    Top = 48
+  end
+  object QCamp: TFDQuery
+    BeforePost = QCampBeforePost
+    AfterPost = QCampAfterPost
+    AfterCancel = QCampAfterCancel
+    BeforeDelete = QCampBeforeDelete
+    AfterDelete = QCampAfterDelete
+    CachedUpdates = True
+    ConnectionName = 'HI_DBMS'
+    SQL.Strings = (
+      'SELECT * FROM CAMPGRP')
+    Left = 425
+    Top = 48
+  end
+  object Query1: TFDQuery
+    ConnectionName = 'HI_DBMS'
+    Left = 257
+    Top = 48
+  end
+  object Condpay: TFDTable
+    ConnectionName = 'HI_DBMS'
+    UpdateOptions.UpdateTableName = 'CONDPAY'
+    TableName = 'CONDPAY'
+    Left = 285
+    Top = 48
+  end
+  object DBkbd1: TRzDBkbd
+    IgNoreUpDown = False
+    UseArrowKey = True
+    Disable = False
+    DataSource = DataSource1
+    StatusColor = clBlack
+    OnKeyDown = DBkbd1KeyDown
+    DeleteMessage = #3649#3609#3656#3651#3592#3627#3619#3639#3629#3652#3617#3656#3607#3637#3656#3592#3632#3621#3610' Record '#3609#3637#3657
+    DelTop = 84
+    DelLeft = 114
+    AllowSpaceBar = False
+    AllowEditing = True
+    AllowInsert = True
+    AllowDelete = True
+    KeyToEdit = 115
+    KeyToInsert = 45
+    KeyToSave = 121
+    Left = 452
+    Top = 48
+  end
+end

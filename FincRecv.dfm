@@ -1,0 +1,1920 @@
+object FincForm1: TFincForm1
+  Left = 387
+  Top = 82
+  BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
+  Caption = #3619#3633#3610#3594#3635#3619#3632#3648#3591#3636#3609
+  ClientHeight = 625
+  ClientWidth = 749
+  Color = clBtnFace
+  Font.Charset = THAI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  KeyPreview = True
+  OldCreateOrder = True
+  Position = poDefault
+  Scaled = False
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 18
+  object AdvPanel1: TAdvPanel
+    Left = 0
+    Top = 51
+    Width = 749
+    Height = 554
+    Align = alClient
+    Font.Charset = THAI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    UseDockManager = True
+    Version = '2.5.8.0'
+    Caption.Color = clHighlight
+    Caption.ColorTo = clNone
+    Caption.Font.Charset = THAI_CHARSET
+    Caption.Font.Color = clWindowText
+    Caption.Font.Height = -15
+    Caption.Font.Name = 'Tahoma'
+    Caption.Font.Style = []
+    Caption.Indent = 0
+    DoubleBuffered = True
+    StatusBar.Font.Charset = DEFAULT_CHARSET
+    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Height = -11
+    StatusBar.Font.Name = 'Tahoma'
+    StatusBar.Font.Style = []
+    Text = ''
+    FullHeight = 200
+    object Bevel1: TBevel
+      Left = 1
+      Top = 1
+      Width = 747
+      Height = 161
+      Align = alTop
+    end
+    object Label12: TLabel
+      Left = 340
+      Top = 36
+      Width = 23
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3623#3633#3609#3607#3637#3656
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 295
+      Top = 10
+      Width = 68
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3648#3621#3586#3607#3637#3656#3651#3610#3648#3626#3619#3655#3592
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 33
+      Top = 12
+      Width = 57
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3648#3621#3586#3607#3637#3656#3651#3610#3619#3633#3610
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 35
+      Top = 39
+      Width = 55
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3623#3633#3609#3607#3637#3656#3619#3633#3610#3648#3591#3636#3609
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 62
+      Top = 64
+      Width = 28
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3626#3634#3586#3634
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 44
+      Top = 89
+      Width = 46
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3594#3639#3656#3629#3621#3641#3585#3588#3657#3634
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 504
+      Top = 109
+      Width = 47
+      Height = 19
+      Alignment = taCenter
+      Caption = 'C/N...'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clRed
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 35
+      Top = 116
+      Width = 55
+      Height = 16
+      Alignment = taRightJustify
+      Caption = #3610#3633#3609#3607#3638#3585#3629#3639#3656#3609#3654
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object FldEdit4: TcxDBTextEdit
+      Left = 100
+      Top = 9
+      DataBinding.DataField = 'TMBILL'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Style.Color = clBtnFace
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clRed
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.TextColor = clRed
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 0
+      Width = 121
+    end
+    object DBTbmDt: TcxDBDateEdit
+      Left = 100
+      Top = 35
+      DataBinding.DataField = 'TMBILDT'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 1
+      Width = 121
+    end
+    object DBLocat: TcxDBButtonEdit
+      Left = 100
+      Top = 61
+      DataBinding.DataField = 'LOCATRECV'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = DBLocatPropertiesButtonClick
+      Properties.OnChange = DBLocatChange
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 2
+      Width = 121
+    end
+    object DBCust: TcxDBButtonEdit
+      Left = 100
+      Top = 87
+      DataBinding.DataField = 'CUSCOD'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = DBCustPropertiesButtonClick
+      Properties.OnChange = DBCustChange
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 3
+      Width = 121
+    end
+    object DBEdit11: TcxDBTextEdit
+      Tag = 2
+      Left = 369
+      Top = 9
+      DataBinding.DataField = 'Billno'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Properties.ReadOnly = True
+      Style.Color = clBtnFace
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clRed
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.TextColor = clRed
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 4
+      Width = 121
+    end
+    object DBEdit12: TcxDBTextEdit
+      Tag = 2
+      Left = 369
+      Top = 35
+      DataBinding.DataField = 'Billdt'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Properties.ReadOnly = True
+      Style.Color = clBtnFace
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clRed
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.TextColor = clRed
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 5
+      Width = 121
+    end
+    object Edit2: TcxTextEdit
+      Tag = 1
+      Left = 220
+      Top = 61
+      ParentFont = False
+      Properties.ReadOnly = True
+      Style.Color = clWhite
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 6
+      Width = 270
+    end
+    object Edit1: TcxTextEdit
+      Tag = 1
+      Left = 220
+      Top = 87
+      ParentFont = False
+      Properties.ReadOnly = True
+      Style.Color = clWhite
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 7
+      Width = 270
+    end
+    object DBMemo1: TcxDBMemo
+      Left = 100
+      Top = 113
+      DataBinding.DataField = 'MEMO1'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'LiquidSky'
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+      TabOrder = 8
+      OnClick = DBMemo1Click
+      OnExit = DBMemo1Exit
+      Height = 40
+      Width = 390
+    end
+    object Runbill: TAdvGlowButton
+      Left = 490
+      Top = 9
+      Width = 82
+      Height = 22
+      Cursor = crHandPoint
+      Hint = 'Run '#3651#3610#3648#3626#3619#3655#3592#3619#3633#3610#3648#3591#3636#3609
+      Caption = 'Rerun Bill No.'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      TabOrder = 9
+      OnClick = RunbillClick
+      Appearance.ColorChecked = 16111818
+      Appearance.ColorCheckedTo = 16367008
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 16111818
+      Appearance.ColorDownTo = 16367008
+      Appearance.ColorHot = 16117985
+      Appearance.ColorHotTo = 16372402
+      Appearance.ColorMirrorHot = 16107693
+      Appearance.ColorMirrorHotTo = 16775412
+      Appearance.ColorMirrorDown = 16102556
+      Appearance.ColorMirrorDownTo = 16768988
+      Appearance.ColorMirrorChecked = 16102556
+      Appearance.ColorMirrorCheckedTo = 16768988
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+    end
+    object cxGrid2: TcxGrid
+      Left = 1
+      Top = 162
+      Width = 747
+      Height = 233
+      Align = alClient
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+      LevelTabs.CaptionAlignment = taLeftJustify
+      LookAndFeel.Kind = lfOffice11
+      LookAndFeel.NativeStyle = False
+      LookAndFeel.SkinName = 'LiquidSky'
+      RootLevelOptions.DetailTabsPosition = dtpTop
+      object cxGridDBTableView3: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        Navigator.Buttons.First.Visible = False
+        Navigator.Buttons.PriorPage.Visible = False
+        Navigator.Buttons.Prior.Visible = False
+        Navigator.Buttons.Next.Visible = False
+        Navigator.Buttons.NextPage.Visible = False
+        Navigator.Buttons.Last.Visible = False
+        Navigator.Buttons.Append.Visible = True
+        Navigator.Buttons.Edit.Visible = False
+        Navigator.Buttons.Post.Visible = False
+        Navigator.Buttons.Cancel.Visible = False
+        Navigator.Buttons.Refresh.Visible = False
+        Navigator.Buttons.SaveBookmark.Visible = False
+        Navigator.Buttons.GotoBookmark.Visible = False
+        Navigator.Buttons.Filter.Visible = False
+        Navigator.Visible = True
+        DataController.DataSource = Dmfin.SoChqtran
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGridDBTableView3PAYAMT
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGridDBTableView3PAYINT
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGridDBTableView3VATRTPAY
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGridDBTableView3DISCT
+          end
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGridDBTableView3NETPAY
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.CellHints = True
+        OptionsBehavior.DragHighlighting = False
+        OptionsBehavior.DragOpening = False
+        OptionsBehavior.FocusCellOnTab = True
+        OptionsBehavior.FocusFirstCellOnNewRecord = True
+        OptionsBehavior.GoToNextCellOnEnter = True
+        OptionsBehavior.IncSearch = True
+        OptionsBehavior.NavigatorHints = True
+        OptionsBehavior.FocusCellOnCycle = True
+        OptionsData.Appending = True
+        OptionsSelection.InvertSelect = False
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        object cxGridDBTableView3PAYFOR: TcxGridDBColumn
+          Caption = #3594#3635#3619#3632#3588#3656#3634
+          DataBinding.FieldName = 'PAYFOR'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGridDBTableView3PAYFORPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Width = 81
+        end
+        object cxGridDBTableView3CONTNO: TcxGridDBColumn
+          Caption = #3648#3621#3586#3607#3637#3656#3626#3633#3597#3597#3634'/'#3619#3627#3633#3626#3629#3657#3634#3591#3629#3636#3591
+          DataBinding.FieldName = 'CONTNO'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGridDBTableView3CONTNOPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Width = 139
+        end
+        object cxGridDBTableView3PAYAMT: TcxGridDBColumn
+          Caption = #3592#3635#3609#3623#3609#3594#3635#3619#3632
+          DataBinding.FieldName = 'PAYAMT'
+          HeaderAlignmentHorz = taCenter
+          Width = 101
+        end
+        object cxGridDBTableView3PAYINT: TcxGridDBColumn
+          Caption = #3588#3656#3634#3608#3619#3619#3617#3648#3609#3637#3618#3617
+          DataBinding.FieldName = 'PAYINT'
+          HeaderAlignmentHorz = taCenter
+          Width = 82
+        end
+        object cxGridDBTableView3VATRTPAY: TcxGridDBColumn
+          Caption = #3627#3633#3585' '#3603' '#3607#3637#3656#3592#3656#3634#3618
+          DataBinding.FieldName = 'VATRTPAY'
+          PropertiesClassName = 'TcxImageComboBoxProperties'
+          Properties.Items = <
+            item
+              Description = '0'
+              ImageIndex = 0
+              Value = 0.000000000000000000
+            end
+            item
+              Description = '1%'
+              Value = 1.000000000000000000
+            end
+            item
+              Description = '3%'
+              Value = 3.000000000000000000
+            end
+            item
+              Description = '5%'
+              Value = 5.000000000000000000
+            end>
+          HeaderAlignmentHorz = taCenter
+        end
+        object cxGridDBTableView3DISCT: TcxGridDBColumn
+          Caption = #3626#3656#3623#3609#3621#3604
+          DataBinding.FieldName = 'DISCT'
+          HeaderAlignmentHorz = taCenter
+        end
+        object cxGridDBTableView3NETPAY: TcxGridDBColumn
+          Caption = #3619#3633#3610#3626#3640#3607#3608#3636
+          DataBinding.FieldName = 'NETPAY'
+          HeaderAlignmentHorz = taCenter
+          Width = 108
+        end
+        object cxGridDBTableView3DIVICOD: TcxGridDBColumn
+          Caption = #3649#3612#3609#3585
+          DataBinding.FieldName = 'DIVICOD'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGridDBTableView3DIVICODPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Width = 50
+        end
+      end
+      object cxGridDBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        Navigator.Buttons.First.Visible = False
+        Navigator.Buttons.PriorPage.Visible = False
+        Navigator.Buttons.Prior.Visible = False
+        Navigator.Buttons.Next.Visible = False
+        Navigator.Buttons.NextPage.Visible = False
+        Navigator.Buttons.Last.Visible = False
+        Navigator.Buttons.Insert.Hint = #3649#3607#3619#3585#3649#3606#3623
+        Navigator.Buttons.Append.Hint = #3648#3614#3636#3656#3617#3649#3606#3623
+        Navigator.Buttons.Append.Visible = True
+        Navigator.Buttons.Delete.Hint = #3621#3610#3649#3606#3623
+        Navigator.Buttons.Delete.Visible = True
+        Navigator.Buttons.Edit.Visible = False
+        Navigator.Buttons.Post.Visible = False
+        Navigator.Buttons.Cancel.Visible = False
+        Navigator.Buttons.Refresh.Visible = False
+        Navigator.Buttons.SaveBookmark.Visible = False
+        Navigator.Buttons.GotoBookmark.Visible = False
+        Navigator.Buttons.Filter.Visible = False
+        Navigator.Visible = True
+        DataController.DataSource = Dmfin.SoChqtran_Dec
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGrid1DBTableView1AMOUNT
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.AlwaysShowEditor = True
+        OptionsBehavior.CellHints = True
+        OptionsBehavior.FocusFirstCellOnNewRecord = True
+        OptionsBehavior.GoToNextCellOnEnter = True
+        OptionsBehavior.IncSearch = True
+        OptionsBehavior.NavigatorHints = True
+        OptionsBehavior.FocusCellOnCycle = True
+        OptionsCustomize.ColumnsQuickCustomization = True
+        OptionsData.Appending = True
+        OptionsSelection.InvertSelect = False
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        object cxGrid1DBTableView1PAYFOR: TcxGridDBColumn
+          Caption = #3619#3627#3633#3626#3627#3633#3585#3594#3635#3619#3632
+          DataBinding.FieldName = 'PAYFOR'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGrid1DBTableView1PAYFORPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+        end
+        object cxGrid1DBTableView1DESCRIPTION: TcxGridDBColumn
+          Caption = #3619#3634#3618#3621#3632#3648#3629#3637#3618#3604'/'#3588#3635#3629#3608#3636#3610#3634#3618
+          DataBinding.FieldName = 'DESCRIPTION'
+          HeaderAlignmentHorz = taCenter
+          Width = 200
+        end
+        object cxGrid1DBTableView1AMOUNT: TcxGridDBColumn
+          Caption = #3592#3635#3609#3623#3609#3648#3591#3636#3609
+          DataBinding.FieldName = 'AMOUNT'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.UseDisplayFormatWhenEditing = True
+          Properties.UseThousandSeparator = True
+          HeaderAlignmentHorz = taCenter
+          Width = 87
+        end
+      end
+      object cxGrid3DBTableView2: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        Navigator.Buttons.First.Visible = False
+        Navigator.Buttons.PriorPage.Visible = False
+        Navigator.Buttons.Prior.Visible = False
+        Navigator.Buttons.Next.Visible = False
+        Navigator.Buttons.NextPage.Visible = False
+        Navigator.Buttons.Last.Visible = False
+        Navigator.Buttons.Insert.Hint = #3649#3607#3619#3585#3649#3606#3623
+        Navigator.Buttons.Append.Hint = #3648#3614#3636#3656#3617#3649#3606#3623
+        Navigator.Buttons.Append.Visible = True
+        Navigator.Buttons.Delete.Hint = #3621#3610#3649#3606#3623
+        Navigator.Buttons.Delete.Visible = True
+        Navigator.Buttons.Edit.Visible = False
+        Navigator.Buttons.Post.Visible = False
+        Navigator.Buttons.Cancel.Visible = False
+        Navigator.Buttons.Refresh.Visible = False
+        Navigator.Buttons.SaveBookmark.Visible = False
+        Navigator.Buttons.GotoBookmark.Visible = False
+        Navigator.Buttons.Filter.Visible = False
+        Navigator.Visible = True
+        DataController.DataSource = Dmfin.SoChqtran_Typ
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGrid3DBTableView2AMOUNT
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.AlwaysShowEditor = True
+        OptionsBehavior.CellHints = True
+        OptionsBehavior.FocusFirstCellOnNewRecord = True
+        OptionsBehavior.GoToNextCellOnEnter = True
+        OptionsBehavior.IncSearch = True
+        OptionsBehavior.NavigatorHints = True
+        OptionsBehavior.FocusCellOnCycle = True
+        OptionsCustomize.ColumnsQuickCustomization = True
+        OptionsData.Appending = True
+        OptionsSelection.InvertSelect = False
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        object cxGrid3DBTableView2PAYCODE: TcxGridDBColumn
+          Caption = #3611#3619#3632#3648#3616#3607#3594#3635#3619#3632
+          DataBinding.FieldName = 'PAYCODE'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGrid3DBTableView2PAYCODEPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Width = 79
+        end
+        object cxGrid3DBTableView2CHQNO: TcxGridDBColumn
+          Caption = #3648#3621#3586#3607#3637#3656#3648#3594#3655#3588
+          DataBinding.FieldName = 'CHQNO'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          HeaderAlignmentHorz = taCenter
+          Width = 87
+        end
+        object cxGrid3DBTableView2BANKBOOKCOD: TcxGridDBColumn
+          Caption = #3619#3627#3633#3626#3608#3609#3634#3588#3634#3619
+          DataBinding.FieldName = 'BANKBOOKCOD'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGrid3DBTableView2BANKBOOKCODPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Width = 79
+        end
+        object cxGrid3DBTableView2BANKLOCAT: TcxGridDBColumn
+          Caption = #3626#3634#3586#3634#3608#3609#3634#3588#3634#3619
+          DataBinding.FieldName = 'BANKLOCAT'
+          HeaderAlignmentHorz = taCenter
+          Width = 195
+        end
+        object cxGrid3DBTableView2DTONCHQ: TcxGridDBColumn
+          Caption = #3623#3633#3609#3607#3637#3656#3610#3609#3648#3594#3655#3588'/'#3650#3629#3609
+          DataBinding.FieldName = 'DTONCHQ'
+          PropertiesClassName = 'TcxDateEditProperties'
+          HeaderAlignmentHorz = taCenter
+          Width = 103
+        end
+        object cxGrid3DBTableView2AMOUNT: TcxGridDBColumn
+          Caption = #3592#3635#3609#3623#3609#3648#3591#3636#3609
+          DataBinding.FieldName = 'AMOUNT'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.UseDisplayFormatWhenEditing = True
+          Properties.UseThousandSeparator = True
+          HeaderAlignmentHorz = taCenter
+          Width = 86
+        end
+      end
+      object cxGrid2DBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        Navigator.Buttons.First.Visible = False
+        Navigator.Buttons.PriorPage.Visible = False
+        Navigator.Buttons.Prior.Visible = False
+        Navigator.Buttons.Next.Visible = False
+        Navigator.Buttons.NextPage.Visible = False
+        Navigator.Buttons.Last.Visible = False
+        Navigator.Buttons.Insert.Hint = #3649#3607#3619#3585#3649#3606#3623
+        Navigator.Buttons.Append.Hint = #3648#3614#3636#3656#3617#3649#3606#3623
+        Navigator.Buttons.Append.Visible = True
+        Navigator.Buttons.Delete.Hint = #3621#3610#3649#3606#3623
+        Navigator.Buttons.Delete.Visible = True
+        Navigator.Buttons.Edit.Visible = False
+        Navigator.Buttons.Post.Visible = False
+        Navigator.Buttons.Cancel.Visible = False
+        Navigator.Buttons.Refresh.Visible = False
+        Navigator.Buttons.SaveBookmark.Visible = False
+        Navigator.Buttons.GotoBookmark.Visible = False
+        Navigator.Buttons.Filter.Visible = False
+        Navigator.Visible = True
+        DataController.DataSource = Dmfin.SoChqtran_Oth
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Format = '##,##0.00'
+            Kind = skSum
+            Column = cxGrid2DBTableView1AMOUNT
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.AlwaysShowEditor = True
+        OptionsBehavior.CellHints = True
+        OptionsBehavior.FocusFirstCellOnNewRecord = True
+        OptionsBehavior.GoToNextCellOnEnter = True
+        OptionsBehavior.IncSearch = True
+        OptionsBehavior.NavigatorHints = True
+        OptionsBehavior.FocusCellOnCycle = True
+        OptionsCustomize.ColumnsQuickCustomization = True
+        OptionsData.Appending = True
+        OptionsSelection.InvertSelect = False
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        object cxGrid2DBTableView1PAYFOR: TcxGridDBColumn
+          Caption = #3594#3635#3619#3632#3588#3656#3634
+          DataBinding.FieldName = 'PAYFOR'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxGrid2DBTableView1PAYFORPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+        end
+        object cxGrid2DBTableView1DESCRIPTION: TcxGridDBColumn
+          Caption = #3619#3634#3618#3621#3632#3648#3629#3637#3618#3604'/'#3588#3635#3629#3608#3636#3610#3634#3618
+          DataBinding.FieldName = 'DESCRIPTION'
+          HeaderAlignmentHorz = taCenter
+          Width = 223
+        end
+        object cxGrid2DBTableView1AMOUNT: TcxGridDBColumn
+          Caption = #3592#3635#3609#3623#3609#3648#3591#3636#3609
+          DataBinding.FieldName = 'AMOUNT'
+          HeaderAlignmentHorz = taCenter
+        end
+      end
+      object cxGridLevel1: TcxGridLevel
+        Caption = #3619#3634#3618#3621#3632#3648#3629#3637#3618#3604
+        GridView = cxGridDBTableView3
+      end
+      object cxGrid2Level1: TcxGridLevel
+        Caption = #3619#3633#3610#3648#3591#3636#3609#3588#3656#3634#3629#3639#3656#3609#3654
+        GridView = cxGrid2DBTableView1
+      end
+      object cxGridLevel2: TcxGridLevel
+        Caption = #3619#3634#3618#3585#3634#3619#3627#3633#3585
+        GridView = cxGridDBTableView1
+      end
+      object cxGridLevel3: TcxGridLevel
+        Caption = #3619#3633#3610#3594#3635#3619#3632#3650#3604#3618
+        GridView = cxGrid3DBTableView2
+      end
+    end
+    object cxDBCheckBox1: TcxDBCheckBox
+      Left = 491
+      Top = 65
+      Caption = #3629#3629#3585#3651#3610#3648#3626#3619#3655#3592#3614#3619#3657#3629#3617#3651#3610#3619#3633#3610#3648#3591#3636#3609#3594#3633#3656#3623#3588#3619#3634#3623
+      DataBinding.DataField = 'RLBILL'
+      DataBinding.DataSource = Dmfin.Sochqmast
+      ParentFont = False
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = 'Y'
+      Properties.ValueUnchecked = 'N'
+      Style.Font.Charset = THAI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = 'McSkin'
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = 'McSkin'
+      TabOrder = 11
+    end
+    object cxGroupBox1: TcxGroupBox
+      Left = 1
+      Top = 395
+      Align = alBottom
+      Caption = #3626#3619#3640#3611#3619#3634#3618#3585#3634#3619#3619#3633#3610#3594#3635#3619#3632' :'
+      TabOrder = 12
+      Height = 158
+      Width = 747
+      object Label7: TLabel
+        Left = 60
+        Top = 29
+        Width = 73
+        Height = 16
+        Alignment = taRightJustify
+        Caption = #3618#3629#3604#3619#3633#3610#3594#3635#3619#3632' :'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 33
+        Top = 107
+        Width = 98
+        Height = 16
+        Caption = #3619#3623#3617#3618#3629#3604#3619#3633#3610#3607#3633#3657#3591#3626#3636#3657#3609' :'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 56
+        Top = 55
+        Width = 77
+        Height = 16
+        Alignment = taRightJustify
+        Caption = #3619#3633#3610#3648#3591#3636#3609#3588#3656#3634#3629#3639#3656#3609#3654' :'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label17: TLabel
+        Left = 68
+        Top = 81
+        Width = 65
+        Height = 16
+        Alignment = taRightJustify
+        Caption = #3619#3634#3618#3585#3634#3619#3627#3633#3585' :'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object DBEdit4: TcxDBTextEdit
+        Tag = 2
+        Left = 137
+        Top = 26
+        DataBinding.DataField = 'CHQTMP'
+        DataBinding.DataSource = Dmfin.Sochqmast
+        ParentFont = False
+        Properties.ReadOnly = True
+        Style.Color = clBtnFace
+        Style.Font.Charset = THAI_CHARSET
+        Style.Font.Color = clRed
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.LookAndFeel.NativeStyle = False
+        Style.LookAndFeel.SkinName = 'LiquidSky'
+        Style.TextColor = clRed
+        Style.IsFontAssigned = True
+        StyleDisabled.LookAndFeel.NativeStyle = False
+        StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+        StyleFocused.LookAndFeel.NativeStyle = False
+        StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+        StyleHot.LookAndFeel.NativeStyle = False
+        StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+        TabOrder = 0
+        Width = 121
+      end
+      object DBEdit8: TcxDBTextEdit
+        Left = 137
+        Top = 52
+        DataBinding.DataField = 'CHQTMP_OTH'
+        DataBinding.DataSource = Dmfin.Sochqmast
+        ParentFont = False
+        Style.Font.Charset = THAI_CHARSET
+        Style.Font.Color = clRed
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.LookAndFeel.NativeStyle = False
+        Style.LookAndFeel.SkinName = 'LiquidSky'
+        Style.TextColor = clBlue
+        Style.IsFontAssigned = True
+        StyleDisabled.LookAndFeel.NativeStyle = False
+        StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+        StyleFocused.LookAndFeel.NativeStyle = False
+        StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+        StyleHot.LookAndFeel.NativeStyle = False
+        StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+        TabOrder = 1
+        Width = 121
+      end
+      object DBEdit15: TcxDBTextEdit
+        Left = 137
+        Top = 78
+        DataBinding.DataField = 'CHQTMP_DEC'
+        DataBinding.DataSource = Dmfin.Sochqmast
+        ParentFont = False
+        Style.Font.Charset = THAI_CHARSET
+        Style.Font.Color = clRed
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.LookAndFeel.NativeStyle = False
+        Style.LookAndFeel.SkinName = 'LiquidSky'
+        Style.TextColor = clBlue
+        Style.IsFontAssigned = True
+        StyleDisabled.LookAndFeel.NativeStyle = False
+        StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+        StyleFocused.LookAndFeel.NativeStyle = False
+        StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+        StyleHot.LookAndFeel.NativeStyle = False
+        StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+        TabOrder = 2
+        Width = 121
+      end
+      object DBEdit9: TcxDBTextEdit
+        Left = 137
+        Top = 103
+        DataBinding.DataField = 'TOTAL'
+        DataBinding.DataSource = Dmfin.Sochqmast
+        ParentFont = False
+        Style.Font.Charset = THAI_CHARSET
+        Style.Font.Color = clRed
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.LookAndFeel.NativeStyle = False
+        Style.LookAndFeel.SkinName = 'LiquidSky'
+        Style.TextColor = clRed
+        Style.IsFontAssigned = True
+        StyleDisabled.LookAndFeel.NativeStyle = False
+        StyleDisabled.LookAndFeel.SkinName = 'LiquidSky'
+        StyleFocused.LookAndFeel.NativeStyle = False
+        StyleFocused.LookAndFeel.SkinName = 'LiquidSky'
+        StyleHot.LookAndFeel.NativeStyle = False
+        StyleHot.LookAndFeel.SkinName = 'LiquidSky'
+        TabOrder = 3
+        Width = 121
+      end
+      object DBEdit10: TcxDBTextEdit
+        Tag = 2
+        Left = 258
+        Top = 25
+        AutoSize = False
+        DataBinding.DataField = 'CHQTMP_TYP'
+        DataBinding.DataSource = Dmfin.Sochqmast
+        ParentFont = False
+        Properties.ReadOnly = True
+        Style.Color = clBlack
+        Style.Font.Charset = THAI_CHARSET
+        Style.Font.Color = clRed
+        Style.Font.Height = -64
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = [fsBold]
+        Style.LookAndFeel.Kind = lfOffice11
+        Style.LookAndFeel.NativeStyle = False
+        Style.LookAndFeel.SkinName = 'McSkin'
+        Style.Shadow = False
+        Style.TextColor = clLime
+        Style.IsFontAssigned = True
+        StyleDisabled.LookAndFeel.Kind = lfOffice11
+        StyleDisabled.LookAndFeel.NativeStyle = False
+        StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+        StyleFocused.LookAndFeel.Kind = lfOffice11
+        StyleFocused.LookAndFeel.NativeStyle = False
+        StyleFocused.LookAndFeel.SkinName = 'McSkin'
+        StyleHot.LookAndFeel.Kind = lfOffice11
+        StyleHot.LookAndFeel.NativeStyle = False
+        StyleHot.LookAndFeel.SkinName = 'McSkin'
+        TabOrder = 4
+        Height = 101
+        Width = 452
+      end
+    end
+  end
+  object AdvPanel2: TAdvPanel
+    Left = 0
+    Top = 0
+    Width = 749
+    Height = 51
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 16645114
+    Font.Charset = THAI_CHARSET
+    Font.Color = 7485192
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    UseDockManager = True
+    Version = '2.5.8.0'
+    BorderColor = 16765615
+    Caption.Color = 16575452
+    Caption.ColorTo = 16571329
+    Caption.Font.Charset = THAI_CHARSET
+    Caption.Font.Color = clBlack
+    Caption.Font.Height = -11
+    Caption.Font.Name = 'Tahoma'
+    Caption.Font.Style = []
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 16643051
+    DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 13542013
+    StatusBar.BorderStyle = bsSingle
+    StatusBar.Font.Charset = DEFAULT_CHARSET
+    StatusBar.Font.Color = 7485192
+    StatusBar.Font.Height = -11
+    StatusBar.Font.Name = 'Tahoma'
+    StatusBar.Font.Style = []
+    StatusBar.Color = 16575452
+    StatusBar.ColorTo = 16571329
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
+    Text = ''
+    FullHeight = 51
+    object AdvToolBar1: TAdvToolBar
+      Left = 0
+      Top = 0
+      Width = 702
+      Height = 51
+      Cursor = crHandPoint
+      AllowFloating = True
+      Locked = True
+      Caption = ''
+      CaptionFont.Charset = DEFAULT_CHARSET
+      CaptionFont.Color = clWindowText
+      CaptionFont.Height = -11
+      CaptionFont.Name = 'MS Sans Serif'
+      CaptionFont.Style = []
+      CaptionAlignment = taCenter
+      CompactImageIndex = -1
+      ShowRightHandle = False
+      TextAutoOptionMenu = 'Add or Remove Buttons'
+      TextOptionMenu = 'Option'
+      ParentStyler = False
+      ToolBarStyler = SFMain.AdvToolBarOfficeStyler1
+      ParentOptionPicture = True
+      ToolBarIndex = -1
+      object AdvToolBarSeparator1: TAdvToolBarSeparator
+        Left = 506
+        Top = 2
+        Width = 10
+        Height = 47
+        SeparatorStyle = ssBlank
+        LineColor = clBtnShadow
+      end
+      object AdvToolBarSeparator2: TAdvToolBarSeparator
+        Left = 418
+        Top = 2
+        Width = 10
+        Height = 47
+        SeparatorStyle = ssBlank
+        LineColor = clBtnShadow
+      end
+      object AdvToolBarSeparator4: TAdvToolBarSeparator
+        Left = 438
+        Top = 2
+        Width = 10
+        Height = 47
+        SeparatorStyle = ssBlank
+        LineColor = clBtnShadow
+        Visible = False
+      end
+      object AdvToolBarSeparator5: TAdvToolBarSeparator
+        Left = 292
+        Top = 2
+        Width = 10
+        Height = 47
+        SeparatorStyle = ssBlank
+        LineColor = clBtnShadow
+      end
+      object AdvToolBarSeparator3: TAdvToolBarSeparator
+        Left = 428
+        Top = 2
+        Width = 10
+        Height = 47
+        SeparatorStyle = ssBlank
+        LineColor = clBtnShadow
+        Visible = False
+      end
+      object InsBtn: TAdvGlowButton
+        Left = 2
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3648#3614#3636#3656#3617#3586#3657#3629#3617#3641#3621
+        Caption = 'Insert'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 0
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 0
+        OnClick = InsBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object DelBtn: TAdvGlowButton
+        Left = 60
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3621#3610'/'#3618#3585#3648#3621#3636#3585#3586#3657#3629#3617#3641#3621
+        Caption = 'Delete'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 1
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 1
+        OnClick = DelBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object EnqBtn: TAdvGlowButton
+        Left = 118
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3588#3657#3609#3627#3634#3586#3657#3629#3617#3641#3621
+        Caption = 'Search'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 2
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnClick = EnqBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object SavBtn: TAdvGlowButton
+        Left = 176
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3610#3633#3609#3607#3638#3585#3586#3657#3629#3617#3641#3621
+        Caption = 'Save'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 3
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 3
+        OnClick = SavBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object CancBtn: TAdvGlowButton
+        Left = 234
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3618#3585#3648#3621#3636#3585#3585#3634#3619#3607#3635#3619#3634#3618#3585#3634#3619
+        Caption = 'Cancel'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 4
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnClick = CancBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object CloseBtn: TAdvGlowButton
+        Left = 448
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3611#3636#3604#3627#3609#3657#3634#3592#3629#3649#3621#3632#3585#3621#3633#3610#3627#3609#3657#3634#3627#3621#3633#3585
+        Caption = 'Back'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 5
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 5
+        OnClick = CloseBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object PrintBtn: TAdvGlowButton
+        Left = 302
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3614#3636#3617#3614#3660#3615#3629#3619#3660#3617
+        Caption = 'Print'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 6
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 6
+        OnClick = PrintBtnClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object tbCrtTax: TAdvGlowButton
+        Left = 360
+        Top = 2
+        Width = 58
+        Height = 47
+        Hint = #3626#3619#3657#3634#3591#3651#3610#3585#3635#3585#3633#3610
+        Caption = 'Tax No.'
+        Font.Charset = THAI_CHARSET
+        Font.Color = 7485192
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 7
+        Images = SFMain.cxImageList1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        TabOrder = 7
+        Visible = False
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = 4548219
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 11918331
+        Appearance.ColorCheckedTo = 7915518
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Layout = blGlyphTop
+      end
+      object RadioGroup1: TcxRadioGroup
+        Left = 516
+        Top = 2
+        Caption = 'Print Option'
+        ParentFont = False
+        Properties.Columns = 2
+        Properties.Items = <
+          item
+            Caption = #3651#3610#3619#3633#3610#3648#3591#3636#3609
+          end
+          item
+            Caption = #3651#3610#3648#3626#3619#3655#3592
+          end>
+        ItemIndex = 0
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWindowText
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.LookAndFeel.NativeStyle = False
+        Style.LookAndFeel.SkinName = 'Pumpkin'
+        Style.TextColor = clBlack
+        Style.IsFontAssigned = True
+        StyleDisabled.LookAndFeel.NativeStyle = False
+        StyleDisabled.LookAndFeel.SkinName = 'Pumpkin'
+        TabOrder = 8
+        Height = 47
+        Width = 182
+      end
+    end
+  end
+  object dxStatusBar1: TdxStatusBar
+    Left = 0
+    Top = 605
+    Width = 749
+    Height = 20
+    Panels = <
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Text = 'Ready'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Text = #3610#3633#3609#3607#3638#3585#3619#3633#3610#3594#3635#3619#3632#3648#3591#3636#3609#3588#3656#3634#3619#3606
+        Width = 150
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Text = 'CHQMAS,CHQTRAN,CHQTRAN_OTH,CHQTRAN_DEC,CHQTRAN_TYP'
+        Width = 350
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Width = 150
+      end>
+    LookAndFeel.NativeStyle = False
+    LookAndFeel.SkinName = 'LiquidSky'
+    Font.Charset = THAI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ShowHint = False
+    ParentShowHint = False
+  end
+  object DataSource1: TDataSource
+    DataSet = Dmfin.QChqmast
+    OnStateChange = DataSource1StateChange
+    OnDataChange = DataSource1DataChange
+    Left = 479
+    Top = 168
+  end
+  object DataSource2: TDataSource
+    DataSet = Dmfin.QChqtran
+    OnDataChange = DataSource2DataChange
+    Left = 447
+    Top = 168
+  end
+  object DataSource3: TDataSource
+    DataSet = qrPayfor
+    Left = 473
+    Top = 199
+  end
+  object qrPayfor: TFDQuery
+    MasterSource = Dmfin.SoChqtran
+    MasterFields = 'PAYFOR'
+    ConnectionName = 'HI_DBMS'
+    SQL.Strings = (
+      'SELECT * FROM PAYFOR WHERE FORCODE=:PAYFOR')
+    Left = 501
+    Top = 199
+    ParamData = <
+      item
+        Name = 'PAYFOR'
+        DataType = ftString
+        Size = 4
+      end>
+  end
+  object DataSource4: TDataSource
+    Left = 445
+    Top = 199
+  end
+  object DBkbd1: TRzDBkbd
+    IgNoreUpDown = False
+    UseArrowKey = True
+    Disable = False
+    DataSource = DataSource1
+    StatusColor = clBlack
+    OnKeyDown = DBkbd1KeyDown
+    DeleteMessage = #3649#3609#3656#3651#3592#3627#3619#3639#3629#3652#3617#3656#3607#3637#3656#3592#3632#3621#3610' Record '#3609#3637#3657
+    DelTop = 84
+    DelLeft = 114
+    AllowSpaceBar = False
+    AllowEditing = True
+    AllowInsert = True
+    AllowDelete = True
+    KeyToEdit = 115
+    KeyToInsert = 45
+    KeyToSave = 121
+    Left = 507
+    Top = 168
+  end
+  object ActionList1: TActionList
+    Left = 540
+    Top = 108
+    object acDesigner: TAction
+      Caption = #3649#3585#3657#3652#3586#3615#3629#3619#3660#3617
+      Hint = 'F6'
+      ImageIndex = 3
+      ShortCut = 117
+      OnExecute = acDesignerExecute
+    end
+  end
+  object frxBarCodeObject1: TfrxBarCodeObject
+    Left = 544
+    Top = 480
+  end
+  object frxChartObject1: TfrxChartObject
+    Left = 576
+    Top = 480
+  end
+  object frxCheckBoxObject1: TfrxCheckBoxObject
+    Left = 608
+    Top = 480
+  end
+  object frxCrossObject1: TfrxCrossObject
+    Left = 640
+    Top = 480
+  end
+  object frxCSVExport1: TfrxCSVExport
+    UseFileCache = True
+    ShowProgress = True
+    OverwritePrompt = False
+    DataOnly = False
+    Separator = ','
+    OEMCodepage = False
+    UTF8 = False
+    OpenAfterExport = False
+    NoSysSymbols = True
+    ForcedQuotes = False
+    Left = 672
+    Top = 480
+  end
+  object frxBDEComponents1: TfrxBDEComponents
+    DefaultSession = 'Default'
+    Left = 716
+    Top = 480
+  end
+  object frxPDFExport1: TfrxPDFExport
+    UseFileCache = True
+    ShowProgress = True
+    OverwritePrompt = False
+    DataOnly = False
+    EmbeddedFonts = True
+    OpenAfterExport = False
+    PrintOptimized = False
+    Outline = False
+    Background = False
+    HTMLTags = True
+    Quality = 300
+    Transparency = False
+    Author = 'FastReport'
+    Subject = 'FastReport PDF export'
+    ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
+    HideToolbar = False
+    HideMenubar = False
+    HideWindowUI = False
+    FitWindow = False
+    CenterWindow = False
+    PrintScaling = False
+    PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
+    Left = 672
+    Top = 512
+  end
+  object frxJPEGExport1: TfrxJPEGExport
+    UseFileCache = True
+    ShowProgress = True
+    OverwritePrompt = False
+    DataOnly = False
+    Left = 640
+    Top = 512
+  end
+  object frxGradientObject1: TfrxGradientObject
+    Left = 608
+    Top = 512
+  end
+  object frxFDComponents1: TfrxFDComponents
+    DefaultDatabase = DM_SEC.HI_DBMS
+    Left = 576
+    Top = 512
+  end
+  object frxDialogControls1: TfrxDialogControls
+    Left = 544
+    Top = 512
+  end
+  object frxReport1: TfrxReport
+    Version = '6.5.2'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.AllowEdit = False
+    PreviewOptions.AllowPreviewEdit = False
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43604.676131319440000000
+    ReportOptions.LastChange = 43604.676131319440000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    OnGetValue = frxReport1GetValue
+    Left = 544
+    Top = 544
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frxReportTableObject1: TfrxReportTableObject
+    Left = 576
+    Top = 544
+  end
+  object frxRichObject1: TfrxRichObject
+    Left = 608
+    Top = 544
+  end
+  object frxXLSXExport1: TfrxXLSXExport
+    UseFileCache = True
+    ShowProgress = True
+    OverwritePrompt = False
+    DataOnly = False
+    ChunkSize = 0
+    OpenAfterExport = True
+    PictureType = gpPNG
+    Left = 641
+    Top = 545
+  end
+end
