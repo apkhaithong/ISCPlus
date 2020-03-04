@@ -734,6 +734,7 @@ object FmEnqpart1: TFmEnqpart1
     TabOrder = 1
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
+    LookAndFeel.ScrollbarMode = sbmClassic
     LookAndFeel.SkinName = 'LiquidSky'
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
@@ -838,7 +839,7 @@ object FmEnqpart1: TFmEnqpart1
     Top = 9
   end
   object Query1: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT STKDATE,PKNO,QTYIN,QTYOUT,TAXNO,TAXDATE,NETCOST,AVGCOST,N' +
@@ -893,7 +894,11 @@ object FmEnqpart1: TFmEnqpart1
     end
   end
   object qrEnqPart: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvEDelete, uvEInsert, uvEUpdate]
+    UpdateOptions.EnableDelete = False
+    UpdateOptions.EnableInsert = False
+    UpdateOptions.EnableUpdate = False
     SQL.Strings = (
       'SELECT * FROM STKCARD')
     Left = 984
@@ -1082,7 +1087,7 @@ object FmEnqpart1: TFmEnqpart1
     Top = 158
   end
   object Query2: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       '')
     Left = 953

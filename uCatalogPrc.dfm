@@ -2,8 +2,8 @@ object FrPriceList: TFrPriceList
   Left = 356
   Top = 122
   Caption = #3626#3629#3610#3606#3634#3617#3619#3634#3588#3634#3626#3636#3609#3588#3657#3634
-  ClientHeight = 0
-  ClientWidth = 120
+  ClientHeight = 595
+  ClientWidth = 990
   Color = clBtnFace
   Font.Charset = THAI_CHARSET
   Font.Color = clWindowText
@@ -24,7 +24,7 @@ object FrPriceList: TFrPriceList
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 120
+    Width = 990
     Height = 64
     Align = alTop
     ExplicitWidth = 1305
@@ -316,8 +316,8 @@ object FrPriceList: TFrPriceList
   object cxGrid1: TcxGrid
     Left = 0
     Top = 64
-    Width = 120
-    Height = 559
+    Width = 990
+    Height = 531
     Align = alClient
     Font.Charset = THAI_CHARSET
     Font.Color = clWindowText
@@ -328,6 +328,7 @@ object FrPriceList: TFrPriceList
     TabOrder = 3
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
+    LookAndFeel.ScrollbarMode = sbmClassic
     LookAndFeel.SkinName = 'LiquidSky'
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>

@@ -18,12 +18,11 @@ uses
   cxNavigator, RzDbkbd, dxStatusBar, cxMemo, frxExportXLSX, frxRich,
   frxTableObject, frxClass, frxDCtrl, frxFDComponents, frxGradient,
   frxExportImage, frxExportPDF, frxBDEComponents, frxExportBaseDialog,
-  frxExportCSV, frxCross, frxChBox, frxChart, frxBarcode;
+  frxExportCSV, frxCross, frxChBox, frxChart, frxBarcode, System.Math, cxCalc;
 
 type
   TFPo_inv02 = class(TForm)
     AdvPanel1: TAdvPanel;
-    Bevel1: TBevel;
     Label1: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -101,7 +100,6 @@ type
     QPoinv1TPCODE: TStringField;
     QPoinv1RLCODE: TStringField;
     QPoinv1MEMO1: TMemoField;
-    QPoinv1CREDTM: TFloatField;
     QPoinv1PRCFLG: TStringField;
     QPoinv1VATTYPE: TStringField;
     QPoTrn: TFDQuery;
@@ -198,6 +196,9 @@ type
     frxReportTableObject1: TfrxReportTableObject;
     frxRichObject1: TfrxRichObject;
     frxXLSXExport1: TfrxXLSXExport;
+    Bevel1: TBevel;
+    QPoinv1CREDTM: TIntegerField;
+    QPoinv1LOTNO: TStringField;
     procedure InsBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure DataSource1StateChange(Sender: TObject);
@@ -716,7 +717,7 @@ begin
       QPoTrn.FieldByName('ORDCOST').AsFloat := Qtemp.FieldByname('ONHN').AsFloat;
       QPoTrn.FieldByName('NETFL').Asstring := Qtemp.FieldByname('Locat').AsString;
       QPoTrn.FieldByName('REDU').AsFloat := 0;
-      QPoTrnNetcost.Asfloat := QPoTrnORDCOST.VALUE * (1 - QPoTrnRedu.Asfloat / 100);
+      QPoTrnNetcost.Asfloat := SimpleRoundTo(QPoTrnORDCOST.VALUE * (1 - QPoTrnRedu.Asfloat / 100), -2);
       QPoTrnTOTCOST.Asfloat := QPoTrnORDQTY.Value * QPoTrnNetcost.Asfloat;
       QPoTrn.Next;
       Qtemp.Next;

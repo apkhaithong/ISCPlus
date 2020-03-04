@@ -1,8 +1,8 @@
 object FmDmic01: TFmDmic01
   OldCreateOrder = True
   OnCreate = FmDmic01Create
-  Height = 637
-  Width = 692
+  Height = 568
+  Width = 533
   object Rcinv: TFDQuery
     BeforeClose = RcinvBeforeClose
     BeforeEdit = RcinvBeforeEdit
@@ -17,8 +17,9 @@ object FmDmic01: TFmDmic01
     CachedUpdates = True
     OnUpdateError = RcinvUpdateError
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RC_INVOI')
     Left = 18
@@ -50,10 +51,6 @@ object FmDmic01: TFmDmic01
       FieldName = 'INVDATE'
       OnChange = RcinvINVDATEChange
     end
-    object RcinvCREDTM: TFloatField
-      FieldName = 'CREDTM'
-      OnValidate = RcinvCREDTMValidate
-    end
     object RcinvINVDUE: TDateField
       FieldName = 'INVDUE'
     end
@@ -69,9 +66,6 @@ object FmDmic01: TFmDmic01
     object RcinvOFFICCOD: TStringField
       FieldName = 'OFFICCOD'
       Size = 5
-    end
-    object RcinvTNOPAY: TFloatField
-      FieldName = 'TNOPAY'
     end
     object RcinvTOTAL: TFloatField
       FieldName = 'TOTAL'
@@ -178,6 +172,15 @@ object FmDmic01: TFmDmic01
       FieldName = 'LCNO'
       Size = 15
     end
+    object RcinvCREDTM: TFloatField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+      OnValidate = RcinvCREDTMValidate
+    end
+    object RcinvTNOPAY: TIntegerField
+      FieldName = 'TNOPAY'
+      Origin = 'TNOPAY'
+    end
   end
   object SoRcinv: TDataSource
     DataSet = Rcinv
@@ -195,11 +198,12 @@ object FmDmic01: TFmDmic01
     OnNewRecord = RctranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RC_TRANS')
-    Left = 12
+    Left = 18
     Top = 60
     object RctranRECVNO: TStringField
       FieldName = 'RECVNO'
@@ -324,6 +328,8 @@ object FmDmic01: TFmDmic01
   end
   object Query1: TFDQuery
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TMPAJTR')
     Left = 113
@@ -341,8 +347,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = PkinvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM PK_INVOI')
     Left = 113
@@ -542,8 +549,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = PkTranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM PK_TRANS')
     Left = 113
@@ -734,11 +742,12 @@ object FmDmic01: TFmDmic01
     OnNewRecord = IcinvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM IC_INVOI')
-    Left = 16
+    Left = 18
     Top = 204
     object IcinvINVNO: TStringField
       FieldName = 'INVNO'
@@ -936,11 +945,12 @@ object FmDmic01: TFmDmic01
     OnNewRecord = IcTranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM IC_TRANS')
-    Left = 16
+    Left = 18
     Top = 252
     object IcTranINVNO: TStringField
       FieldName = 'INVNO'
@@ -1085,10 +1095,12 @@ object FmDmic01: TFmDmic01
   object Condpay: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM SCONDPAY')
-    Left = 267
-    Top = 253
+    Left = 268
+    Top = 252
   end
   object SoRtinv: TDataSource
     DataSet = Rtinv
@@ -1111,8 +1123,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = MvInvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM MV_INVOI')
     Left = 213
@@ -1183,12 +1196,12 @@ object FmDmic01: TFmDmic01
   end
   object SoMvInv: TDataSource
     DataSet = MvInv
-    Left = 267
+    Left = 268
     Top = 12
   end
   object SoMvTran: TDataSource
     DataSet = Mvtran
-    Left = 267
+    Left = 268
     Top = 60
   end
   object Mvtran: TFDQuery
@@ -1202,8 +1215,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = MvtranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM MV_TRANS')
     Left = 213
@@ -1280,11 +1294,12 @@ object FmDmic01: TFmDmic01
     OnNewRecord = RttranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RT_TRAN')
-    Left = 16
+    Left = 18
     Top = 156
     object RttranRTNLOC: TStringField
       FieldName = 'RTNLOC'
@@ -1398,11 +1413,12 @@ object FmDmic01: TFmDmic01
     OnNewRecord = RtinvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RT_INVOI')
-    Left = 16
+    Left = 18
     Top = 108
     object RtinvRTNLOC: TStringField
       FieldName = 'RTNLOC'
@@ -1537,8 +1553,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = QaTranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM QATRANS')
     Left = 213
@@ -1631,13 +1648,13 @@ object FmDmic01: TFmDmic01
   end
   object SoQainv: TDataSource
     DataSet = Qainv
-    Left = 267
+    Left = 268
     Top = 156
   end
   object SoQaTran: TDataSource
     DataSet = QaTran
     OnStateChange = FmDmic01Create
-    Left = 267
+    Left = 268
     Top = 204
   end
   object Adjinv: TFDQuery
@@ -1652,8 +1669,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = AdjinvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ADJ_INVOI')
     Left = 113
@@ -1734,8 +1752,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = AdjTranNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ADJ_TRANS')
     Left = 113
@@ -1824,8 +1843,9 @@ object FmDmic01: TFmDmic01
   object Taxsal: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TAXSAL')
     Left = 162
@@ -1917,7 +1937,7 @@ object FmDmic01: TFmDmic01
   end
   object SoRcTrn1: TDataSource
     DataSet = Rctrn1
-    Left = 371
+    Left = 367
     Top = 56
   end
   object Rcinv1: TFDQuery
@@ -1931,8 +1951,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = Rcinv1NewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RC_INVOI')
     Left = 318
@@ -1961,9 +1982,6 @@ object FmDmic01: TFmDmic01
     object Rcinv1INVDATE: TDateField
       FieldName = 'INVDATE'
     end
-    object Rcinv1CREDTM: TFloatField
-      FieldName = 'CREDTM'
-    end
     object Rcinv1INVDUE: TDateField
       FieldName = 'INVDUE'
     end
@@ -1978,9 +1996,6 @@ object FmDmic01: TFmDmic01
     object Rcinv1OFFICCOD: TStringField
       FieldName = 'OFFICCOD'
       Size = 5
-    end
-    object Rcinv1TNOPAY: TFloatField
-      FieldName = 'TNOPAY'
     end
     object Rcinv1TOTAL: TFloatField
       FieldName = 'TOTAL'
@@ -2122,6 +2137,14 @@ object FmDmic01: TFmDmic01
       FixedChar = True
       Size = 1
     end
+    object Rcinv1CREDTM: TFloatField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+    end
+    object Rcinv1TNOPAY: TIntegerField
+      FieldName = 'TNOPAY'
+      Origin = 'TNOPAY'
+    end
   end
   object Rctrn1: TFDQuery
     AfterOpen = Rctrn1AfterOpen
@@ -2132,8 +2155,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = Rctrn1NewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RC_TRANS')
     Left = 318
@@ -2254,14 +2278,17 @@ object FmDmic01: TFmDmic01
   object QLastno: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM SLASTNO')
-    Left = 217
+    Left = 213
     Top = 108
   end
   object Query2: TFDQuery
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TMPAJTR')
     Left = 162
@@ -2270,24 +2297,27 @@ object FmDmic01: TFmDmic01
   object InvMst9: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM INVMAST')
-    Left = 322
+    Left = 318
     Top = 108
   end
   object SoInvmst9: TDataSource
     DataSet = InvMst9
-    Left = 371
+    Left = 367
     Top = 108
   end
   object QDbconfig: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM SDBCONFIG')
-    Left = 216
+    Left = 213
     Top = 252
   end
   object TmpAjIv: TFDQuery
@@ -2300,8 +2330,9 @@ object FmDmic01: TFmDmic01
     CachedUpdates = True
     OnUpdateError = TmpAjIvUpdateError
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TMPAJIV')
     Left = 318
@@ -2385,11 +2416,12 @@ object FmDmic01: TFmDmic01
     OnNewRecord = QArpaytrn1NewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT  *  FROM  ARPAYTRN')
-    Left = 17
+    Left = 18
     Top = 304
     object QArpaytrn1BILLNO: TStringField
       FieldName = 'BILLNO'
@@ -2565,18 +2597,19 @@ object FmDmic01: TFmDmic01
   end
   object Soarpaytrn1: TDataSource
     DataSet = QArpaytrn1
-    Left = 73
+    Left = 65
     Top = 300
   end
   object QArchq: TFDQuery
     OnNewRecord = QArchqNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ARCHQ')
-    Left = 114
+    Left = 113
     Top = 300
   end
   object SoArchq: TDataSource
@@ -2587,6 +2620,8 @@ object FmDmic01: TFmDmic01
   object QStkcard: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM STKCARD  WHERE PARTNO='#39#39)
     Left = 213
@@ -2594,7 +2629,9 @@ object FmDmic01: TFmDmic01
   end
   object QEnqBk: TFDQuery
     Connection = DM_SEC.HI_DBMS
-    Left = 116
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 113
     Top = 346
   end
   object SoEnqBk: TDataSource
@@ -2604,17 +2641,21 @@ object FmDmic01: TFmDmic01
   end
   object QEnqMv: TFDQuery
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     Left = 213
     Top = 346
   end
   object SoEnqMv: TDataSource
     DataSet = QEnqMv
     Left = 268
-    Top = 346
+    Top = 348
   end
   object QValid: TFDQuery
     Connection = DM_SEC.HI_DBMS
-    Left = 372
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 367
     Top = 302
   end
   object Tmpajtr: TFDQuery
@@ -2622,11 +2663,12 @@ object FmDmic01: TFmDmic01
     BeforeClose = TmpajtrBeforeClose
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TMPAJTR')
-    Left = 316
+    Left = 318
     Top = 204
     object TmpajtrADJNO: TStringField
       FieldName = 'ADJNO'
@@ -2701,22 +2743,27 @@ object FmDmic01: TFmDmic01
   object Qtmpicinv: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM IC_INVOI')
-    Left = 16
+    Left = 18
     Top = 346
   end
   object Qarinvoi: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    Left = 68
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 65
     Top = 346
   end
   object QInvmst1: TFDQuery
     MasterSource = SoRctran
     MasterFields = 'PARTNO;RECVLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR WHERE PARTNO=:PARTNO AND LOCAT=:RECV' +
@@ -2744,7 +2791,8 @@ object FmDmic01: TFmDmic01
     Connection = DM_SEC.HI_DBMS
     FetchOptions.AssignedValues = [evUnidirectional]
     FetchOptions.Unidirectional = True
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1,GROUP1  FROM  INVENTOR  WHERE PARTNO=:PARTNO AND LO' +
@@ -2769,7 +2817,8 @@ object FmDmic01: TFmDmic01
     MasterSource = SoIcTran
     MasterFields = 'PARTNO;INVLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR WHERE PARTNO=:PARTNO AND LOCAT=:INVL' +
@@ -2794,7 +2843,8 @@ object FmDmic01: TFmDmic01
     MasterSource = SoRttran
     MasterFields = 'PARTNO;RTNLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR WHERE PARTNO=:PARTNO AND LOCAT=:RTNL' +
@@ -2819,7 +2869,8 @@ object FmDmic01: TFmDmic01
     MasterSource = SoAdjTran
     MasterFields = 'PARTNO;ADJLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR  WHERE PARTNO=:PARTNO AND LOCAT=:ADJ' +
@@ -2842,22 +2893,26 @@ object FmDmic01: TFmDmic01
   end
   object QInvanls: TFDQuery
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     Left = 318
     Top = 252
   end
   object Query3: TFDQuery
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TMPAJTR')
-    Left = 322
+    Left = 318
     Top = 354
   end
   object QInvmst5: TFDQuery
     MasterSource = SoMvTran
     MasterFields = 'PARTNO;MOVFRM'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR WHERE PARTNO=:PARTNO AND LOCAT=:MOVF' +
@@ -2882,7 +2937,8 @@ object FmDmic01: TFmDmic01
     MasterSource = SoRcTrn1
     MasterFields = 'PARTNO;RECVLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR WHERE PARTNO=:PARTNO AND LOCAT=:RECV' +
@@ -2906,11 +2962,15 @@ object FmDmic01: TFmDmic01
   object QPkinv: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    Left = 372
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 367
     Top = 348
   end
   object Query4: TFDQuery
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     Left = 480
     Top = 156
   end
@@ -2922,6 +2982,8 @@ object FmDmic01: TFmDmic01
     OnNewRecord = QIcothinvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ICOTHINV')
     Left = 424
@@ -3058,6 +3120,8 @@ object FmDmic01: TFmDmic01
     OnNewRecord = QIcothtrnNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ICOTHTRN')
     Left = 424
@@ -3143,16 +3207,19 @@ object FmDmic01: TFmDmic01
   object Qarpaytrn: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ARPAYTRN')
-    Left = 476
+    Left = 480
     Top = 12
   end
   object Qinvmst9: TFDQuery
     MasterSource = SoQaTran
     MasterFields = 'PARTNO;QALOCAT'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR  WHERE PARTNO=:PARTNO AND LOCAT=:QAL' +
@@ -3177,12 +3244,13 @@ object FmDmic01: TFmDmic01
     MasterSource = SoTmpajtr
     MasterFields = 'PARTNO;ADJLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR  WHERE PARTNO=:PARTNO AND LOCAT=:ADJ' +
         'LOC')
-    Left = 372
+    Left = 367
     Top = 252
     ParamData = <
       item
@@ -3201,6 +3269,8 @@ object FmDmic01: TFmDmic01
   object QTemp: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     Left = 268
     Top = 112
   end
@@ -3214,8 +3284,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = QainvNewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM QAINVOI')
     Left = 213
@@ -3347,22 +3418,27 @@ object FmDmic01: TFmDmic01
   end
   object Query5: TFDQuery
     Connection = DM_SEC.HI_DBMS
-    Left = 320
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 318
     Top = 308
   end
   object Query6: TFDQuery
     Connection = DM_SEC.HI_DBMS
-    Left = 272
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 268
     Top = 308
   end
   object QArpaytrn_Typ: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM ARPAYTRN_TYP')
-    Left = 22
+    Left = 18
     Top = 440
     object QArpaytrn_TypPAYCODE: TStringField
       FieldName = 'PAYCODE'
@@ -3426,6 +3502,8 @@ object FmDmic01: TFmDmic01
   end
   object Query7: TFDQuery
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM TMPAJTR')
     Left = 170
@@ -3434,10 +3512,12 @@ object FmDmic01: TFmDmic01
   object QCondpay: TFDQuery
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM SCONDPAY')
-    Left = 275
-    Top = 405
+    Left = 268
+    Top = 404
   end
   object Rcinv2: TFDQuery
     BeforeClose = Rcinv2BeforeClose
@@ -3452,8 +3532,9 @@ object FmDmic01: TFmDmic01
     CachedUpdates = True
     OnUpdateError = Rcinv2UpdateError
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RC_INVOI')
     Left = 418
@@ -3488,10 +3569,6 @@ object FmDmic01: TFmDmic01
       FieldName = 'INVDATE'
       OnChange = Rcinv2INVDATEChange
     end
-    object Rcinv2CREDTM: TFloatField
-      FieldName = 'CREDTM'
-      OnValidate = Rcinv2CREDTMValidate
-    end
     object Rcinv2INVDUE: TDateField
       FieldName = 'INVDUE'
     end
@@ -3510,9 +3587,6 @@ object FmDmic01: TFmDmic01
       FieldName = 'OFFICCOD'
       FixedChar = True
       Size = 8
-    end
-    object Rcinv2TNOPAY: TFloatField
-      FieldName = 'TNOPAY'
     end
     object Rcinv2TOTAL: TFloatField
       FieldName = 'TOTAL'
@@ -3680,6 +3754,15 @@ object FmDmic01: TFmDmic01
       FixedChar = True
       Size = 15
     end
+    object Rcinv2CREDTM: TFloatField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+      OnValidate = Rcinv2CREDTMValidate
+    end
+    object Rcinv2TNOPAY: TIntegerField
+      FieldName = 'TNOPAY'
+      Origin = 'TNOPAY'
+    end
   end
   object SoRcinv2: TDataSource
     DataSet = Rcinv2
@@ -3697,8 +3780,9 @@ object FmDmic01: TFmDmic01
     OnNewRecord = Rctran2NewRecord
     CachedUpdates = True
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       'SELECT * FROM RC_TRANS')
     Left = 412
@@ -3898,7 +3982,8 @@ object FmDmic01: TFmDmic01
     MasterSource = SoRctran2
     MasterFields = 'PARTNO;RECVLOC'
     Connection = DM_SEC.HI_DBMS
-    UpdateOptions.AssignedValues = [uvUpdateMode]
+    UpdateOptions.AssignedValues = [uvUpdateMode, uvCheckRequired]
+    UpdateOptions.CheckRequired = False
     SQL.Strings = (
       
         'SELECT DESC1 FROM  INVENTOR WHERE PARTNO=:PARTNO AND LOCAT=:RECV' +

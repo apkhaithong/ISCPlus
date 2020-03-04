@@ -617,6 +617,7 @@ object FmEnqpart: TFmEnqpart
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          LookAndFeel.ScrollbarMode = sbmClassic
           LookAndFeel.SkinName = 'LiquidSky'
           object cxGrid1DBTableView1: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
@@ -693,6 +694,7 @@ object FmEnqpart: TFmEnqpart
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          LookAndFeel.ScrollbarMode = sbmClassic
           LookAndFeel.SkinName = 'LiquidSky'
           object cxGridDBTableView2: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>

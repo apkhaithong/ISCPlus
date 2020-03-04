@@ -2031,14 +2031,22 @@ begin
         If OrderCombo.Itemindex=2 Then
            SQL.ADD( 'SELECT * FROM PO_INVOI WHERE POLOCAT LIKE :0 AND POLOCAT LIKE :1 ORDER BY PODATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=3 Then
-           SQL.ADD( 'SELECT * FROM PO_INVOI WHERE ((PONO LIKE :0) or (APCODE LIKE :0) or (POLOCAT LIKE :0)) '+
-                    'AND POLOCAT LIKE :1 ORDER BY PODATE DESC '+cbViewdata.EditValue);
-           qrFindDat.Params[0].Asstring := Uppercase('%'+SearchEd.Text+'%');
-        If OrderCombo.Itemindex <> 3 Then
-           qrFindDat.Params[1].Asstring := Uppercase(fSrcDlg.XSrLocat)+'%' else
-           qrFindDat.Params[3].Asstring := Uppercase(fSrcDlg.XSrLocat)+'%';
-        If Not qrFindDat.Prepared Then qrFindDat.Prepare;
-        qrFindDat.Open;
+           SQL.ADD( 'SELECT * FROM PO_INVOI WHERE ((PONO LIKE :0) or (APCODE LIKE :2) or (POLOCAT LIKE :3)) '+
+                    'AND POLOCAT LIKE :4 ORDER BY PODATE DESC '+cbViewdata.EditValue);
+          qrFindDat.Params[0].Asstring := Uppercase('%' + SearchEd.Text + '%');
+          if OrderCombo.Itemindex <> 3 then
+          begin
+            qrFindDat.Params[1].Asstring := Uppercase(fSrcDlg.XSrLocat) + '%';
+          end
+          else
+          begin
+            qrFindDat.Params[1].Asstring := Uppercase('%' + SearchEd.Text + '%');
+            qrFindDat.Params[2].Asstring := Uppercase('%' + SearchEd.Text + '%');
+            qrFindDat.Params[3].Asstring := Uppercase(fSrcDlg.XSrLocat) + '%';
+          end;
+          if not qrFindDat.Prepared then
+            qrFindDat.Prepare;
+          qrFindDat.Open;
       end;
     9:Begin
         Sqltxt :='SELECT JOBNO,STRNO,ENGNO,REGNO,NAME1,NAME2,LOCAT,RECVDATE '+
@@ -2099,11 +2107,11 @@ begin
           qrFindDat.Params[5].Asstring := Uppercase(fsrcDlg.nSvColor)+'%';
         end else
         begin
-          qrFindDat.Params[5].Asstring := Uppercase(fsrcDlg.XSrLocat)+'%';
-          qrFindDat.Params[6].Asstring := Uppercase(fsrcDlg.Flag_a)+'%';
-          qrFindDat.Params[7].Asstring := Uppercase(fsrcDlg.XCuscod)+'%';
-          qrFindDat.Params[8].Asstring := Uppercase(fsrcDlg.xSaltype)+'%';
-          qrFindDat.Params[9].Asstring := Uppercase(fsrcDlg.nSvColor)+'%';                   
+          qrFindDat.Params[1].Asstring := Uppercase(fsrcDlg.XSrLocat)+'%';
+          qrFindDat.Params[2].Asstring := Uppercase(fsrcDlg.Flag_a)+'%';
+          qrFindDat.Params[3].Asstring := Uppercase(fsrcDlg.XCuscod)+'%';
+          qrFindDat.Params[4].Asstring := Uppercase(fsrcDlg.xSaltype)+'%';
+          qrFindDat.Params[5].Asstring := Uppercase(fsrcDlg.nSvColor)+'%';
         end;
         If Not qrFindDat.Prepared Then qrFindDat.Prepare;
         qrFindDat.Open;
@@ -2232,9 +2240,9 @@ begin
         If OrderCombo.Itemindex=5 Then
         SQL .ADD(Sqltxt+'I.PONO LIKE :EDIT1 AND (I.FLAG=''4'' OR I.FLAG=''5'') AND I.RECVLOC LIKE :EDIT2 '+Vtext+' ORDER BY I.RECVDT DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=6 Then
-        SQL .ADD(Sqltxt+'((I.RECVNO LIKE :EDIT1) or (I.APCODE LIKE :EDIT1) or (B.APNAME LIKE :EDIT1) '+
-                        'or (I.INVNO LIKE :EDIT1) or (I.TAXNO LIKE :EDIT1) or (I.PONO LIKE :EDIT1)) AND (I.FLAG=''4'' OR I.FLAG=''5'') '+
-                        'AND I.RECVLOC LIKE :EDIT2 '+Vtext+' ORDER BY I.RECVDT DESC '+cbViewdata.EditValue);
+        SQL .ADD(Sqltxt+'((I.RECVNO LIKE :EDIT1) or (I.APCODE LIKE :EDIT2) or (B.APNAME LIKE :EDIT3) '+
+                        'or (I.INVNO LIKE :EDIT4) or (I.TAXNO LIKE :EDIT5) or (I.PONO LIKE :EDIT6)) AND (I.FLAG=''4'' OR I.FLAG=''5'') '+
+                        'AND I.RECVLOC LIKE :EDIT7 '+Vtext+' ORDER BY I.RECVDT DESC '+cbViewdata.EditValue);
         qrFindDat.Params[0].Asstring := Uppercase('%'+SearchEd.Text+'%');
         If OrderCombo.Itemindex <> 6 Then
         begin
@@ -2242,6 +2250,11 @@ begin
         //  qrFindDat.Params[2].AsString := Uppercase(fsrcDlg.nPaytyp +'%');
         end else
         begin
+          qrFindDat.Params[1].Asstring := Uppercase('%'+SearchEd.Text+'%');
+          qrFindDat.Params[2].Asstring := Uppercase('%'+SearchEd.Text+'%');
+          qrFindDat.Params[3].Asstring := Uppercase('%'+SearchEd.Text+'%');
+          qrFindDat.Params[4].Asstring := Uppercase('%'+SearchEd.Text+'%');
+          qrFindDat.Params[5].Asstring := Uppercase('%'+SearchEd.Text+'%');
           qrFindDat.Params[6].AsString := Uppercase(fsrcDlg.XSrLocat +'%');
         //  qrFindDat.Params[7].AsString := Uppercase(fsrcDlg.nPaytyp );
         end;
@@ -2363,21 +2376,28 @@ begin
         If OrderCombo.Itemindex=5 Then
         SQL.ADD( Sqltxt+'C.NAME2 LIKE :EDIT1 AND A.FLAG=:EDIT2 AND A.RTNLOC LIKE :EDIT3 ORDER BY A.RTNDT DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=6 Then
-        SQL.ADD( Sqltxt+'((A.RTNNO LIKE :EDIT1) or (A.TAXREFNO LIKE :EDIT1) or (A.CREDNO LIKE :EDIT1) '+
-                        'or (A.APCODE LIKE :EDIT1) or (C.NAME1 LIKE :EDIT1) or (C.NAME2 LIKE :EDIT1)) '+
-                        'AND A.FLAG=:EDIT2 AND A.RTNLOC LIKE :EDIT3 ORDER BY A.RTNDT DESC '+cbViewdata.EditValue);
+        SQL.ADD( Sqltxt+'((A.RTNNO LIKE :EDIT1) or (A.TAXREFNO LIKE :EDIT2) or (A.CREDNO LIKE :EDIT3) '+
+                        'or (A.APCODE LIKE :EDIT4) or (C.NAME1 LIKE :EDIT5) or (C.NAME2 LIKE :EDIT6)) '+
+                        'AND A.FLAG=:EDIT7 AND A.RTNLOC LIKE :EDIT8 ORDER BY A.RTNDT DESC '+cbViewdata.EditValue);
 
-        qrFindDat.Params[0].Asstring := Uppercase('%'+SearchEd.Text+'%');
-        If OrderCombo.Itemindex <> 6 Then
+        qrFindDat.Params[0].Asstring := Uppercase('%' + SearchEd.Text + '%');
+        if OrderCombo.Itemindex <> 6 then
         begin
           qrFindDat.Params[1].Asstring := Flag_a;
-          qrFindDat.Params[2].AsString := Uppercase(fSrcDlg.XSrLocat)+'%';
-        end else
+          qrFindDat.Params[2].AsString := Uppercase(fSrcDlg.XSrLocat) + '%';
+        end
+        else
         begin
+          qrFindDat.Params[1].Asstring := Uppercase('%' + SearchEd.Text + '%');
+          qrFindDat.Params[2].Asstring := Uppercase('%' + SearchEd.Text + '%');
+          qrFindDat.Params[3].Asstring := Uppercase('%' + SearchEd.Text + '%');
+          qrFindDat.Params[4].Asstring := Uppercase('%' + SearchEd.Text + '%');
+          qrFindDat.Params[5].Asstring := Uppercase('%' + SearchEd.Text + '%');
           qrFindDat.Params[6].Asstring := Flag_a;
-          qrFindDat.Params[7].AsString := Uppercase(fSrcDlg.XSrLocat)+'%';
+          qrFindDat.Params[7].AsString := Uppercase(fSrcDlg.XSrLocat) + '%';
         end;
-        If Not qrFindDat.Prepared Then qrFindDat.Prepare;
+        if not qrFindDat.Prepared then
+          qrFindDat.Prepare;
         qrFindDat.Open;
       end;
    25:begin
@@ -2401,8 +2421,8 @@ begin
           qrFindDat.Params[2].Asstring := Key_a+'%';
         end else
         begin
-          qrFindDat.Params[3].Asstring := Flag_a+'%';
-          qrFindDat.Params[4].Asstring := Key_a+'%';
+          qrFindDat.Params[1].Asstring := Flag_a+'%';
+          qrFindDat.Params[2].Asstring := Key_a+'%';
         end;
         If Not qrFindDat.Prepared Then qrFindDat.Prepare;
         qrFindDat.Open;

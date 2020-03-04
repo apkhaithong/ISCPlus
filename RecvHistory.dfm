@@ -67,6 +67,7 @@ object FRecvHistory: TFRecvHistory
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
+      LookAndFeel.ScrollbarMode = sbmClassic
       LookAndFeel.SkinName = 'LiquidSky'
       object cxDBGridTran: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
@@ -341,7 +342,7 @@ object FRecvHistory: TFRecvHistory
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -354,8 +355,8 @@ object FRecvHistory: TFRecvHistory
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -366,19 +367,21 @@ object FRecvHistory: TFRecvHistory
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -602,12 +605,14 @@ object FRecvHistory: TFRecvHistory
   end
   object QPotran: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT A.PARTNO,B.DESC1,A.RECVLOC,A.RECVNO,A.RECVDATE,A.APCODE,C' +
         '.APNAME,A.UCOST,A.QTYRECV,A.NETCOST,A.NETTOT,'
-      '       A.AVGCOST,A.AVGCOST * A.QTYRECV TOTAVGCOST'
+      
+        '       A.AVGCOST, CAST(A.AVGCOST * A.QTYRECV AS DECIMAL(12, 2)) ' +
+        'TOTAVGCOST'
       'FROM RC_TRANS A INNER JOIN INVMAST B ON (A.PARTNO=B.PARTNO) '
       '                INNER JOIN APMAST C ON (A.APCODE=C.APCODE)'
       'WHERE A.PARTNO = '#39'COS0001'#39' AND A.FLAG = '#39'5'#39

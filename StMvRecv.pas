@@ -515,6 +515,7 @@ begin
         FmDmic01.RcTrn1Recvdate.AsDateTime := FmDmic01.Rcinv1Recvdt.AsDateTime;
         FmDmic01.RcTrn1Year1.AsString := FmDmic01.Query2.FieldByName('Year1').AsString;
         FmDmic01.RcTrn1Partno.AsString := FmDmic01.Query2.FieldByName('Partno').AsString;
+        FmDmic01.RcTrn1PARTDESC.AsString := FmDmic01.Query2.FieldByName('PARTDESC').AsString;
         FmDmic01.RcTrn1Ucost.AsFloat := FmDmic01.Query2.FieldByName('Uprice').AsFloat;
         FmDmic01.RcTrn1QtyORD.AsFloat := FmDmic01.Query2.FieldByName('QtyMov').AsFloat;
         FmDmic01.RcTrn1Qtyrecv.AsFloat := FmDmic01.Query2.FieldByName('QtyMov').AsFloat;

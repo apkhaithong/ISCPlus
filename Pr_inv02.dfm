@@ -218,11 +218,8 @@ object FPr_inv02: TFPr_inv02
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
+      LookAndFeel.ScrollbarMode = sbmClassic
       LookAndFeel.SkinName = 'LiquidSky'
-      ExplicitLeft = 1
-      ExplicitTop = 217
-      ExplicitWidth = 1025
-      ExplicitHeight = 306
       object cxGridTran: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False
@@ -731,9 +728,6 @@ object FPr_inv02: TFPr_inv02
       StyleDisabled.LookAndFeel.NativeStyle = False
       StyleDisabled.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 5
-      ExplicitLeft = 1
-      ExplicitTop = 523
-      ExplicitWidth = 1025
       Height = 86
       Width = 1027
       object Label11: TLabel
@@ -869,6 +863,7 @@ object FPr_inv02: TFPr_inv02
       Caption = #3651#3594#3657#3626#3656#3623#3609#3621#3604#3585#3634#3619#3586#3629#3626#3633#3656#3591#3595#3639#3657#3629
       DataBinding.DataField = 'DISCTYP'
       DataBinding.DataSource = DataSource1
+      ParentBackground = False
       ParentColor = False
       ParentFont = False
       Properties.Columns = 2
@@ -917,6 +912,7 @@ object FPr_inv02: TFPr_inv02
       Caption = #3619#3634#3588#3634#3607#3637#3656#3651#3594#3657#3586#3629#3626#3633#3656#3591#3595#3639#3657#3629
       DataBinding.DataField = 'COSTFLG'
       DataBinding.DataSource = DataSource1
+      ParentBackground = False
       ParentColor = False
       ParentFont = False
       Properties.Items = <
@@ -958,6 +954,7 @@ object FPr_inv02: TFPr_inv02
       Caption = #3623#3636#3608#3637#3610#3633#3609#3607#3638#3585#3585#3634#3619#3586#3629#3626#3633#3656#3591#3595#3639#3657#3629
       DataBinding.DataField = 'TRANF'
       DataBinding.DataSource = DataSource1
+      ParentBackground = False
       ParentColor = False
       ParentFont = False
       Properties.Columns = 2
@@ -1200,6 +1197,7 @@ object FPr_inv02: TFPr_inv02
       Caption = #3611#3619#3632#3648#3616#3607#3616#3634#3625#3637
       DataBinding.DataField = 'VATTYPE'
       DataBinding.DataSource = DataSource1
+      ParentBackground = False
       ParentColor = False
       ParentFont = False
       Properties.Columns = 2

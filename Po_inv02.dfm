@@ -28,8 +28,10 @@ object FPo_inv02: TFPo_inv02
     Width = 990
     Height = 610
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -37,29 +39,38 @@ object FPo_inv02: TFPo_inv02
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
-    object Bevel1: TBevel
-      Left = 1
-      Top = 1
-      Width = 988
-      Height = 218
-      Align = alTop
-    end
     object Label1: TLabel
       Left = 28
       Top = 42
@@ -243,11 +254,14 @@ object FPo_inv02: TFPo_inv02
       ParentFont = False
     end
     object Bevel2: TBevel
-      Left = 1
-      Top = 286
-      Width = 988
+      Left = 0
+      Top = 285
+      Width = 990
       Height = 41
       Align = alTop
+      ExplicitLeft = 1
+      ExplicitTop = 286
+      ExplicitWidth = 988
     end
     object Label9: TLabel
       Left = 429
@@ -263,11 +277,21 @@ object FPo_inv02: TFPo_inv02
       Font.Style = []
       ParentFont = False
     end
+    object Bevel1: TBevel
+      Left = 0
+      Top = 0
+      Width = 990
+      Height = 218
+      Align = alTop
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 988
+    end
     object cxGrid1: TcxGrid
-      Left = 1
-      Top = 327
-      Width = 988
-      Height = 226
+      Left = 0
+      Top = 326
+      Width = 990
+      Height = 228
       Align = alClient
       Font.Charset = THAI_CHARSET
       Font.Color = clWindowText
@@ -278,7 +302,12 @@ object FPo_inv02: TFPo_inv02
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
+      LookAndFeel.ScrollbarMode = sbmClassic
       LookAndFeel.SkinName = 'LiquidSky'
+      ExplicitLeft = 1
+      ExplicitTop = 327
+      ExplicitWidth = 988
+      ExplicitHeight = 226
       object cxGridTran: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False
@@ -407,12 +436,14 @@ object FPo_inv02: TFPo_inv02
         object cxGridTranORDQTY: TcxGridDBColumn
           Caption = #3592#3635#3609#3623#3609#3626#3633#3656#3591
           DataBinding.FieldName = 'ORDQTY'
+          PropertiesClassName = 'TcxCalcEditProperties'
           HeaderAlignmentHorz = taCenter
           Width = 64
         end
         object cxGridTranORDCOST: TcxGridDBColumn
           Caption = #3607#3640#3609#3605#3656#3629#3627#3609#3656#3623#3618
           DataBinding.FieldName = 'ORDCOST'
+          PropertiesClassName = 'TcxCalcEditProperties'
           HeaderAlignmentHorz = taCenter
         end
         object cxGridTranNETFL: TcxGridDBColumn
@@ -430,12 +461,14 @@ object FPo_inv02: TFPo_inv02
         object cxGridTranREDU: TcxGridDBColumn
           Caption = '% '#3626#3656#3623#3609#3621#3604
           DataBinding.FieldName = 'REDU'
+          PropertiesClassName = 'TcxCalcEditProperties'
           HeaderAlignmentHorz = taCenter
           Width = 61
         end
         object cxGridTranNETCOST: TcxGridDBColumn
           Caption = #3619#3634#3588#3634#3626#3640#3607#3608#3636'/'#3627#3609#3656#3623#3618
           DataBinding.FieldName = 'NETCOST'
+          PropertiesClassName = 'TcxCalcEditProperties'
           HeaderAlignmentHorz = taCenter
           Options.Editing = False
           Options.Focusing = False
@@ -444,6 +477,7 @@ object FPo_inv02: TFPo_inv02
         object cxGridTranTOTCOST: TcxGridDBColumn
           Caption = #3619#3623#3617#3619#3634#3588#3634
           DataBinding.FieldName = 'TOTCOST'
+          PropertiesClassName = 'TcxCalcEditProperties'
           HeaderAlignmentHorz = taCenter
           Width = 101
         end
@@ -782,8 +816,8 @@ object FPo_inv02: TFPo_inv02
       Appearance.GradientChecked = ggVertical
     end
     object cxGroupBox1: TcxGroupBox
-      Left = 1
-      Top = 553
+      Left = 0
+      Top = 554
       Align = alBottom
       Caption = #3619#3623#3617#3618#3629#3604#3648#3591#3636#3609
       ParentFont = False
@@ -798,8 +832,11 @@ object FPo_inv02: TFPo_inv02
       StyleDisabled.LookAndFeel.NativeStyle = False
       StyleDisabled.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 6
+      ExplicitLeft = 1
+      ExplicitTop = 553
+      ExplicitWidth = 988
       Height = 56
-      Width = 988
+      Width = 990
       object Label11: TLabel
         Left = 216
         Top = 26
@@ -962,12 +999,15 @@ object FPo_inv02: TFPo_inv02
       Style.Font.Height = -13
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
+      Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 7
+      Transparent = True
       OnClick = cxDBRadioGroup1Click
       Height = 64
       Width = 276
@@ -997,12 +1037,15 @@ object FPo_inv02: TFPo_inv02
       Style.Font.Height = -13
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
+      Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 8
+      Transparent = True
       Height = 65
       Width = 234
     end
@@ -1033,14 +1076,17 @@ object FPo_inv02: TFPo_inv02
       Style.Font.Height = -13
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
+      Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 9
+      Transparent = True
       Height = 46
-      Width = 276
+      Width = 275
     end
     object cxDBTextEdit7: TcxDBTextEdit
       Left = 766
@@ -1120,14 +1166,15 @@ object FPo_inv02: TFPo_inv02
       Style.Font.Height = -13
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
-      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
-      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 12
+      Transparent = True
       Height = 46
       Width = 234
     end
@@ -1198,8 +1245,8 @@ object FPo_inv02: TFPo_inv02
       Appearance.ColorMirrorDisabledTo = 15921906
     end
     object cxGroupBox2: TcxGroupBox
-      Left = 1
-      Top = 219
+      Left = 0
+      Top = 218
       Align = alTop
       Caption = 'Quick Barcode'
       ParentFont = False
@@ -1209,14 +1256,15 @@ object FPo_inv02: TFPo_inv02
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
-      Style.Shadow = True
+      Style.LookAndFeel.SkinName = ''
+      Style.Shadow = False
       Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 15
+      Transparent = True
       Height = 67
-      Width = 988
+      Width = 990
       object Label12: TLabel
         Left = 12
         Top = 23
@@ -1744,7 +1792,7 @@ object FPo_inv02: TFPo_inv02
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -1757,8 +1805,8 @@ object FPo_inv02: TFPo_inv02
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -1769,19 +1817,21 @@ object FPo_inv02: TFPo_inv02
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -2291,7 +2341,7 @@ object FPo_inv02: TFPo_inv02
     OnCalcFields = QPoinv1CalcFields
     OnNewRecord = QPoinv1NewRecord
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     UpdateOptions.AssignedValues = [uvUpdateMode]
     UpdateOptions.UpdateMode = upWhereChanged
     SQL.Strings = (
@@ -2417,10 +2467,6 @@ object FPo_inv02: TFPo_inv02
       BlobType = ftMemo
       Size = 1
     end
-    object QPoinv1CREDTM: TFloatField
-      FieldName = 'CREDTM'
-      OnValidate = QPoinv1CREDTMValidate
-    end
     object QPoinv1PRCFLG: TStringField
       FieldName = 'PRCFLG'
       Size = 1
@@ -2430,6 +2476,17 @@ object FPo_inv02: TFPo_inv02
       FixedChar = True
       Size = 1
     end
+    object QPoinv1CREDTM: TIntegerField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+      OnValidate = QPoinv1CREDTMValidate
+    end
+    object QPoinv1LOTNO: TStringField
+      FieldName = 'LOTNO'
+      Origin = 'LOTNO'
+      FixedChar = True
+      Size = 30
+    end
   end
   object QPoTrn: TFDQuery
     BeforePost = QPoTrnBeforePost
@@ -2438,7 +2495,7 @@ object FPo_inv02: TFPo_inv02
     AfterDelete = QPoTrnAfterPost
     OnNewRecord = QPoTrnNewRecord
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     UpdateOptions.AssignedValues = [uvUpdateMode]
     UpdateOptions.UpdateMode = upWhereChanged
     SQL.Strings = (
@@ -2546,7 +2603,7 @@ object FPo_inv02: TFPo_inv02
   end
   object QTemp: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM TEMPTB2')
     Left = 953
@@ -2554,7 +2611,7 @@ object FPo_inv02: TFPo_inv02
   end
   object QPotype: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM POTYPE')
     Left = 938
@@ -2583,12 +2640,12 @@ object FPo_inv02: TFPo_inv02
     Top = 128
   end
   object Query1: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     Left = 888
     Top = 64
   end
   object QInvt: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT *  FROM INVENTOR')
     Left = 939
@@ -2611,7 +2668,7 @@ object FPo_inv02: TFPo_inv02
   end
   object QDbconfig: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM SDBCONFIG')
     Left = 594
@@ -2619,13 +2676,13 @@ object FPo_inv02: TFPo_inv02
   end
   object QLastno: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     UpdateOptions.AssignedValues = [uvUpdateMode]
     Left = 561
     Top = 13
   end
   object QLocat: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     UpdateOptions.AssignedValues = [uvUpdateMode]
     UpdateOptions.UpdateMode = upWhereChanged
     SQL.Strings = (
@@ -2635,21 +2692,21 @@ object FPo_inv02: TFPo_inv02
   end
   object Condpay: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM SCONDPAY')
     Left = 531
     Top = 13
   end
   object Query2: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM SCONDPAY')
     Left = 331
     Top = 189
   end
   object Query3: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM SCONDPAY')
     Left = 299

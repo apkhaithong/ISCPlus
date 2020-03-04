@@ -751,13 +751,13 @@ begin
                 'WHERE A.PONO LIKE :EDIT1 AND A.POLOCAT LIKE :EDIT2 '+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=1 Then
         SQL.ADD('SELECT A.PONO,A.PODATE,A.APCODE,B.APNAME,A.POLOCAT FROM PO_INVOI A INNER JOIN APMAST B ON (A.APCODE=B.APCODE) '+
-                'WHERE A.APCODE LIKE :EDIT1 AND A.POLOCAT LIKE :EDIT2'+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
+                'WHERE A.APCODE LIKE :EDIT1 AND A.POLOCAT LIKE :EDIT2 '+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=2 Then
         SQL.ADD('SELECT A.PONO,A.PODATE,A.APCODE,B.APNAME,A.POLOCAT FROM PO_INVOI A INNER JOIN APMAST B ON (A.APCODE=B.APCODE) '+
-                'WHERE B.APNAME LIKE :EDIT1 AND A.POLOCAT LIKE :EDIT2'+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
+                'WHERE B.APNAME LIKE :EDIT1 AND A.POLOCAT LIKE :EDIT2 '+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=3 Then
         SQL.ADD('SELECT A.PONO,A.PODATE,A.APCODE,B.APNAME,A.POLOCAT FROM PO_INVOI A INNER JOIN APMAST B ON (A.APCODE=B.APCODE) '+
-                'WHERE  ((A.APCODE LIKE :EDIT1) or (A.PONO LIKE :EDIT1) or (B.APNAME LIKE :EDIT1)) AND A.POLOCAT LIKE :EDIT2'+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
+                'WHERE  ((A.APCODE LIKE :EDIT1) or (A.PONO LIKE :EDIT2) or (B.APNAME LIKE :EDIT3)) AND A.POLOCAT LIKE :EDIT4 '+SC1+' ORDER BY A.PODATE DESC '+cbViewdata.EditValue);
       end;
     9:begin
         If OrderCombo.Itemindex=0 Then
@@ -837,13 +837,13 @@ begin
                 'WHERE A.PRNO LIKE :EDIT1 AND A.PRLOCAT LIKE :EDIT2 '+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=1 Then
         SQL.ADD('SELECT A.PRNO,A.PRDATE,A.APCODE,B.APNAME,A.PRLOCAT FROM PR_INVOI A INNER JOIN APMAST B ON (A.APCODE=B.APCODE) '+
-                'WHERE A.APCODE LIKE :EDIT1 AND A.PRLOCAT LIKE :EDIT2'+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
+                'WHERE A.APCODE LIKE :EDIT1 AND A.PRLOCAT LIKE :EDIT2 '+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=2 Then
         SQL.ADD('SELECT A.PRNO,A.PRDATE,A.APCODE,B.APNAME,A.PRLOCAT FROM PR_INVOI A INNER JOIN APMAST B ON (A.APCODE=B.APCODE) '+
-                'WHERE B.APNAME LIKE :EDIT1 AND A.PRLOCAT LIKE :EDIT2'+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
+                'WHERE B.APNAME LIKE :EDIT1 AND A.PRLOCAT LIKE :EDIT2 '+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
         If OrderCombo.Itemindex=3 Then
         SQL.ADD('SELECT A.PRNO,A.PRDATE,A.APCODE,B.APNAME,A.PRLOCAT FROM PR_INVOI A INNER JOIN APMAST B ON (A.APCODE=B.APCODE) '+
-                'WHERE  ((A.APCODE LIKE :EDIT1) or (A.PRNO LIKE :EDIT1) or (B.APNAME LIKE :EDIT1)) AND A.PRLOCAT LIKE :EDIT2'+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
+                'WHERE  ((A.APCODE LIKE :EDIT1) or (A.PRNO LIKE :EDIT2) or (B.APNAME LIKE :EDIT3)) AND A.PRLOCAT LIKE :EDIT4 '+SC1+' ORDER BY A.PRDATE DESC '+cbViewdata.EditValue);
       end;
 
     end;
@@ -853,15 +853,25 @@ begin
     if OrderCombo.Tag=8 then
     begin
       if OrderCombo.ItemIndex = 3 then
-      qrFindDat.Params[3].AsString := Uppercase(fFindPO.XSrLocat)+'%' else
-      qrFindDat.Params[1].AsString := Uppercase(fFindPO.XSrLocat)+'%';
+      begin
+        qrFindDat.Params[1].Asstring := Uppercase('%'+SearchEd.TEXT+'%');
+        qrFindDat.Params[2].Asstring := Uppercase('%'+SearchEd.TEXT+'%');
+        qrFindDat.Params[3].AsString := Uppercase(fFindPO.XSrLocat) + '%';
+      end
+      else
+        qrFindDat.Params[1].AsString := Uppercase(fFindPO.XSrLocat) + '%';
     end;
 
     if OrderCombo.Tag=20 then
     begin
       if OrderCombo.ItemIndex = 3 then
-      qrFindDat.Params[3].AsString := Uppercase(fFindPO.XSrLocat)+'%' else
-      qrFindDat.Params[1].AsString := Uppercase(fFindPO.XSrLocat)+'%';
+      begin
+        qrFindDat.Params[1].Asstring := Uppercase('%'+SearchEd.TEXT+'%');
+        qrFindDat.Params[2].Asstring := Uppercase('%'+SearchEd.TEXT+'%');
+        qrFindDat.Params[3].AsString := Uppercase(fFindPO.XSrLocat) + '%';
+      end
+      else
+        qrFindDat.Params[1].AsString := Uppercase(fFindPO.XSrLocat) + '%';
     end;
 
     qrFindDat.Open;

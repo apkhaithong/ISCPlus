@@ -28,8 +28,10 @@ object FmSTIn01: TFmSTIn01
     Width = 1143
     Height = 551
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -37,35 +39,57 @@ object FmSTIn01: TFmSTIn01
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Bevel2: TBevel
-      Left = 1
-      Top = 178
-      Width = 1141
+      Left = 0
+      Top = 177
+      Width = 1143
       Height = 50
       Align = alTop
+      ExplicitLeft = 1
+      ExplicitTop = 178
+      ExplicitWidth = 1141
     end
     object Bevel1: TBevel
-      Left = 1
-      Top = 1
-      Width = 1141
+      Left = 0
+      Top = 0
+      Width = 1143
       Height = 177
       Align = alTop
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 1141
     end
     object Label19: TLabel
       Left = 10
@@ -335,10 +359,10 @@ object FmSTIn01: TFmSTIn01
       ParentFont = False
     end
     object cxGrid1: TcxGrid
-      Left = 1
-      Top = 228
-      Width = 1141
-      Height = 188
+      Left = 0
+      Top = 227
+      Width = 1143
+      Height = 190
       Align = alClient
       Font.Charset = THAI_CHARSET
       Font.Color = clWindowText
@@ -349,7 +373,12 @@ object FmSTIn01: TFmSTIn01
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
+      LookAndFeel.ScrollbarMode = sbmClassic
       LookAndFeel.SkinName = 'LiquidSky'
+      ExplicitLeft = 1
+      ExplicitTop = 228
+      ExplicitWidth = 1141
+      ExplicitHeight = 188
       object cxGridTran: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False
@@ -615,6 +644,7 @@ object FmSTIn01: TFmSTIn01
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 4
+      Transparent = True
       OnMouseUp = DBCheckBox1MouseUp
     end
     object CheckBox1: TcxCheckBox
@@ -637,10 +667,11 @@ object FmSTIn01: TFmSTIn01
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 5
+      Transparent = True
     end
     object cxGroupBox1: TcxGroupBox
-      Left = 1
-      Top = 416
+      Left = 0
+      Top = 417
       Align = alBottom
       Caption = #3619#3623#3617#3618#3629#3604#3648#3591#3636#3609
       ParentFont = False
@@ -650,13 +681,14 @@ object FmSTIn01: TFmSTIn01
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 6
+      Transparent = True
       Height = 134
-      Width = 1141
+      Width = 1143
       object Label1: TLabel
         Left = 156
         Top = 24
@@ -1408,15 +1440,16 @@ object FmSTIn01: TFmSTIn01
       Style.Font.Height = -13
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
-      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'GlassOceans'
+      Style.LookAndFeel.SkinName = ''
       Style.Shadow = False
       Style.IsFontAssigned = True
-      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 22
+      Transparent = True
       Height = 44
       Width = 182
     end
@@ -1713,15 +1746,16 @@ object FmSTIn01: TFmSTIn01
       Style.Font.Height = -13
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
-      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.Kind = lfUltraFlat
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'GlassOceans'
+      Style.LookAndFeel.SkinName = ''
       Style.Shadow = False
       Style.IsFontAssigned = True
-      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 30
+      Transparent = True
       OnClick = cxDBRadioGroup1Click
       Height = 44
       Width = 315
@@ -1734,7 +1768,7 @@ object FmSTIn01: TFmSTIn01
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -1747,8 +1781,8 @@ object FmSTIn01: TFmSTIn01
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -1759,19 +1793,21 @@ object FmSTIn01: TFmSTIn01
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''

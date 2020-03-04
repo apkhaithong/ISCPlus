@@ -514,6 +514,7 @@ object Fenqpkinv: TFenqpkinv
     TabOrder = 1
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
+    LookAndFeel.ScrollbarMode = sbmClassic
     LookAndFeel.SkinName = 'LiquidSky'
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
@@ -699,7 +700,7 @@ object Fenqpkinv: TFenqpkinv
     end
   end
   object qrPkNoTax: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT A.PKNO,A.PKLOCAT,A.PKDATE,A.CUSCOD,A.JOBNO,A.NETTOTAL,A.B' +
@@ -777,7 +778,7 @@ object Fenqpkinv: TFenqpkinv
     Top = 220
   end
   object Query2: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT A.PKNO,A.PKLOCAT,A.PKDATE,A.CUSCOD,A.JOBNO,A.NETTOTAL,A.B' +
