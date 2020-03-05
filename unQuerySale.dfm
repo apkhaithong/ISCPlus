@@ -919,7 +919,7 @@ object FQuerySale: TFQuerySale
     end
   end
   object qrPkNoTax: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT A.INVLOC,A.PARTNO,A.INVNO,A.INVDATE,A.CUSCOD,SUBSTR(RTRIM' +
@@ -1019,7 +1019,7 @@ object FQuerySale: TFQuerySale
     Top = 228
   end
   object Query2: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT A.PKNO,A.PKLOCAT,A.PKDATE,A.CUSCOD,A.JOBNO,A.NETTOTAL,A.B' +
@@ -1040,7 +1040,7 @@ object FQuerySale: TFQuerySale
     end
   end
   object qrTopsale1: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       
         'SELECT A.PARTNO,T.DESC1,SUM(A.QTYOUT) QTYOUT,SUM(A.TOTPRC) TOTPR' +

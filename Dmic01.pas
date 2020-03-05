@@ -97,7 +97,6 @@ type
     IcinvINVNO: TStringField;
     IcinvINVLOC: TStringField;
     IcinvINVDATE: TDateField;
-    IcinvCREDTM: TFloatField;
     IcinvINVDUE: TDateField;
     IcinvPKNO: TStringField;
     IcinvVATTYPE: TStringField;
@@ -117,7 +116,6 @@ type
     IcinvFLAG: TStringField;
     IcinvJOBNO: TStringField;
     IcinvMEMO1: TMemoField;
-    IcinvTNOPAY: TFloatField;
     IcinvTAXDATE: TDateField;
     IcTranINVNO: TStringField;
     IcTranINVLOC: TStringField;
@@ -818,6 +816,8 @@ type
     Rcinv2TNOPAY: TIntegerField;
     Rcinv1CREDTM: TFloatField;
     Rcinv1TNOPAY: TIntegerField;
+    IcinvTNOPAY: TIntegerField;
+    IcinvCREDTM: TFloatField;
     procedure RctranNewRecord(DataSet: TDataSet);
     procedure RcinvNewRecord(DataSet: TDataSet);
     procedure RcinvRECVDTValidate(Sender: TField);
@@ -1102,6 +1102,7 @@ type
     procedure RcinvUpdateError(ASender: TDataSet; AException: EFDException; ARow: TFDDatSRow; ARequest: TFDUpdateRequest; var AAction: TFDErrorAction);
     procedure TmpAjIvUpdateError(ASender: TDataSet; AException: EFDException; ARow: TFDDatSRow; ARequest: TFDUpdateRequest; var AAction: TFDErrorAction);
     procedure Rcinv2UpdateError(ASender: TDataSet; AException: EFDException; ARow: TFDDatSRow; ARequest: TFDUpdateRequest; var AAction: TFDErrorAction);
+    procedure RtinvAfterDelete(DataSet: TDataSet);
   private
     { Private declarations }
     //procedure CheckEditRight(XSource:TDataSource);
@@ -3650,6 +3651,69 @@ begin
     QLastno.CancelUpdates;
   if TaxSal.Active then
     TaxSal.CancelUpdates;
+end;
+
+procedure TFmDmic01.RtinvAfterDelete(DataSet: TDataSet);
+var
+  S: string;
+begin
+  S := RtinvRTNNO.Asstring;
+  DM_SEC.HI_DBMS.StartTransaction;
+  try
+    if not RTtran.IsEmpty then
+    begin
+      RTtran.First;
+      while not RTtran.Eof do
+      begin
+        RTtran.Delete;
+      end;
+    end;
+    //
+    if not TaxSal.IsEmpty then
+    begin
+      TaxSal.First;
+      while not TaxSal.Eof do
+      begin
+        TaxSal.Delete;
+      end;
+    end;
+    //
+    if not Qarinvoi.IsEmpty then
+    begin
+      Qarinvoi.First;
+      while not Qarinvoi.Eof do
+      begin
+        Qarinvoi.Delete;
+      end;
+    end;
+    //
+    if RTtran.Active then
+      if (RTtran.ApplyUpdates = 0) then
+        RTtran.CommitUpdates
+      else
+        raise Exception.Create(RTtran.RowError.Message);
+    if TaxSal.Active then
+      if (TaxSal.ApplyUpdates = 0) then
+        TaxSal.CommitUpdates
+      else
+        raise Exception.Create(TaxSal.RowError.Message);
+    if Qarinvoi.Active then
+      if (Qarinvoi.ApplyUpdates = 0) then
+        Qarinvoi.CommitUpdates
+      else
+        raise Exception.Create(Qarinvoi.RowError.Message);
+    if RTinv.Active then
+      if (RTinv.ApplyUpdates = 0) then
+        RTinv.CommitUpdates
+      else
+        raise Exception.Create(RTinv.RowError.Message);
+    DM_SEC.HI_DBMS.Commit;
+  except
+    DM_SEC.HI_DBMS.RollBack;
+    //RtinvBeforeCancel(Rtinv);
+    RTinv.Edit;
+    raise;
+  end;
 end;
 
 procedure TFmDmic01.Rctrn1AfterOpen(DataSet: TDataSet);

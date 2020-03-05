@@ -149,9 +149,6 @@ object Dm_Ar: TDm_Ar
       FieldName = 'PAYAMT'
       DisplayFormat = '#,##0.00'
     end
-    object QArbilTrNOPAY: TFloatField
-      FieldName = 'NOPAY'
-    end
     object QArbilTrJOBNO: TStringField
       FieldName = 'JOBNO'
       Size = 15
@@ -176,6 +173,10 @@ object Dm_Ar: TDm_Ar
     object QArbilTrREFBILLNO: TStringField
       FieldName = 'REFBILLNO'
       Size = 12
+    end
+    object QArbilTrNOPAY: TIntegerField
+      FieldName = 'NOPAY'
+      Origin = 'NOPAY'
     end
   end
   object SoArbilTr: TDataSource
@@ -1187,7 +1188,6 @@ object Dm_Ar: TDm_Ar
     MasterFields = 'INVNO;LOCAT'
     Connection = DM_SEC.HI_DBMS
     UpdateOptions.AssignedValues = [uvUpdateMode]
-    UpdateOptions.UpdateMode = upWhereChanged
     UpdateOptions.UpdateTableName = 'ARINVOI'
     TableName = 'ARINVOI'
     Left = 120

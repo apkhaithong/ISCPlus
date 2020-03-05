@@ -359,7 +359,7 @@ object Fupstock: TFupstock
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -372,8 +372,8 @@ object Fupstock: TFupstock
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -384,19 +384,21 @@ object Fupstock: TFupstock
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -617,7 +619,7 @@ object Fupstock: TFupstock
   object QInvanls: TFDQuery
     AfterPost = QInvanlsAfterPost
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     Left = 417
     Top = 13
   end
@@ -627,29 +629,29 @@ object Fupstock: TFupstock
     Top = 9
   end
   object QStkcard: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     Left = 189
     Top = 5
   end
   object Query1: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     Left = 221
     Top = 5
   end
   object Qlocat: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     Left = 253
     Top = 5
   end
   object Qpart: TFDQuery
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     Left = 89
     Top = 9
   end
   object Rctran: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM RC_TRANS')
     Left = 245
@@ -873,7 +875,7 @@ object Fupstock: TFupstock
   end
   object Rttran: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM RT_TRAN')
     Left = 245
@@ -1066,7 +1068,7 @@ object Fupstock: TFupstock
   end
   object AdjTran: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM ADJ_TRANS')
     Left = 374
@@ -1189,7 +1191,7 @@ object Fupstock: TFupstock
   end
   object PkTran: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM PK_TRANS')
     Left = 374
@@ -1442,7 +1444,7 @@ object Fupstock: TFupstock
   end
   object Mvtran: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT * FROM MV_TRANS')
     Left = 310

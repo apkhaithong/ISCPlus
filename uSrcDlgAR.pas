@@ -48,9 +48,7 @@ type
     procedure SearchEdKeyPress(Sender: TObject; var Key: Char);
     procedure SearchEdPropertiesChange(Sender: TObject);
     procedure OrderComboPropertiesChange(Sender: TObject);
-    procedure DBGrid1DBTableView1CustomDrawIndicatorCell(
-      Sender: TcxGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
+    procedure DBGrid1DBTableView1CustomDrawIndicatorCell(Sender: TcxGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
     procedure DBGrid1DBTableView1KeyPress(Sender: TObject; var Key: Char);
     procedure DBGrid1DBTableView1DblClick(Sender: TObject);
   private
@@ -58,10 +56,9 @@ type
     procedure CalcMax;
   public
     XSrLocat: string;
-    Xpaycon,XSC: string;
+    Xpaycon, XSC: string;
     NewKeyno: string;
     property Keyno: string read GetKeyno;
-
     function ShowModalCust: Integer;
     function ShowModalParts: Integer;
     function ShowModalLocat: Integer;
@@ -83,14 +80,14 @@ type
 
 var
   fSrcDLGAr: TfSrcDLGAr;
-  Title : Array[0..10] of String;
-  Fldgrd: Array[0..10] of String;
-  I,Max :Word;
-
+  Title: array[0..10] of string;
+  Fldgrd: array[0..10] of string;
+  I, Max: Word;
 
 implementation
 
-uses USoftFirm, Dmsec;
+uses
+  USoftFirm, Dmsec;
 
 
 {$R *.DFM}
@@ -110,10 +107,10 @@ function TfSrcDLGAr.ShowModalParts: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 0;
-  Title[0]  := 'รหัสอะไหล่';
-  Title[1]  := 'ชื่ออะไหล่';
-  Title[2]  := 'กลุ่ม';
-  Title[3]  := 'ราคาขาย';
+  Title[0] := 'รหัสอะไหล่';
+  Title[1] := 'ชื่ออะไหล่';
+  Title[2] := 'กลุ่ม';
+  Title[3] := 'ราคาขาย';
 
   Fldgrd[0] := 'Partno';
   Fldgrd[1] := 'Desc1';
@@ -128,7 +125,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -136,9 +134,9 @@ function TfSrcDLGAr.ShowModalLocat: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 1;
-  Title[0]  := 'รหัสสาขา';
-  Title[1]  := 'ชื่อสาขา';
-  Title[2]  := 'รหัสย่อ';
+  Title[0] := 'รหัสสาขา';
+  Title[1] := 'ชื่อสาขา';
+  Title[2] := 'รหัสย่อ';
 
   Fldgrd[0] := 'LOCATCD';
   Fldgrd[1] := 'LOCATNM';
@@ -152,7 +150,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -160,8 +159,8 @@ function TfSrcDLGAr.ShowModalGroup: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 2;
-  Title[0]  := 'รหัสกลุ่ม';
-  Title[1]  := 'ชื่อกลุ่ม';
+  Title[0] := 'รหัสกลุ่ม';
+  Title[1] := 'ชื่อกลุ่ม';
 
   Fldgrd[0] := 'GROUPCOD';
   Fldgrd[1] := 'GROUPNAM';
@@ -173,7 +172,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -181,8 +181,8 @@ function TfSrcDLGAr.ShowModalType: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 3;
-  Title[0]  := 'รหัสยี่ห้อ';
-  Title[1]  := 'ชื่อยี่ห้อ';
+  Title[0] := 'รหัสยี่ห้อ';
+  Title[1] := 'ชื่อยี่ห้อ';
 
   Fldgrd[0] := 'TYPECOD';
   Fldgrd[1] := 'TYPENAM';
@@ -194,17 +194,17 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
-
 end;
 
 function TfSrcDLGAr.ShowModalAP: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 4;
-  Title[0]  := 'รหัสเจ้าหนี้';
-  Title[1]  := 'ชื่อเจ้าหนี้';
+  Title[0] := 'รหัสเจ้าหนี้';
+  Title[1] := 'ชื่อเจ้าหนี้';
 
   Fldgrd[0] := 'APCODE';
   Fldgrd[1] := 'APNAME';
@@ -216,7 +216,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -224,9 +225,9 @@ function TfSrcDLGAr.ShowModalAR: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 5;
-  Title[0]  := 'รหัสลูกค้า';
-  Title[1]  := 'ชื่อลูกค้า';
-  Title[2]  := 'นามสกุล';
+  Title[0] := 'รหัสลูกค้า';
+  Title[1] := 'ชื่อลูกค้า';
+  Title[2] := 'นามสกุล';
 
   Fldgrd[0] := 'CUSCOD';
   Fldgrd[1] := 'NAME1';
@@ -240,7 +241,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -248,8 +250,8 @@ function TfSrcDLGAr.ShowModalPAYTYP: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 6;
-  Title[0]  := 'รหัสประเภท';
-  Title[1]  := 'ประเภทการชำระ';
+  Title[0] := 'รหัสประเภท';
+  Title[1] := 'ประเภทการชำระ';
 
   Fldgrd[0] := 'PAYCODE';
   Fldgrd[1] := 'PAYDESC';
@@ -261,7 +263,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -269,9 +272,9 @@ function TfSrcDLGAr.ShowModalOffic: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 7;
-  Title[0]  := 'รหัสพนักงาน';
-  Title[1]  := 'ชื่อพนักงาน';
-  Title[2]  := 'แผนก';
+  Title[0] := 'รหัสพนักงาน';
+  Title[1] := 'ชื่อพนักงาน';
+  Title[2] := 'แผนก';
 
   Fldgrd[0] := 'CODE';
   Fldgrd[1] := 'NAME';
@@ -284,7 +287,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -292,10 +296,10 @@ function TfSrcDLGAr.ShowModalPO: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 8;
-  Title[0]  := 'ใบสั่งซื้อ';
-  Title[1]  := 'วันที่';
-  Title[2]  := 'รหัสเจ้าหนี้';
-  Title[3]  := 'สาขา';
+  Title[0] := 'ใบสั่งซื้อ';
+  Title[1] := 'วันที่';
+  Title[2] := 'รหัสเจ้าหนี้';
+  Title[3] := 'สาขา';
 
   Fldgrd[0] := 'PONO';
   Fldgrd[1] := 'PODATE';
@@ -309,7 +313,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -317,15 +322,15 @@ function TfSrcDLGAr.ShowModalArinv: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 9;
-  Title[0]  := 'เลขที่ Inv.';
-  Title[1]  := 'สาขา';
-  Title[2]  := 'รหัสลูกค้า';
-  Title[3]  := 'ชื่อลูกค้า';
-  Title[4]  := 'นามสกุล';
-  Title[5]  := 'เลขที่ JOB';
-  Title[6]  := 'วันที่ Inv.';
-  Title[7]  := 'เลขที่ใบกำกับ';
-  Title[8]  := 'ค้างชำระ';
+  Title[0] := 'เลขที่ Inv.';
+  Title[1] := 'สาขา';
+  Title[2] := 'รหัสลูกค้า';
+  Title[3] := 'ชื่อลูกค้า';
+  Title[4] := 'นามสกุล';
+  Title[5] := 'เลขที่ JOB';
+  Title[6] := 'วันที่ Inv.';
+  Title[7] := 'เลขที่ใบกำกับ';
+  Title[8] := 'ค้างชำระ';
 
   Fldgrd[0] := 'INVNO';
   Fldgrd[1] := 'LOCAT';
@@ -349,7 +354,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -357,17 +363,16 @@ function TfSrcDLGAr.ShowModalArBil: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 10;
-  Title[0]  := 'เลขที่ใบเสร็จ';
-  Title[1]  := 'สาขา';
-  Title[2]  := 'รหัสลูกค้า';
-  Title[3]  := 'ชื่อลูกค้า';
-  Title[4]  := 'นามสกุล';
-  Title[5]  := 'เลขที่ JOB';
-  Title[6]  := 'วันที่ใบเสร็จ';
-  Title[7]  := 'ยอดชำระ';
-  Title[8]  := 'ผู้ยกเลิก';
-  Title[9]  := 'เลขที่ Inv';
-
+  Title[0] := 'เลขที่ใบเสร็จ';
+  Title[1] := 'สาขา';
+  Title[2] := 'รหัสลูกค้า';
+  Title[3] := 'ชื่อลูกค้า';
+  Title[4] := 'นามสกุล';
+  Title[5] := 'เลขที่ JOB';
+  Title[6] := 'วันที่ใบเสร็จ';
+  Title[7] := 'ยอดชำระ';
+  Title[8] := 'ผู้ยกเลิก';
+  Title[9] := 'เลขที่ Inv';
 
   Fldgrd[0] := 'BILLNO';
   Fldgrd[1] := 'LOCAT';
@@ -392,7 +397,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -400,8 +406,8 @@ function TfSrcDLGAr.ShowModalBak: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 11;
-  Title[0]  := 'รหัสธนาคาร';
-  Title[1]  := 'ชื่อธนาคาร';
+  Title[0] := 'รหัสธนาคาร';
+  Title[1] := 'ชื่อธนาคาร';
 
   Fldgrd[0] := 'BANKCOD';
   Fldgrd[1] := 'BANKNAM';
@@ -413,20 +419,21 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
 function TfSrcDLGAr.ShowModalbook: Integer;
 begin
   OrderCombo.Tag := 12;
-  Title[0]  := 'รหัสสมุดเงินฝาก';
-  Title[1]  := 'ชื่อธนาคาร';
-  Title[2]  := 'ชื่อสาขา';
-  Title[3]  := 'เลขที่บัญชี';
-  Title[4]  := 'ประเภทสมุดเงินฝาก';
-  Title[5]  := 'ชื่อบัญชี';
-  Title[6]  := 'รหัสบัญชี';
+  Title[0] := 'รหัสสมุดเงินฝาก';
+  Title[1] := 'ชื่อธนาคาร';
+  Title[2] := 'ชื่อสาขา';
+  Title[3] := 'เลขที่บัญชี';
+  Title[4] := 'ประเภทสมุดเงินฝาก';
+  Title[5] := 'ชื่อบัญชี';
+  Title[6] := 'รหัสบัญชี';
 
   Fldgrd[0] := 'BANKBOOKCOD';
   Fldgrd[1] := 'BANKNAM';
@@ -448,22 +455,23 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
-  Result  := ShowModal;
+  OrderComboPropertiesChange(nil);
+  ;
+  Result := ShowModal;
 end;
 
 function TfSrcDLGAr.ShowModalArinv1: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 13;
-  Title[0]  := 'เลขที่ Inv.';
-  Title[1]  := 'สาขา';
-  Title[2]  := 'รหัสลูกค้า';
-  Title[3]  := 'ชื่อลูกค้า';
-  Title[4]  := 'นามสกุล';
-  Title[5]  := 'เลขที่ ใบกำกับ';
-  Title[6]  := 'วันที่ Inv.';
-  Title[7]  := 'ค้างชำระ';
+  Title[0] := 'เลขที่ Inv.';
+  Title[1] := 'สาขา';
+  Title[2] := 'รหัสลูกค้า';
+  Title[3] := 'ชื่อลูกค้า';
+  Title[4] := 'นามสกุล';
+  Title[5] := 'เลขที่ ใบกำกับ';
+  Title[6] := 'วันที่ Inv.';
+  Title[7] := 'ค้างชำระ';
 
   Fldgrd[0] := 'INVNO';
   Fldgrd[1] := 'LOCAT';
@@ -484,7 +492,8 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
@@ -492,19 +501,18 @@ function TfSrcDLGAr.ShowModalTaxsal: Integer;
 begin
   //*** Set Up ****
   OrderCombo.Tag := 14;
-  Title[0]  := 'เลขที่ Inv.';
-  Title[1]  := 'สาขา';
-  Title[2]  := 'รหัสลูกค้า';
-  Title[3]  := 'เลขที่ ใบกำกับ';
-  Title[4]  := 'วันที่ใบกำกับ.';
-
+  Title[0] := 'เลขที่ Inv.';
+  Title[1] := 'สาขา';
+  Title[2] := 'รหัสลูกค้า';
+  Title[3] := 'เลขที่ ใบกำกับ';
+  Title[4] := 'วันที่ใบกำกับ.';
 
   Fldgrd[0] := 'TAXREFNO';
   Fldgrd[1] := 'LOCAT';
   Fldgrd[2] := 'CUSCOD';
   Fldgrd[3] := 'TAXNO';
   Fldgrd[4] := 'TAXDATE';
-  
+
   OrderCombo.Properties.Items.Clear;
   OrderCombo.Properties.Items.Add(Title[0]);
   OrderCombo.Properties.Items.Add(Title[2]);
@@ -514,15 +522,16 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
 function TfSrcDLGAr.ShowModalPAYFOR: Integer;
 begin
   OrderCombo.Tag := 15;
-  Title[0]  := 'รหัสชำระค่า';
-  Title[1]  := 'รายละเอียด';
+  Title[0] := 'รหัสชำระค่า';
+  Title[1] := 'รายละเอียด';
 
   Fldgrd[0] := 'FORCODE';
   Fldgrd[1] := 'FORDESC';
@@ -534,321 +543,348 @@ begin
   { ** Field Name & Title** }
   CalcMax;
   //
-  OrderComboPropertiesChange(nil);;
+  OrderComboPropertiesChange(nil);
+  ;
   Result := ShowModal;
 end;
 
 function TfSrcDLGAr.GetKeyno: string;
 begin
-  If qrFindDat.Active Then
-  Case OrderCombo.Tag Of
-    0 :Result := qrFindDat.Fieldbyname('PartNo').Asstring;
-    1 :Result := qrFindDat.Fieldbyname('LOCATCD').Asstring;
-    2 :Result := qrFindDat.Fieldbyname('GROUPCOD').Asstring;
-    3 :Result := qrFindDat.Fieldbyname('TYPECOD').Asstring;
-    4 :Result := qrFindDat.Fieldbyname('APCODE').Asstring;
-    5 :Result := qrFindDat.Fieldbyname('CUSCOD').Asstring;
-    6 :Result := qrFindDat.Fieldbyname('PAYCODE').Asstring;
-    7 :Result := qrFindDat.Fieldbyname('CODE').Asstring;
-    8 :Result := qrFindDat.Fieldbyname('PONO').Asstring;
-    9 :Result := qrFindDat.Fieldbyname('INVNO').Asstring;
-   10 :Result := qrFindDat.Fieldbyname('BILLNO').Asstring;
-   11 :Result := qrFindDat.Fieldbyname('BANKCOD').Asstring;
-   12 :Result := qrFindDat.Fieldbyname('BANKBOOKCOD').Asstring;
-   13 :Result := qrFindDat.Fieldbyname('INVNO').Asstring;
-   14 :Result := qrFindDat.Fieldbyname('TAXREFNO').Asstring;
-   15 :Result := qrFindDat.Fieldbyname('FORCODE').Asstring;
-  end;
+  if qrFindDat.Active then
+    case OrderCombo.Tag of
+      0:
+        Result := qrFindDat.Fieldbyname('PartNo').Asstring;
+      1:
+        Result := qrFindDat.Fieldbyname('LOCATCD').Asstring;
+      2:
+        Result := qrFindDat.Fieldbyname('GROUPCOD').Asstring;
+      3:
+        Result := qrFindDat.Fieldbyname('TYPECOD').Asstring;
+      4:
+        Result := qrFindDat.Fieldbyname('APCODE').Asstring;
+      5:
+        Result := qrFindDat.Fieldbyname('CUSCOD').Asstring;
+      6:
+        Result := qrFindDat.Fieldbyname('PAYCODE').Asstring;
+      7:
+        Result := qrFindDat.Fieldbyname('CODE').Asstring;
+      8:
+        Result := qrFindDat.Fieldbyname('PONO').Asstring;
+      9:
+        Result := qrFindDat.Fieldbyname('INVNO').Asstring;
+      10:
+        Result := qrFindDat.Fieldbyname('BILLNO').Asstring;
+      11:
+        Result := qrFindDat.Fieldbyname('BANKCOD').Asstring;
+      12:
+        Result := qrFindDat.Fieldbyname('BANKBOOKCOD').Asstring;
+      13:
+        Result := qrFindDat.Fieldbyname('INVNO').Asstring;
+      14:
+        Result := qrFindDat.Fieldbyname('TAXREFNO').Asstring;
+      15:
+        Result := qrFindDat.Fieldbyname('FORCODE').Asstring;
+    end;
 end;
 
 procedure TfSrcDLGAr.SearchButtonClick(Sender: TObject);
 begin
-  With qrFindDat Do
-  Begin
+  with qrFindDat do
+  begin
     Close;
     SQL.Clear;
-    Case OrderCombo.Tag Of
-    0:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT  PARTNO,DESC1,GROUP1,PRICE1 FROM INVMAST WHERE PARTNO LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT  PARTNO,DESC1,GROUP1,PRICE1 FROM INVMAST WHERE DESC1 LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT  PARTNO,DESC1,GROUP1,PRICE1 FROM INVMAST WHERE '+
-                '((PARTNO LIKE :EDIT1) or (DESC1 LIKE :EDIT1))');
-      end;
-    1:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM INVLOCAT WHERE LOCATCD LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM INVLOCAT WHERE LOCATNM LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM INVLOCAT WHERE ((LOCATCD LIKE :EDIT1) or (LOCATNM LIKE :EDIT1))');
-      end;
-    2:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM GROUPMST WHERE GROUPCOD LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM GROUPMST WHERE GROUPNAM LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM GROUPMST WHERE ((GROUPCOD LIKE :EDIT1) or (GROUPNAM LIKE :EDIT1))');
-      end;
-    3:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM TYPEMST WHERE TYPECOD LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM TYPEMST WHERE TYPENAM LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM TYPEMST WHERE ((TYPECOD LIKE :EDIT1) or (TYPENAM LIKE :EDIT1))');
-      end;
-    4:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM APMAST WHERE APCODE LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM APMAST WHERE APNAME LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM APMAST WHERE ((APCODE LIKE :EDIT1) or (APNAME LIKE :EDIT1))');
-      end;
-    5:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM CUSTMAST WHERE CUSCOD LIKE :EDIT1 ORDER BY CUSCOD');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM CUSTMAST WHERE NAME1 LIKE :EDIT1 ORDER BY NAME1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM CUSTMAST WHERE NAME2 LIKE :EDIT1 ORDER BY NAME2');
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT * FROM CUSTMAST WHERE ((CUSCOD LIKE :EDIT1) '+
-                'or (NAME1 LIKE :EDIT1) or (NAME2 LIKE :EDIT1)) ORDER BY CUSCOD');
-      end;
-    6:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM PAYTYP WHERE PAYCODE LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM PAYTYP WHERE PAYDESC LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM PAYTYP WHERE ((PAYCODE LIKE :EDIT1) or (PAYDESC LIKE :EDIT1))');
-      end;
-    7:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM OFFICER WHERE CODE LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM OFFICER WHERE NAME LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM OFFICER WHERE ((CODE LIKE :EDIT1) or (NAME LIKE :EDIT1))');
-      end;
-    8:Begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM PO_INVOI WHERE PONO LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM PO_INVOI WHERE APCODE LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM PO_INVOI WHERE ((PONO LIKE :EDIT1) or (APCODE LIKE :EDIT1))');
-      end;
-    9:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY A.INVDATE DESC,A.INVNO');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.CUSCODE');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.CUSCODE');
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.CUSCODE');
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.JOBNO ');
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.TAXNO ');
-        If OrderCombo.Itemindex=6 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  '+
-                'AND ((A.INVNO LIKE :EDIT1) or (A.CUSCODE LIKE :EDIT1) or (B.NAME1 LIKE :EDIT1) '+
-                'or (B.NAME2 LIKE :EDIT1) or (A.JOBNO LIKE :EDIT1) or (A.TAXNO LIKE :EDIT1)) AND KANG>0  '+
-                'AND (INVNO IN (SELECT DEVNO FROM AR_SERV WHERE CANCELID IS NULL) OR '+
-                    '(INVNO IN (SELECT INVNO FROM IC_INVOI WHERE CANCELID IS NULL AND CUSCOD <> '''')) OR A.FLAG = ''D'') '+
-                'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.INVNO');
-      end;
-      
-   10:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.BILLNO LIKE :0 '+
-                'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.CUSCODE LIKE :0 '+
-                'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND C.NAME1 LIKE :0 '+
-                'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND C.NAME2 LIKE :0 '+
-                'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.JOBNO LIKE :0 '+
-                'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.INVNO LIKE :0 '+
-                'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=6 Then
-        SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID '+
-                'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD '+
-                'AND ((B.BILLNO LIKE :0) or (B.CUSCODE LIKE :0) or (C.NAME1 LIKE :0) '+
-                'or (C.NAME2 LIKE :0) or (B.JOBNO LIKE :0) or (B.INVNO LIKE :0)) AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC '+cbViewdata.EditValue);;
-      end;
-   11:Begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM SETBANK WHERE BANKCOD LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM SETBANK WHERE BANKNAM LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM SETBANK WHERE ((BANKCOD LIKE :EDIT1) or (BANKNAM LIKE :EDIT1))');
-      end;
-   12:Begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND A.BANKBOOKCOD LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND B.BANKNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND C.BANKLOCNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND A.BOOKNO LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND D.BOOKTYPNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND A.BOOKNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
-        If OrderCombo.Itemindex=6 Then
-        SQL.ADD( 'SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, '+
-                 'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD '+
-                 'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D '+
-                 'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD '+
-                 'AND ((A.BANKBOOKCOD LIKE :EDIT1) or (C.BANKLOCNAM LIKE :EDIT1) or (A.BOOKNO LIKE :EDIT1) or '+
-                 '(B.BANKNAM LIKE :EDIT1) or (D.BOOKTYPNAM LIKE :EDIT1) or (A.BOOKNAM LIKE :EDIT1)) ORDER BY A.BANKBOOKCOD');
-      end;
-    13:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 '+
-                'AND A.LOCAT LIKE :EDIT2 '+XSC+' ORDER BY A.INVDATE DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 '+
-                'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND A.CUSCODE LIKE :EDIT1 '+
-                'AND A.LOCAT LIKE :EDIT2 '+XSC+' ORDER BY A.INVDATE DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 '+
-                'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND B.NAME1 LIKE :EDIT1 '+
-                'AND A.LOCAT LIKE :EDIT2 '+XSC+' ORDER BY A.INVDATE DESC '+cbViewdata.EditValue);
+    case OrderCombo.Tag of
+      0:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT  PARTNO,DESC1,GROUP1,PRICE1 FROM INVMAST WHERE PARTNO LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT  PARTNO,DESC1,GROUP1,PRICE1 FROM INVMAST WHERE DESC1 LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT  PARTNO,DESC1,GROUP1,PRICE1 FROM INVMAST WHERE ' +
+              '((PARTNO LIKE :EDIT1) or (DESC1 LIKE :EDIT1))');
+        end;
+      1:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM INVLOCAT WHERE LOCATCD LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM INVLOCAT WHERE LOCATNM LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM INVLOCAT WHERE ((LOCATCD LIKE :EDIT1) or (LOCATNM LIKE :EDIT1))');
+        end;
+      2:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM GROUPMST WHERE GROUPCOD LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM GROUPMST WHERE GROUPNAM LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM GROUPMST WHERE ((GROUPCOD LIKE :EDIT1) or (GROUPNAM LIKE :EDIT1))');
+        end;
+      3:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM TYPEMST WHERE TYPECOD LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM TYPEMST WHERE TYPENAM LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM TYPEMST WHERE ((TYPECOD LIKE :EDIT1) or (TYPENAM LIKE :EDIT1))');
+        end;
+      4:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM APMAST WHERE APCODE LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM APMAST WHERE APNAME LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM APMAST WHERE ((APCODE LIKE :EDIT1) or (APNAME LIKE :EDIT1))');
+        end;
+      5:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM CUSTMAST WHERE CUSCOD LIKE :EDIT1 ORDER BY CUSCOD');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM CUSTMAST WHERE NAME1 LIKE :EDIT1 ORDER BY NAME1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM CUSTMAST WHERE NAME2 LIKE :EDIT1 ORDER BY NAME2');
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT * FROM CUSTMAST WHERE ((CUSCOD LIKE :EDIT1) ' +
+              'or (NAME1 LIKE :EDIT1) or (NAME2 LIKE :EDIT1)) ORDER BY CUSCOD');
+        end;
+      6:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM PAYTYP WHERE PAYCODE LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM PAYTYP WHERE PAYDESC LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM PAYTYP WHERE ((PAYCODE LIKE :EDIT1) or (PAYDESC LIKE :EDIT1))');
+        end;
+      7:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM OFFICER WHERE CODE LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM OFFICER WHERE NAME LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM OFFICER WHERE ((CODE LIKE :EDIT1) or (NAME LIKE :EDIT1))');
+        end;
+      8:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM PO_INVOI WHERE PONO LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM PO_INVOI WHERE APCODE LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM PO_INVOI WHERE ((PONO LIKE :EDIT1) or (APCODE LIKE :EDIT1))');
+        end;
+      9:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY A.INVDATE DESC,A.INVNO');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.CUSCODE');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.CUSCODE');
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.CUSCODE');
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.JOBNO ');
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 AND KANG>0 ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.TAXNO ');
+          if OrderCombo.Itemindex = 6 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2,A.JOBNO ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  ' +
+              'AND ((A.INVNO LIKE :EDIT1) or (A.CUSCODE LIKE :EDIT1) or (B.NAME1 LIKE :EDIT1) ' +
+              'or (B.NAME2 LIKE :EDIT1) or (A.JOBNO LIKE :EDIT1) or (A.TAXNO LIKE :EDIT1)) AND KANG>0  ' +
+              'AND (INVNO IN (SELECT INVNO FROM IC_INVOI WHERE A.INVNO = IC_INVOI.INVNO AND CANCELID IS NULL AND CUSCOD <> '''') OR A.FLAG = ''D'') ' +
+              'AND A.LOCAT LIKE :EDIT2 ORDER BY  A.INVDATE DESC,A.INVNO');
+        end;
+      10:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.BILLNO LIKE :0 ' +
+              'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.CUSCODE LIKE :0 ' +
+              'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND C.NAME1 LIKE :0 ' +
+              'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND C.NAME2 LIKE :0 ' +
+              'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.JOBNO LIKE :0 ' +
+              'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD AND B.INVNO LIKE :0 ' +
+              'AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 6 then
+            SQL.ADD('SELECT B.LOCAT,B.BILLNO,B.BILLDT,B.CUSCODE,C.NAME1,C.NAME2,B.JOBNO,B.INVNO,B.TOTAL,B.CANCELID ' +
+              'FROM ARPAYTRN B,CUSTMAST C WHERE B.CUSCODE=C.CUSCOD ' +
+              'AND ((B.BILLNO LIKE :0) or (B.CUSCODE LIKE :0) or (C.NAME1 LIKE :0) ' +
+              'or (C.NAME2 LIKE :0) or (B.JOBNO LIKE :0) or (B.INVNO LIKE :0)) AND B.LOCAT LIKE :1 ORDER BY B.BILLDT DESC ' + cbViewdata.EditValue);
+        end;
+      11:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM SETBANK WHERE BANKCOD LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM SETBANK WHERE BANKNAM LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM SETBANK WHERE ((BANKCOD LIKE :EDIT1) or (BANKNAM LIKE :EDIT1))');
+        end;
+      12:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND A.BANKBOOKCOD LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND B.BANKNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND C.BANKLOCNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND A.BOOKNO LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND D.BOOKTYPNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND A.BOOKNAM LIKE :EDIT1 ORDER BY A.BANKBOOKCOD');
+          if OrderCombo.Itemindex = 6 then
+            SQL.ADD('SELECT A.BANKBOOKCOD,SUBSTR(B.BANKNAM,1,25) AS BANKNAM,SUBSTR(C.BANKLOCNAM,1,25) AS BANKLOCNAM, ' +
+              'A.BOOKNO,SUBSTR(D.BOOKTYPNAM,1,25) AS BOOKTYPNAM,A.BOOKNAM,A.ACCMSTCOD ' +
+              'FROM BANKBOOK A,SETBANK B,BANKLOCAT C,BKBOOKTYPE D ' +
+              'WHERE A.BANKCOD=B.BANKCOD AND A.BANKLOCCOD=C.BANKLOCCOD AND A.BOOKTYPCOD=D.BOOKTYPCOD ' +
+              'AND ((A.BANKBOOKCOD LIKE :EDIT1) or (C.BANKLOCNAM LIKE :EDIT1) or (A.BOOKNO LIKE :EDIT1) or ' +
+              '(B.BANKNAM LIKE :EDIT1) or (D.BOOKTYPNAM LIKE :EDIT1) or (A.BOOKNAM LIKE :EDIT1)) ORDER BY A.BANKBOOKCOD');
+        end;
+      13:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND A.INVNO LIKE :EDIT1 ' +
+              'AND A.LOCAT LIKE :EDIT2 ' + XSC + ' ORDER BY A.INVDATE DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND A.CUSCODE LIKE :EDIT1 ' +
+              'AND A.LOCAT LIKE :EDIT2 ' + XSC + ' ORDER BY A.INVDATE DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND B.NAME1 LIKE :EDIT1 ' +
+              'AND A.LOCAT LIKE :EDIT2 ' + XSC + ' ORDER BY A.INVDATE DESC ' + cbViewdata.EditValue);
 
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 '+
-                'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND B.NAME2 LIKE :EDIT1 '+
-                'AND A.LOCAT LIKE :EDIT2 '+XSC+' ORDER BY A.INVDATE DESC '+cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND B.NAME2 LIKE :EDIT1 ' +
+              'AND A.LOCAT LIKE :EDIT2 ' + XSC + ' ORDER BY A.INVDATE DESC ' + cbViewdata.EditValue);
 
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 '+
-                'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND A.TAXNO LIKE :EDIT1 '+
-                'AND A.LOCAT LIKE :EDIT2 '+XSC+' ORDER BY A.INVDATE DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 '+
-                'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND ((A.INVNO LIKE :EDIT1) '+
-                'or (A.CUSCODE LIKE :EDIT1) or (B.NAME1 LIKE :EDIT1) or (B.NAME2 LIKE :EDIT1) or (A.TAXNO LIKE :EDIT1)) '+
-                'AND A.LOCAT LIKE :EDIT2 '+XSC+' ORDER BY A.INVDATE DESC '+cbViewdata.EditValue);
-      end;
-    14:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM TAXSAL WHERE TAXREFNO LIKE :EDIT1 '+XSC+' ORDER BY TAXREFNO');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM TAXSAL WHERE CUSCOD LIKE :EDIT1 '+XSC+' ORDER BY CUSCOD');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM TAXSAL WHERE TAXNO LIKE :EDIT1 '+XSC+' ORDER BY TAXNO ');
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT * FROM TAXSAL WHERE ((TAXREFNO LIKE :EDIT1) or (CUSCOD LIKE :EDIT1) '+
-                'or (TAXNO LIKE :EDIT1)) '+XSC+' ORDER BY TAXREFNO');
-      end;
-    15:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT * FROM PAYFOR WHERE FORCODE LIKE :EDIT1');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT * FROM PAYFOR WHERE FORDESC LIKE :EDIT1');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT * FROM PAYFOR WHERE ((FORCODE LIKE :EDIT1) or (FORDESC LIKE :EDIT1))');
-      end;
-
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE  A.CUSCODE=B.CUSCOD  AND A.TAXNO LIKE :EDIT1 ' +
+              'AND A.LOCAT LIKE :EDIT2 ' + XSC + ' ORDER BY A.INVDATE DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT A.LOCAT,A.INVNO,A.INVDATE,A.KANG,A.TAXNO,A.TAXDATE,A.CUSCODE,B.SNAM,B.NAME1,B.NAME2 ' +
+              'FROM ARINVOI A,CUSTMAST B WHERE A.CUSCODE=B.CUSCOD  AND ((A.INVNO LIKE :EDIT1) ' +
+              'or (A.CUSCODE LIKE :EDIT1) or (B.NAME1 LIKE :EDIT1) or (B.NAME2 LIKE :EDIT1) or (A.TAXNO LIKE :EDIT1)) ' +
+              'AND A.LOCAT LIKE :EDIT2 ' + XSC + ' ORDER BY A.INVDATE DESC ' + cbViewdata.EditValue);
+        end;
+      14:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM TAXSAL WHERE TAXREFNO LIKE :EDIT1 ' + XSC + ' ORDER BY TAXREFNO');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM TAXSAL WHERE CUSCOD LIKE :EDIT1 ' + XSC + ' ORDER BY CUSCOD');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM TAXSAL WHERE TAXNO LIKE :EDIT1 ' + XSC + ' ORDER BY TAXNO ');
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT * FROM TAXSAL WHERE ((TAXREFNO LIKE :EDIT1) or (CUSCOD LIKE :EDIT1) ' +
+              'or (TAXNO LIKE :EDIT1)) ' + XSC + ' ORDER BY TAXREFNO');
+        end;
+      15:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT * FROM PAYFOR WHERE FORCODE LIKE :EDIT1');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT * FROM PAYFOR WHERE FORDESC LIKE :EDIT1');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT * FROM PAYFOR WHERE ((FORCODE LIKE :EDIT1) or (FORDESC LIKE :EDIT1))');
+        end;
     end;
-    qrFindDat.Params[0].Asstring := Uppercase('%'+SearchEd.Text+'%');
+    qrFindDat.Params[0].Asstring := Uppercase('%' + SearchEd.Text + '%');
 
     if OrderCombo.Tag = 13 then
     begin
       if OrderCombo.ItemIndex <> 5 then
-      qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat)+'%' else
-      qrFindDat.Params[5].AsString := Uppercase(fSrcDlgAR.XSrLocat)+'%';
+        qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat) + '%'
+      else
+        qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat) + '%';
     end;
 
     if OrderCombo.Tag = 9 then
     begin
       if OrderCombo.ItemIndex <> 6 then
-      qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat)+'%' else
-      qrFindDat.Params[6].AsString := Uppercase(fSrcDlgAR.XSrLocat)+'%';
+        qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat) + '%'
+      else
+        qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat) + '%';
     end;
 
     if OrderCombo.Tag = 10 then
     begin
-       if OrderCombo.ItemIndex <> 6 then
-       qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat)+'%' else
-       qrFindDat.Params[6].AsString := Uppercase(fSrcDlgAR.XSrLocat)+'%';
+      if OrderCombo.ItemIndex <> 6 then
+        qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat) + '%'
+      else
+        qrFindDat.Params[1].AsString := Uppercase(fSrcDlgAR.XSrLocat) + '%';
     end;
-      qrFindDat.Open;
-  End;
+    qrFindDat.Open;
+  end;
 end;
 
 procedure TfSrcDLGAr.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -864,88 +900,87 @@ end;
 procedure TfSrcDLGAr.CalcMax;
 begin
   { ** Field Name & Title** }
-  I:=0;
-  While I<=10 Do
+  I := 0;
+  while I <= 10 do
   begin
-    DBGrid1DBTableView1.CreateColumn.DataBinding.FieldName    := Fldgrd[I];
+    DBGrid1DBTableView1.CreateColumn.DataBinding.FieldName := Fldgrd[I];
     Dbgrid1DBTableView1.Columns[I].Caption := Title[I];
-    If Fldgrd[I]='' Then
+    if Fldgrd[I] = '' then
     begin
-     Max:=I-1;
-     If Max<0 Then Max:=0;
-     break;
+      Max := I - 1;
+      if Max < 0 then
+        Max := 0;
+      break;
     end;
-    I:=I+1;
+    I := I + 1;
   end;
 end;
 
 procedure TfSrcDLGAr.FormCreate(Sender: TObject);
 begin
-  I:=0;
-  While I<=10 Do
+  I := 0;
+  while I <= 10 do
   begin
-    Title[I]  := '';
+    Title[I] := '';
     Fldgrd[I] := '';
-    I:=I+1;
+    I := I + 1;
   end;
 end;
 
 procedure TfSrcDLGAr.SearchEdKeyPress(Sender: TObject; var Key: Char);
 begin
-   if Key = #13 then
-   Begin
-      SearchButtonClick(Sender);
-      DbGrid1.SetFocus;
-   End;
+  if Key = #13 then
+  begin
+    SearchButtonClick(Sender);
+    DbGrid1.SetFocus;
+  end;
 end;
 
 procedure TfSrcDLGAr.SearchEdPropertiesChange(Sender: TObject);
 begin
-  If SFMain.Xsrch='Y' Then
-  SearchButtonClick(Sender);
+  if SFMain.Xsrch = 'Y' then
+    SearchButtonClick(Sender);
 end;
 
 procedure TfSrcDLGAr.OrderComboPropertiesChange(Sender: TObject);
-Var I,K:word;
-    T1,F1 :String;
+var
+  I, K: word;
+  T1, F1: string;
 begin
   SearchEd.Text := '';
-  k:=0;
-  I:=0;
-  While (I<=Max)  Do
+  K := 0;
+  I := 0;
+  while (I <= Max) do
   begin
-    If (Title[I]=OrderCombo.Text) Then
+    if (Title[I] = OrderCombo.Text) then
     begin
-      K :=I;
+      K := I;
       Break;
     end;
-    I:=I+1;
+    I := I + 1;
   end;
 
-  T1        := Title[0];
-  Title[0]  := Title[K];
-  Title[k]  := T1;
+  T1 := Title[0];
+  Title[0] := Title[K];
+  Title[K] := T1;
 
-  F1        := Fldgrd[0];
+  F1 := Fldgrd[0];
   Fldgrd[0] := Fldgrd[K];
-  Fldgrd[k] := F1;
+  Fldgrd[K] := F1;
   DBGrid1DBTableView1.ClearItems;
-  for I:=0 To Max Do
+  for I := 0 to Max do
   begin
-    DBGrid1DBTableView1.CreateColumn.DataBinding.FieldName    := Fldgrd[I];
+    DBGrid1DBTableView1.CreateColumn.DataBinding.FieldName := Fldgrd[I];
     Dbgrid1DBTableView1.Columns[I].Caption := Title[I];
   end;
-
 end;
 
-procedure TfSrcDLGAr.DBGrid1DBTableView1CustomDrawIndicatorCell(
-  Sender: TcxGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
+procedure TfSrcDLGAr.DBGrid1DBTableView1CustomDrawIndicatorCell(Sender: TcxGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
 var
   AIndicatorViewInfo: TcxGridIndicatorRowItemViewInfo;
   ATextRect: TRect;
   AStyle: TcxStyle;
-  IndNo : String;
+  IndNo: string;
 begin
   if not (AViewInfo is TcxGridIndicatorRowItemViewInfo) then
     Exit;
@@ -956,10 +991,11 @@ begin
     AStyle := sfmain.styleSelected
   else
     AStyle := sfmain.styleNormal;
-    
+
   if AIndicatorViewInfo.GridRecord.Index + 1 = 0 then
-  IndNo := '' else
-  IndNo := IntToStr(AIndicatorViewInfo.GridRecord.Index + 1);
+    IndNo := ''
+  else
+    IndNo := IntToStr(AIndicatorViewInfo.GridRecord.Index + 1);
 
   Sender.LookAndFeelPainter.DrawHeader(ACanvas, AViewInfo.ContentBounds,
     ATextRect, [], cxBordersAll, cxbsNormal, taCenter, vaCenter,
@@ -968,13 +1004,12 @@ begin
   ADone := True;
 end;
 
-procedure TfSrcDLGAr.DBGrid1DBTableView1KeyPress(Sender: TObject;
-  var Key: Char);
+procedure TfSrcDLGAr.DBGrid1DBTableView1KeyPress(Sender: TObject; var Key: Char);
 begin
-   if Key = #13 then
-   Begin
-       OKBtn.Click;
-   End;
+  if Key = #13 then
+  begin
+    OKBtn.Click;
+  end;
 end;
 
 procedure TfSrcDLGAr.DBGrid1DBTableView1DblClick(Sender: TObject);
@@ -983,3 +1018,4 @@ begin
 end;
 
 end.
+

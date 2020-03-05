@@ -61,9 +61,10 @@ object FPaymntPos_01: TFPaymntPos_01
     Width = 697
     Height = 400
     Align = alClient
-    Color = clWhite
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -71,20 +72,36 @@ object FPaymntPos_01: TFPaymntPos_01
     TabOrder = 1
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label35: TLabel
@@ -203,10 +220,10 @@ object FPaymntPos_01: TFPaymntPos_01
       Width = 150
     end
     object cxPageControl1: TcxPageControl
-      Left = 1
-      Top = 1
-      Width = 695
-      Height = 398
+      Left = 0
+      Top = 0
+      Width = 697
+      Height = 400
       Align = alClient
       Color = clBtnFace
       Font.Charset = THAI_CHARSET
@@ -221,19 +238,27 @@ object FPaymntPos_01: TFPaymntPos_01
       Properties.CustomButtons.Buttons = <>
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'McSkin'
-      ClientRectBottom = 394
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 695
+      ExplicitHeight = 398
+      ClientRectBottom = 396
       ClientRectLeft = 4
-      ClientRectRight = 691
+      ClientRectRight = 693
       ClientRectTop = 33
       object cxTabSheet1: TcxTabSheet
         Caption = #3626#3619#3640#3611#3618#3629#3604#3619#3633#3610#3648#3591#3636#3609
         ImageIndex = 0
+        ExplicitWidth = 687
+        ExplicitHeight = 361
         object Bevel2: TBevel
           Left = 0
           Top = 0
-          Width = 687
-          Height = 212
+          Width = 689
+          Height = 214
           Align = alClient
+          ExplicitWidth = 687
+          ExplicitHeight = 212
         end
         object RzLabel1: TRzLabel
           Left = 557
@@ -718,14 +743,17 @@ object FPaymntPos_01: TFPaymntPos_01
         end
         object cxGroupBox1: TcxGroupBox
           Left = 0
-          Top = 212
+          Top = 214
           Align = alBottom
           Caption = 'Quick Pay'
           Style.LookAndFeel.NativeStyle = False
           StyleDisabled.LookAndFeel.NativeStyle = False
           TabOrder = 9
+          Transparent = True
+          ExplicitTop = 212
+          ExplicitWidth = 687
           Height = 149
-          Width = 687
+          Width = 689
           object Label1: TLabel
             Left = 411
             Top = 8
@@ -902,16 +930,15 @@ object FPaymntPos_01: TFPaymntPos_01
       object cxTabSheet2: TcxTabSheet
         Caption = #3619#3634#3618#3621#3632#3648#3629#3637#3618#3604#3610#3636#3621
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
+        ExplicitWidth = 687
+        ExplicitHeight = 361
         object Bevel3: TBevel
           Left = 0
           Top = 0
-          Width = 687
+          Width = 689
           Height = 161
           Align = alTop
+          ExplicitWidth = 687
         end
         object Label2: TLabel
           Left = 24
@@ -1323,13 +1350,15 @@ object FPaymntPos_01: TFPaymntPos_01
           StyleDisabled.LookAndFeel.NativeStyle = False
           StyleDisabled.LookAndFeel.SkinName = 'Office2010Black'
           TabOrder = 9
-          Height = 200
-          Width = 687
+          ExplicitWidth = 687
+          ExplicitHeight = 200
+          Height = 202
+          Width = 689
           object cxGrid2: TcxGrid
             Left = 3
             Top = 23
-            Width = 681
-            Height = 170
+            Width = 683
+            Height = 172
             Align = alClient
             Font.Charset = THAI_CHARSET
             Font.Color = clWindowText
@@ -1342,6 +1371,8 @@ object FPaymntPos_01: TFPaymntPos_01
             LookAndFeel.Kind = lfOffice11
             LookAndFeel.NativeStyle = False
             LookAndFeel.SkinName = 'LiquidSky'
+            ExplicitWidth = 681
+            ExplicitHeight = 170
             object cxGridDBTableView3: TcxGridDBTableView
               Navigator.Buttons.CustomButtons = <>
               Navigator.Buttons.First.Visible = False

@@ -1,6 +1,6 @@
 unit SrchTax1;
 
-interface                            
+interface
 
 uses
   SysUtils, Windows, Messages, Classes, Graphics, Controls, Forms, Dialogs, DB,
@@ -50,21 +50,17 @@ type
     procedure SearchEdKeyPress(Sender: TObject; var Key: Char);
     procedure DBGrid1DBTableView1DblClick(Sender: TObject);
     procedure DBGrid1DBTableView1KeyPress(Sender: TObject; var Key: Char);
-    procedure cxGridDBTableView1CustomDrawIndicatorCell(
-      Sender: TcxGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
+    procedure cxGridDBTableView1CustomDrawIndicatorCell(Sender: TcxGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
     procedure cxGridDBTableView1DblClick(Sender: TObject);
-    procedure cxGridDBTableView1DataControllerGroupingChanged(
-      Sender: TObject);
+    procedure cxGridDBTableView1DataControllerGroupingChanged(Sender: TObject);
     procedure cxCheckBox1Click(Sender: TObject);
     procedure cxGridDBTableView1KeyPress(Sender: TObject; var Key: Char);
   private
     function GetKeyno: string;
     procedure CalcMax;
   public
-    NewKeyno,Xsrch,XCont,XTaxtyp,SqlText,XSrLocat,SC1: string;
+    NewKeyno, Xsrch, XCont, XTaxtyp, SqlText, XSrLocat, SC1: string;
     property Keyno: string read GetKeyno;
-
     function ShowModalTaxno: Integer;
     function ShowModalTaxno1: Integer;
     function ShowModalTaxCrd: Integer;
@@ -79,15 +75,14 @@ type
 
 var
   SearchTax: TSearchTax;
-
-
-  Title : Array[0..10] of String;
-  Fldgrd: Array[0..10] of String;
-  I,Max :Word;
+  Title: array[0..10] of string;
+  Fldgrd: array[0..10] of string;
+  I, Max: Word;
 
 implementation
 
-uses USoftFirm, Dmsec;
+uses
+  USoftFirm, Dmsec;
 
 
 {$R *.DFM}
@@ -96,16 +91,16 @@ function TSearchTax.ShowModalTaxno: Integer;
 begin
   //*** Tax ****
   OrderCombo.Tag := 0;
-  Title[0]  := 'เลขที่ใบกำกับ';
-  Title[1]  := 'วันที่ใบกำกับ';
-  Title[2]  := 'ออกโดยสาขา';
-  Title[3]  := 'ประเภทการขาย';
-  Title[4]  := 'เลขสัญญา';
-  Title[5]  := 'รหัสลูกค้า';
-  Title[6]  := 'ชื่อ';
-  Title[7]  := 'สกุล';
-  Title[8]  := 'จำนวนเงิน';
-  Title[9]  := 'ยกเลิก';
+  Title[0] := 'เลขที่ใบกำกับ';
+  Title[1] := 'วันที่ใบกำกับ';
+  Title[2] := 'ออกโดยสาขา';
+  Title[3] := 'ประเภทการขาย';
+  Title[4] := 'เลขสัญญา';
+  Title[5] := 'รหัสลูกค้า';
+  Title[6] := 'ชื่อ';
+  Title[7] := 'สกุล';
+  Title[8] := 'จำนวนเงิน';
+  Title[9] := 'ยกเลิก';
 
   Fldgrd[0] := 'TAXNO';
   Fldgrd[1] := 'TAXDT';
@@ -118,15 +113,15 @@ begin
   Fldgrd[8] := 'TOTAMT';
   Fldgrd[9] := 'FLAG';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[2]);
-   OrderCombo.Properties.Items.Add(Title[4]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
-   OrderCombo.Properties.Items.Add(Title[7]);
-   OrderCombo.Properties.Items.Add('All field...');
-   OrderCombo.ItemIndex := 6;
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[2]);
+  OrderCombo.Properties.Items.Add(Title[4]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Add(Title[7]);
+  OrderCombo.Properties.Items.Add('All field...');
+  OrderCombo.ItemIndex := 6;
   { ** Field Name & Title** }
   CalcMax;
   //
@@ -138,16 +133,16 @@ end;
 function TSearchTax.ShowModalTaxCrd: Integer;
 begin
   OrderCombo.Tag := 1;
-  Title[0]  := 'เลขที่ใบลดหนี้';
-  Title[1]  := 'วันที่ใบลดหนี้';
-  Title[2]  := 'ออกโดยสาขา';
-  Title[3]  := 'อ้างถึงใบกำกับ';
-  Title[4]  := 'วันที่ใบกำกับ';
-  Title[5]  := 'เลขสัญญา';
-  Title[6]  := 'ชื่อ';
-  Title[7]  := 'สกุล';
-  Title[8]  := 'จำนวนเงิน';
-  Title[9]  := 'ยกเลิก';
+  Title[0] := 'เลขที่ใบลดหนี้';
+  Title[1] := 'วันที่ใบลดหนี้';
+  Title[2] := 'ออกโดยสาขา';
+  Title[3] := 'อ้างถึงใบกำกับ';
+  Title[4] := 'วันที่ใบกำกับ';
+  Title[5] := 'เลขสัญญา';
+  Title[6] := 'ชื่อ';
+  Title[7] := 'สกุล';
+  Title[8] := 'จำนวนเงิน';
+  Title[9] := 'ยกเลิก';
 
   Fldgrd[0] := 'TAXNO';
   Fldgrd[1] := 'TAXDT';
@@ -160,15 +155,15 @@ begin
   Fldgrd[8] := 'TOTAMT';
   Fldgrd[9] := 'FLAG';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[2]);
-   OrderCombo.Properties.Items.Add(Title[3]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
-   OrderCombo.Properties.Items.Add(Title[7]);
-   OrderCombo.Properties.Items.Add('All field...');
-   OrderCombo.ItemIndex := 6;
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[2]);
+  OrderCombo.Properties.Items.Add(Title[3]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Add(Title[7]);
+  OrderCombo.Properties.Items.Add('All field...');
+  OrderCombo.ItemIndex := 6;
   // ** Field Name & Title**
   CalcMax;
   OrderComboChange(nil);
@@ -179,15 +174,15 @@ end;
 function TSearchTax.ShowModalTypcred: Integer;
 begin
   OrderCombo.Tag := 2;
-  Title[0]  := 'ประเภทใบลดหนี้';
-  Title[1]  := 'รายการ';
+  Title[0] := 'ประเภทใบลดหนี้';
+  Title[1] := 'รายการ';
 
   Fldgrd[0] := 'CRDTYP';
   Fldgrd[1] := 'CRDDESC';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[1]);
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[1]);
   OrderCombo.ItemIndex := 0;
   // ** Field Name & Title**
   CalcMax;
@@ -199,16 +194,16 @@ end;
 function TSearchTax.ShowModalTaxFinc: Integer;
 begin
   OrderCombo.Tag := 3;
-  Title[0]  := 'เลขที่ใบกำกับ';
-  Title[1]  := 'วันที่ใบกำกับ';
-  Title[2]  := 'ออกโดยสาขา';
-  Title[3]  := 'บริษัทไฟแนนซ์';
-  Title[4]  := 'เลขสัญญา';
-  Title[5]  := 'รหัสลูกค้า';
-  Title[6]  := 'ชื่อ';
-  Title[7]  := 'สกุล';
-  Title[8]  := 'จำนวนเงิน';
-  Title[9]  := 'ยกเลิก';
+  Title[0] := 'เลขที่ใบกำกับ';
+  Title[1] := 'วันที่ใบกำกับ';
+  Title[2] := 'ออกโดยสาขา';
+  Title[3] := 'บริษัทไฟแนนซ์';
+  Title[4] := 'เลขสัญญา';
+  Title[5] := 'รหัสลูกค้า';
+  Title[6] := 'ชื่อ';
+  Title[7] := 'สกุล';
+  Title[8] := 'จำนวนเงิน';
+  Title[9] := 'ยกเลิก';
 
   Fldgrd[0] := 'TAXNO';
   Fldgrd[1] := 'TAXDT';
@@ -221,13 +216,13 @@ begin
   Fldgrd[8] := 'TOTAMT';
   Fldgrd[9] := 'FLAG';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[3]);
-   OrderCombo.Properties.Items.Add(Title[4]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
-   OrderCombo.Properties.Items.Add(Title[7]);
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[3]);
+  OrderCombo.Properties.Items.Add(Title[4]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Add(Title[7]);
   OrderCombo.ItemIndex := 0;
   // ** Field Name & Title**
   CalcMax;
@@ -239,13 +234,13 @@ end;
 function TSearchTax.ShowModalTaxBuy: Integer;
 begin
   OrderCombo.Tag := 4;
-  Title[0]  := 'เลขที่ใบกำกับ';
-  Title[1]  := 'วันที่ใบกำกับ';
-  Title[2]  := 'เลขที่ใบรับ';
-  Title[3]  := 'วันที่ตามใบรับ';
-  Title[4]  := 'รหัสบ.เจ้าหนี้';
-  Title[5]  := 'จำนวนเงิน';
-  Title[6]  := 'ยกเลิก';
+  Title[0] := 'เลขที่ใบกำกับ';
+  Title[1] := 'วันที่ใบกำกับ';
+  Title[2] := 'เลขที่ใบรับ';
+  Title[3] := 'วันที่ตามใบรับ';
+  Title[4] := 'รหัสบ.เจ้าหนี้';
+  Title[5] := 'จำนวนเงิน';
+  Title[6] := 'ยกเลิก';
 
   Fldgrd[0] := 'TAXNO';
   Fldgrd[1] := 'TAXDATE';
@@ -255,14 +250,14 @@ begin
   Fldgrd[5] := 'TOTTAX';
   Fldgrd[6] := 'FLAG';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[1]);
-   OrderCombo.Properties.Items.Add(Title[2]);
-   OrderCombo.Properties.Items.Add(Title[3]);
-   OrderCombo.Properties.Items.Add(Title[4]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[1]);
+  OrderCombo.Properties.Items.Add(Title[2]);
+  OrderCombo.Properties.Items.Add(Title[3]);
+  OrderCombo.Properties.Items.Add(Title[4]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
   OrderCombo.ItemIndex := 0;
   { ** Field Name & Title** }
   CalcMax;
@@ -275,13 +270,13 @@ end;
 function TSearchTax.ShowModalStrRecv: Integer;
 begin
   OrderCombo.Tag := 5;
-  Title[0]  := 'เลขตัวถัง';
-  Title[1]  := 'มูลค่าสินค้า';
-  Title[2]  := 'มูลค่าภาษี';
-  Title[3]  := 'รวมราคาขาย';
-  Title[4]  := 'อัตราภาษี';
-  Title[5]  := 'เลขใบลดหนี้';
-  Title[6]  := 'ยอดลดหนี้แล้ว';
+  Title[0] := 'เลขตัวถัง';
+  Title[1] := 'มูลค่าสินค้า';
+  Title[2] := 'มูลค่าภาษี';
+  Title[3] := 'รวมราคาขาย';
+  Title[4] := 'อัตราภาษี';
+  Title[5] := 'เลขใบลดหนี้';
+  Title[6] := 'ยอดลดหนี้แล้ว';
 
   Fldgrd[0] := 'STRNO';
   Fldgrd[1] := 'NETCOST';
@@ -291,14 +286,14 @@ begin
   Fldgrd[5] := 'CRDTXNO';
   Fldgrd[6] := 'CRDAMT';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[1]);
-   OrderCombo.Properties.Items.Add(Title[2]);
-   OrderCombo.Properties.Items.Add(Title[3]);
-   OrderCombo.Properties.Items.Add(Title[4]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[1]);
+  OrderCombo.Properties.Items.Add(Title[2]);
+  OrderCombo.Properties.Items.Add(Title[3]);
+  OrderCombo.Properties.Items.Add(Title[4]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
   OrderCombo.ItemIndex := 0;
   // ** Field Name & Title**
   CalcMax;
@@ -310,14 +305,14 @@ end;
 function TSearchTax.ShowModalTaxCrdB1: Integer;
 begin
   OrderCombo.Tag := 6;
-  Title[0]  := 'เลขที่ใบลดหนี้';
-  Title[1]  := 'วันที่ใบลดหนี้';
-  Title[2]  := 'ออกโดยสาขา';
-  Title[3]  := 'อ้างถึงใบกำกับ';
-  Title[4]  := 'วันท่ใบกำกับ';
-  Title[5]  := 'บ.เจ้าหนี้';
-  Title[6]  := 'จำนวนเงิน';
-  Title[7]  := 'ยกเลิก';
+  Title[0] := 'เลขที่ใบลดหนี้';
+  Title[1] := 'วันที่ใบลดหนี้';
+  Title[2] := 'ออกโดยสาขา';
+  Title[3] := 'อ้างถึงใบกำกับ';
+  Title[4] := 'วันท่ใบกำกับ';
+  Title[5] := 'บ.เจ้าหนี้';
+  Title[6] := 'จำนวนเงิน';
+  Title[7] := 'ยกเลิก';
 
   Fldgrd[0] := 'TAXNO';
   Fldgrd[1] := 'TAXDATE';
@@ -328,15 +323,15 @@ begin
   Fldgrd[6] := 'TOTTAX';
   Fldgrd[7] := 'FLAG';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[1]);
-   OrderCombo.Properties.Items.Add(Title[2]);
-   OrderCombo.Properties.Items.Add(Title[3]);
-   OrderCombo.Properties.Items.Add(Title[4]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
-   OrderCombo.Properties.Items.Add(Title[7]);
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[1]);
+  OrderCombo.Properties.Items.Add(Title[2]);
+  OrderCombo.Properties.Items.Add(Title[3]);
+  OrderCombo.Properties.Items.Add(Title[4]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Add(Title[7]);
   OrderCombo.ItemIndex := 0;
   // ** Field Name & Title**
   CalcMax;
@@ -349,16 +344,16 @@ function TSearchTax.ShowModalTaxno1: Integer;
 begin
   //*** Tax ****
   OrderCombo.Tag := 7;
-  Title[0]  := 'เลขที่ใบกำกับ';
-  Title[1]  := 'วันที่ใบกำกับ';
-  Title[2]  := 'ออกโดยสาขา';
-  Title[3]  := 'ประเภทการขาย';
-  Title[4]  := 'เลขสัญญา';
-  Title[5]  := 'เลขตัวถัง';
-  Title[6]  := 'ชื่อ';
-  Title[7]  := 'สกุล';
-  Title[8]  := 'จำนวนเงิน';
-  Title[9]  := 'ยกเลิก';
+  Title[0] := 'เลขที่ใบกำกับ';
+  Title[1] := 'วันที่ใบกำกับ';
+  Title[2] := 'ออกโดยสาขา';
+  Title[3] := 'ประเภทการขาย';
+  Title[4] := 'เลขสัญญา';
+  Title[5] := 'เลขตัวถัง';
+  Title[6] := 'ชื่อ';
+  Title[7] := 'สกุล';
+  Title[8] := 'จำนวนเงิน';
+  Title[9] := 'ยกเลิก';
 
   Fldgrd[0] := 'TAXNO';
   Fldgrd[1] := 'TAXDT';
@@ -371,15 +366,15 @@ begin
   Fldgrd[8] := 'TOTAMT';
   Fldgrd[9] := 'FLAG';
 
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-   OrderCombo.Properties.Items.Add(Title[2]);
-   OrderCombo.Properties.Items.Add(Title[4]);
-   OrderCombo.Properties.Items.Add(Title[5]);
-   OrderCombo.Properties.Items.Add(Title[6]);
-   OrderCombo.Properties.Items.Add(Title[7]);
-   OrderCombo.Properties.Items.Add('All field...');
-   OrderCombo.ItemIndex := 6;
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.Properties.Items.Add(Title[2]);
+  OrderCombo.Properties.Items.Add(Title[4]);
+  OrderCombo.Properties.Items.Add(Title[5]);
+  OrderCombo.Properties.Items.Add(Title[6]);
+  OrderCombo.Properties.Items.Add(Title[7]);
+  OrderCombo.Properties.Items.Add('All field...');
+  OrderCombo.ItemIndex := 6;
   { ** Field Name & Title** }
   CalcMax;
   //
@@ -401,9 +396,9 @@ begin
   Fldgrd[1] := 'NPRICE';
   Fldgrd[2] := 'VATPRC';
   Fldgrd[3] := 'TOTPRC';
-   OrderCombo.Properties.Items.Clear;
-   OrderCombo.Properties.Items.Add(Title[0]);
-  OrderCombo.ItemIndex :=0;
+  OrderCombo.Properties.Items.Clear;
+  OrderCombo.Properties.Items.Add(Title[0]);
+  OrderCombo.ItemIndex := 0;
 
    { ** Field Name & Title** }
   CalcMax;
@@ -416,11 +411,11 @@ end;
 function TSearchTax.ShowModalTAXPST: Integer;
 begin
   OrderCombo.Tag := 9;
-  Title[0]  := 'สาขา';
-  Title[1]  := 'เลขที่ใบกำกับ';
-  Title[2]  := 'เลขที่อ้างอิง';
-  Title[3]  := 'ชื่อ-สกุล';
-  Title[4]  := 'ยอดเงิน';
+  Title[0] := 'สาขา';
+  Title[1] := 'เลขที่ใบกำกับ';
+  Title[2] := 'เลขที่อ้างอิง';
+  Title[3] := 'ชื่อ-สกุล';
+  Title[4] := 'ยอดเงิน';
 
   Fldgrd[0] := 'LOCAT';
   Fldgrd[1] := 'TAXNO';
@@ -446,284 +441,301 @@ end;
 
 function TSearchTax.GetKeyno: string;
 begin
-  If HQuery1.Active Then
-  Case OrderCombo.Tag Of
-    0 :Result := HQuery1.Fieldbyname('TAXNO').Asstring;
-    1 :Result := HQuery1.Fieldbyname('TAXNO').Asstring;
-    2 :Result := HQuery1.Fieldbyname('CRDTYP').Asstring;
-    3 :Result := HQuery1.Fieldbyname('TAXNO').Asstring;
-    4 :Result := HQuery1.Fieldbyname('TAXNO').Asstring;
-    5 :Result := HQuery1.Fieldbyname('STRNO').Asstring;
-    6 :Result := HQuery1.Fieldbyname('TAXNO').Asstring;
-    7 :Result := HQuery1.Fieldbyname('TAXNO').Asstring;
-    8 :Result := HQuery1.fieldbyname('STRNO').AsString;
-    9 :Result := HQuery1.fieldbyname('TAXNO').AsString;
-  end;
+  if HQuery1.Active then
+    case OrderCombo.Tag of
+      0:
+        Result := HQuery1.Fieldbyname('TAXNO').Asstring;
+      1:
+        Result := HQuery1.Fieldbyname('TAXNO').Asstring;
+      2:
+        Result := HQuery1.Fieldbyname('CRDTYP').Asstring;
+      3:
+        Result := HQuery1.Fieldbyname('TAXNO').Asstring;
+      4:
+        Result := HQuery1.Fieldbyname('TAXNO').Asstring;
+      5:
+        Result := HQuery1.Fieldbyname('STRNO').Asstring;
+      6:
+        Result := HQuery1.Fieldbyname('TAXNO').Asstring;
+      7:
+        Result := HQuery1.Fieldbyname('TAXNO').Asstring;
+      8:
+        Result := HQuery1.fieldbyname('STRNO').AsString;
+      9:
+        Result := HQuery1.fieldbyname('TAXNO').AsString;
+    end;
 end;
 
 procedure TSearchTax.SearchButtonClick(Sender: TObject);
 begin
-  With HQuery1 Do
-  Begin
+  with HQuery1 do
+  begin
     Close;
     SQL.Clear;
-    Case OrderCombo.Tag Of
-    0:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE TAXNO LIKE :EDIT1 '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE LOCAT LIKE :EDIT1 '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE CONTNO LIKE :EDIT1  '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE CUSCOD LIKE :EDIT1  '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE NAME1 LIKE :EDIT1  '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE NAME2 LIKE :EDIT1  '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=6 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE ((STRNO LIKE :EDIT1) or (TAXNO LIKE :EDIT1) or (LOCAT LIKE :EDIT1) or (CONTNO LIKE :EDIT1) '+
-                'or (CUSCOD LIKE :EDIT1) or (NAME1 LIKE :EDIT1) or (NAME2 LIKE :EDIT1))  '+XTaxtyp+' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-      end;
-    1:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE TAXNO LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND FLAG <> ''C'' ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE LOCAT LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE REFNO LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE CONTNO LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE NAME1 LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE NAME2 LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=6 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE ((TAXNO LIKE :EDIT1) or (LOCAT LIKE :EDIT1) or (REFNO LIKE :EDIT1) or '+
-                '(CONTNO LIKE :EDIT1) or (NAME1 LIKE :EDIT1) or (NAME2 LIKE :EDIT1)) AND TAXTYP BETWEEN ''1'' and ''9'' '+
-                'AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-       end;
-    2:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT CRDTYP,CRDDESC FROM TYPCRED '+
-                'WHERE CRDTYP LIKE :EDIT1 ');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT CRDTYP,CRDDESC FROM TYPCRED '+
-                'WHERE CRDDESC LIKE :EDIT1 ');
-       end;
-    3:begin
-        SqlText :='SELECT TAXNO,TAXDT,LOCAT,FINCOD,TSALE,CONTNO,CUSCOD,NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                  'WHERE TSALE=''F'' ';
-        If OrderCombo.Itemindex=0 Then
-           Sql.Add(SqlText+'AND TAXNO  LIKE :0');
-        If OrderCombo.Itemindex=1 Then
-           Sql.Add(SqlText+'AND FINCOD LIKE :0');
-        If OrderCombo.Itemindex=2 Then
-           Sql.Add(SqlText+'AND CONTNO LIKE :0');
-        If OrderCombo.Itemindex=3 Then
-           Sql.Add(SqlText+'AND CUSCOD LIKE :0');
-        If OrderCombo.Itemindex=4 Then
-           Sql.Add(SqlText+'AND NAME1  LIKE :0');
-        If OrderCombo.Itemindex=5 Then
-           Sql.Add(SqlText+'AND NAME2  LIKE :0');
-       end;
-    4:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE TAXNO LIKE :EDIT1 ');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE TAXDATE LIKE :EDIT1 ');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE TAXREFNO LIKE :EDIT1 ');
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE RECVDT LIKE :EDIT1 ');
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE CUSCOD LIKE :EDIT1 ');
-      end;
-    5:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT RECVNO,STRNO,NETCOST,CRVAT,TOTCOST,'+
-                'VATRT,CRDTXNO,CRDAMT FROM INVTRAN '+
-                'WHERE STRNO LIKE :EDIT1 AND RECVNO=:V0');
-       end;
-    6:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE TAXNO LIKE :EDIT1  AND TAXTYP=:V0');
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE TAXDATE LIKE :EDIT1 AND TAXTYP=:V0');
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE TAXREFNO LIKE :EDIT1 AND TAXTYP=:V0');
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE RECVDT LIKE :EDIT1 AND TAXTYP=:V0');
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,'+
-                'TOTTAX,FLAG FROM TAXBUY '+
-                'WHERE CUSCOD LIKE :EDIT1 AND TAXTYP=:V0');
-      end;
+    case OrderCombo.Tag of
+      0:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE TAXNO LIKE :EDIT1 ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE LOCAT LIKE :EDIT1 ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE CONTNO LIKE :EDIT1  ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE CUSCOD LIKE :EDIT1  ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE NAME1 LIKE :EDIT1  ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE NAME2 LIKE :EDIT1  ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 6 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE ((STRNO LIKE :EDIT1) or (TAXNO LIKE :EDIT1) or (LOCAT LIKE :EDIT1) or (CONTNO LIKE :EDIT1) ' +
+              'or (CUSCOD LIKE :EDIT1) or (NAME1 LIKE :EDIT1) or (NAME2 LIKE :EDIT1))  ' + XTaxtyp + ' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+        end;
+      1:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE TAXNO LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND FLAG <> ''C'' ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE LOCAT LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE REFNO LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE CONTNO LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE NAME1 LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE NAME2 LIKE :EDIT1 AND TAXTYP BETWEEN ''1'' and ''9'' AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 6 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,REFNO,REFDT,CONTNO,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE ((TAXNO LIKE :EDIT1) or (LOCAT LIKE :EDIT1) or (REFNO LIKE :EDIT1) or ' +
+              '(CONTNO LIKE :EDIT1) or (NAME1 LIKE :EDIT1) or (NAME2 LIKE :EDIT1)) AND TAXTYP BETWEEN ''1'' and ''9'' ' +
+              'AND (FLAG = '''' OR FLAG IS NULL) ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+        end;
+      2:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT CRDTYP,CRDDESC FROM TYPCRED ' +
+              'WHERE CRDTYP LIKE :EDIT1 ');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT CRDTYP,CRDDESC FROM TYPCRED ' +
+              'WHERE CRDDESC LIKE :EDIT1 ');
+        end;
+      3:
+        begin
+          SqlText := 'SELECT TAXNO,TAXDT,LOCAT,FINCOD,TSALE,CONTNO,CUSCOD,NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+            'WHERE TSALE=''F'' ';
+          if OrderCombo.Itemindex = 0 then
+            Sql.Add(SqlText + 'AND TAXNO  LIKE :0');
+          if OrderCombo.Itemindex = 1 then
+            Sql.Add(SqlText + 'AND FINCOD LIKE :0');
+          if OrderCombo.Itemindex = 2 then
+            Sql.Add(SqlText + 'AND CONTNO LIKE :0');
+          if OrderCombo.Itemindex = 3 then
+            Sql.Add(SqlText + 'AND CUSCOD LIKE :0');
+          if OrderCombo.Itemindex = 4 then
+            Sql.Add(SqlText + 'AND NAME1  LIKE :0');
+          if OrderCombo.Itemindex = 5 then
+            Sql.Add(SqlText + 'AND NAME2  LIKE :0');
+        end;
+      4:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE TAXNO LIKE :EDIT1 ');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE TAXDATE LIKE :EDIT1 ');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE TAXREFNO LIKE :EDIT1 ');
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE RECVDT LIKE :EDIT1 ');
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE CUSCOD LIKE :EDIT1 ');
+        end;
+      5:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT RECVNO,STRNO,NETCOST,CRVAT,TOTCOST,' +
+              'VATRT,CRDTXNO,CRDAMT FROM INVTRAN ' +
+              'WHERE STRNO LIKE :EDIT1 AND RECVNO=:V0');
+        end;
+      6:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE TAXNO LIKE :EDIT1  AND TAXTYP=:V0');
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE TAXDATE LIKE :EDIT1 AND TAXTYP=:V0');
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE TAXREFNO LIKE :EDIT1 AND TAXTYP=:V0');
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE RECVDT LIKE :EDIT1 AND TAXTYP=:V0');
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT LOCAT,TAXNO,TAXDATE,TAXREFNO,RECVDT,CUSCOD,' +
+              'TOTTAX,FLAG FROM TAXBUY ' +
+              'WHERE CUSCOD LIKE :EDIT1 AND TAXTYP=:V0');
+        end;
+      7:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE TAXNO LIKE :EDIT1 ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE LOCAT LIKE :EDIT1 ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE CONTNO LIKE :EDIT1 ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE STRNO LIKE :EDIT1 ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 4 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE NAME1 LIKE :EDIT1 ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 5 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE NAME2 LIKE :EDIT1 ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 6 then
+            SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,' +
+              'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN ' +
+              'WHERE ((NAME2 LIKE :EDIT1) or (TAXNO LIKE :EDIT1) or (LOCAT LIKE :EDIT1) ' +
+              'or (TSALE LIKE :EDIT1) or (CONTNO LIKE :EDIT1) or (STRNO LIKE :EDIT1) or (NAME1 LIKE :EDIT1)) ' +
+              'ORDER BY TAXDT DESC ' + cbViewdata.EditValue);
+        end;
+      8:
+        begin
+          if OrderCombo.ItemIndex = 0 then
+            SQL.Add('SELECT CONTNO,STRNO,NPRICE,VATPRC,TOTPRC FROM AR_TRANS WHERE ' +
+              'STRNO LIKE :EDIT1 AND CONTNO =:EDIT2');
+        end;
+      9:
+        begin
+          if OrderCombo.Itemindex = 0 then
+            SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX ' +
+              'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) ' +
+              'WHERE A.TAXNO  LIKE :EDIT1 AND A.LOCAT LIKE :EDIT2  ' + SC1 + ' ' +
+              'ORDER BY  A.TAXDATE DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 1 then
+            SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX ' +
+              'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) ' +
+              'WHERE A.TAXREFNO LIKE :EDIT1 AND A.LOCAT LIKE :EDIT2  ' + SC1 + ' ' +
+              'ORDER BY  A.TAXDATE DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 2 then
+            SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX ' +
+              'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) ' +
+              'WHERE B.CUSTNAME LIKE :EDIT1 AND A.LOCAT LIKE :EDIT2  ' + SC1 + ' ' +
+              'ORDER BY  A.TAXDATE DESC ' + cbViewdata.EditValue);
+          if OrderCombo.Itemindex = 3 then
+            SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX ' +
+              'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) ' +
+              'WHERE ((B.CUSTNAME LIKE :EDIT1) or (A.TAXNO  LIKE :EDIT1) or (A.TAXREFNO LIKE :EDIT1)) AND A.LOCAT LIKE :EDIT2  ' + SC1 + ' ' +
+              'ORDER BY  A.TAXDATE DESC ' + cbViewdata.EditValue);
+        end;
+    end;
+    HQuery1.Params[0].Asstring := Uppercase('%' + SearchEd.Text + '%');
+    if (OrderCombo.Tag = 5) or (OrderCombo.Tag = 6) or (OrderCombo.Tag = 8) then
+      HQuery1.Params[1].Asstring := Xcont;
 
-
-      7:begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE TAXNO LIKE :EDIT1 ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE LOCAT LIKE :EDIT1 ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE CONTNO LIKE :EDIT1 ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE STRNO LIKE :EDIT1 ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=4 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE NAME1 LIKE :EDIT1 ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=5 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE NAME2 LIKE :EDIT1 ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=6 Then
-        SQL.ADD('SELECT TAXNO,TAXDT,LOCAT,TSALE,CONTNO,CUSCOD,'+
-                'NAME1,NAME2,TOTAMT,FPAY,FLAG FROM TAXTRAN '+
-                'WHERE ((NAME2 LIKE :EDIT1) or (TAXNO LIKE :EDIT1) or (LOCAT LIKE :EDIT1) '+
-                'or (TSALE LIKE :EDIT1) or (CONTNO LIKE :EDIT1) or (STRNO LIKE :EDIT1) or (NAME1 LIKE :EDIT1)) '+
-                'ORDER BY TAXDT DESC '+cbViewdata.EditValue);
-      end;
-      8:begin
-        IF OrderCombo.ItemIndex=0 Then
-        SQL.Add('SELECT CONTNO,STRNO,NPRICE,VATPRC,TOTPRC FROM AR_TRANS WHERE '+
-                'STRNO LIKE :EDIT1 AND CONTNO =:EDIT2');
-      end;
-
-    9:Begin
-        If OrderCombo.Itemindex=0 Then
-        SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX '+
-                'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) '+
-                'WHERE A.TAXNO  LIKE :EDIT1 AND A.LOCAT LIKE :EDIT2  '+SC1+' '+
-                'ORDER BY  A.TAXDATE DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=1 Then
-        SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX '+
-                'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) '+
-                'WHERE A.TAXREFNO LIKE :EDIT1 AND A.LOCAT LIKE :EDIT2  '+SC1+' '+
-                'ORDER BY  A.TAXDATE DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=2 Then
-        SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX '+
-                'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) '+
-                'WHERE B.CUSTNAME LIKE :EDIT1 AND A.LOCAT LIKE :EDIT2  '+SC1+' '+
-                'ORDER BY  A.TAXDATE DESC '+cbViewdata.EditValue);
-        If OrderCombo.Itemindex=3 Then
-        SQL.ADD('SELECT A.LOCAT,A.TAXNO,A.TAXREFNO,SUBSTR(B.CUSTNAME,1,50) CUSTNAME,A.TOTTAX '+
-                'FROM TAXSAL A LEFT JOIN VIEW_CUST B ON (A.CUSCOD=B.CUSCOD) '+
-                'WHERE ((B.CUSTNAME LIKE :EDIT1) or (A.TAXNO  LIKE :EDIT1) or (A.TAXREFNO LIKE :EDIT1)) AND A.LOCAT LIKE :EDIT2  '+SC1+' '+
-                'ORDER BY  A.TAXDATE DESC '+cbViewdata.EditValue);
-      end;
-
-    End;
-    HQuery1.Params[0].Asstring := Uppercase('%'+SearchEd.Text+'%');
-    If  (OrderCombo.Tag = 5) or (OrderCombo.Tag = 6) or (OrderCombo.Tag=8) Then
-        HQuery1.Params[1].Asstring := Xcont ;
-
-    If  (OrderCombo.Tag = 9) Then
+    if (OrderCombo.Tag = 9) then
     begin
-      if OrderCombo.Itemindex=3 Then
-      HQuery1.Params[3].Asstring := XSrLocat+'%'  else
-      HQuery1.Params[1].Asstring := XSrLocat+'%' ;
+      if OrderCombo.Itemindex = 3 then
+        HQuery1.Params[1].Asstring := XSrLocat + '%'
+      else
+        HQuery1.Params[1].Asstring := XSrLocat + '%';
     end;
     HQuery1.Open;
     SFMain.Do_Show_DisplayFormat_Floating(HQuery1);
-  End;
+  end;
 end;
 
 procedure TSearchTax.OrderComboChange(Sender: TObject);
-Var I,K:word;
-    T1,F1 :String;
+var
+  I, K: word;
+  T1, F1: string;
 begin
   SearchEd.Text := '';
-  k:=0;
-  I:=0;
-  While (I<=Max)  Do
+  K := 0;
+  I := 0;
+  while (I <= Max) do
   begin
-    If (Title[I]=OrderCombo.Text) Then
+    if (Title[I] = OrderCombo.Text) then
     begin
-      K :=I;
+      K := I;
       Break;
     end;
-    I:=I+1;
+    I := I + 1;
   end;
 
-  T1        := Title[0];
-  Title[0]  := Title[K];
-  Title[k]  := T1;
+  T1 := Title[0];
+  Title[0] := Title[K];
+  Title[K] := T1;
 
-  F1        := Fldgrd[0];
+  F1 := Fldgrd[0];
   Fldgrd[0] := Fldgrd[K];
-  Fldgrd[k] := F1;
+  Fldgrd[K] := F1;
   cxGridDBTableView1.ClearItems;
-  for I:=0 To Max Do
+  for I := 0 to Max do
   begin
-    cxGridDBTableView1.CreateColumn.DataBinding.FieldName    := Fldgrd[I];
+    cxGridDBTableView1.CreateColumn.DataBinding.FieldName := Fldgrd[I];
     cxGridDBTableView1.Columns[I].Caption := Title[I];
-    If Fldgrd[I] = 'NAME1' Then
+    if Fldgrd[I] = 'NAME1' then
       cxGridDBTableView1.Columns[I].Width := 60;
   end;
 end;
 
 procedure TSearchTax.SearchEdChange(Sender: TObject);
 begin
-  If SFMain.Xsrch='Y' Then
-  SearchButtonClick(Sender);
+  if SFMain.Xsrch = 'Y' then
+    SearchButtonClick(Sender);
 end;
-
 
 procedure TSearchTax.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -738,39 +750,40 @@ end;
 procedure TSearchTax.CalcMax;
 begin
 { ** Field Name & Title** }
-  I:=0;
-  While I<=10 Do
+  I := 0;
+  while I <= 10 do
   begin
-    cxGridDBTableView1.CreateColumn.DataBinding.FieldName    := Fldgrd[I];
+    cxGridDBTableView1.CreateColumn.DataBinding.FieldName := Fldgrd[I];
     cxGridDBTableView1.Columns[I].Caption := Title[I];
-    If Fldgrd[I]='' Then
+    if Fldgrd[I] = '' then
     begin
-     Max:=I-1;
-     If Max<0 Then Max:=0;
-     break;
+      Max := I - 1;
+      if Max < 0 then
+        Max := 0;
+      break;
     end;
-    I:=I+1;
+    I := I + 1;
   end;
 end;
 
 procedure TSearchTax.FormCreate(Sender: TObject);
 begin
-  I:=0;
-  While I<=10 Do
+  I := 0;
+  while I <= 10 do
   begin
-    Title[I]  := '';
+    Title[I] := '';
     Fldgrd[I] := '';
-    I:=I+1;
+    I := I + 1;
   end;
 end;
 
 procedure TSearchTax.SearchEdKeyPress(Sender: TObject; var Key: Char);
 begin
-   if Key = #13 then
-   Begin
-     SearchButtonClick(Sender);
-     DbGrid1.SetFocus;
-   End;
+  if Key = #13 then
+  begin
+    SearchButtonClick(Sender);
+    DbGrid1.SetFocus;
+  end;
 end;
 
 procedure TSearchTax.DBGrid1DBTableView1DblClick(Sender: TObject);
@@ -778,23 +791,20 @@ begin
   ModalResult := mrOK;
 end;
 
-procedure TSearchTax.DBGrid1DBTableView1KeyPress(Sender: TObject;
-  var Key: Char);
+procedure TSearchTax.DBGrid1DBTableView1KeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
-  Begin
+  begin
     OKBtn.Click;
-  End;
+  end;
 end;
 
-procedure TSearchTax.cxGridDBTableView1CustomDrawIndicatorCell(
-  Sender: TcxGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
+procedure TSearchTax.cxGridDBTableView1CustomDrawIndicatorCell(Sender: TcxGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
 var
   AIndicatorViewInfo: TcxGridIndicatorRowItemViewInfo;
   ATextRect: TRect;
   AStyle: TcxStyle;
-  IndNo : String;
+  IndNo: string;
 begin
   if not (AViewInfo is TcxGridIndicatorRowItemViewInfo) then
     Exit;
@@ -807,8 +817,9 @@ begin
     AStyle := SFMain.styleNormal;
 
   if AIndicatorViewInfo.GridRecord.Index + 1 = 0 then
-  IndNo := '' else
-  IndNo := IntToStr(AIndicatorViewInfo.GridRecord.Index + 1);
+    IndNo := ''
+  else
+    IndNo := IntToStr(AIndicatorViewInfo.GridRecord.Index + 1);
 
   Sender.LookAndFeelPainter.DrawHeader(ACanvas, AViewInfo.ContentBounds,
     ATextRect, [], cxBordersAll, cxbsNormal, taCenter, vaCenter,
@@ -819,34 +830,34 @@ end;
 
 procedure TSearchTax.cxGridDBTableView1DblClick(Sender: TObject);
 begin
-   ModalResult := mrOK;
+  ModalResult := mrOK;
 end;
 
-procedure TSearchTax.cxGridDBTableView1DataControllerGroupingChanged(
-  Sender: TObject);
+procedure TSearchTax.cxGridDBTableView1DataControllerGroupingChanged(Sender: TObject);
 begin
   if HQuery1.Active = True then
   begin
-  cxCheckBox1.Checked := False;
-  cxCheckBox1.Enabled := ((HQuery1.RecordCount>0) AND
-                          (cxGridDBTableView1.GroupedColumnCount>0));
+    cxCheckBox1.Checked := False;
+    cxCheckBox1.Enabled := ((HQuery1.RecordCount > 0) and
+      (cxGridDBTableView1.GroupedColumnCount > 0));
   end;
 end;
 
 procedure TSearchTax.cxCheckBox1Click(Sender: TObject);
 begin
   if cxCheckBox1.Checked = true then
-  cxGridDBTableView1.DataController.Groups.FullExpand else
-  cxGridDBTableView1.DataController.Groups.FullCollapse;
+    cxGridDBTableView1.DataController.Groups.FullExpand
+  else
+    cxGridDBTableView1.DataController.Groups.FullCollapse;
 end;
 
-procedure TSearchTax.cxGridDBTableView1KeyPress(Sender: TObject;
-  var Key: Char);
+procedure TSearchTax.cxGridDBTableView1KeyPress(Sender: TObject; var Key: Char);
 begin
-   if Key = #13 then
-   Begin
-       OKBtn.Click;
-   End;
+  if Key = #13 then
+  begin
+    OKBtn.Click;
+  end;
 end;
 
 end.
+

@@ -370,6 +370,32 @@ begin
       PARAMS[0].ASSTRING := FmDmic01.RtinvRTNNO.AsString;
       OPEN;
     end;
+
+    with FmDmic01.TaxSal do
+    begin
+      Close;
+      Sql.Clear;
+      Sql.Add('SELECT * FROM TAXSAL WHERE TAXNO = :Xno ');
+      Params[0].Asstring := FmDmic01.RtinvCREDNO.AsString;
+      Open;
+    end;
+
+    with FmDmic01.Qarinvoi do
+    begin
+      Close;
+      SQL.Clear;
+      if FmDmic01.RtinvFlag.AsString = '7' then
+      begin
+        SQL.Add('SELECT * FROM ARINVOI WHERE INVNO =:XNO'); //ลูกหนี้
+        PARAMS[0].ASSTRING := FmDmic01.RtinvTAXREFNO.Asstring;
+      end
+      else
+      begin
+        SQL.Add('SELECT * FROM APINVOI WHERE INVNO =:XNO'); //เจ้าหนี้
+        PARAMS[0].ASSTRING := FmDmic01.RtinvINVNO.Asstring;
+      end;
+      OPEN;
+    end;
   end;
 end;
 

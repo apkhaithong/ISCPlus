@@ -329,7 +329,8 @@ uses
   uPaymntPos_01 in 'uPaymntPos_01.pas' {FPaymntPos_01},
   STRp40 in 'STRp40.pas' {FmSTRp40},
   USoftFirm in 'USoftFirm.pas' {SFMain},
-  myfunctions in 'myfunctions.pas';
+  myfunctions in 'myfunctions.pas',
+  PaymntPos in 'PaymntPos.pas' {FPaymntPos};
 
 {$R *.res}
 function AllowAccess: Boolean;

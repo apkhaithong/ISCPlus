@@ -763,10 +763,6 @@ object FmDmic01: TFmDmic01
       FieldName = 'INVDATE'
       OnValidate = IcinvINVDATEValidate
     end
-    object IcinvCREDTM: TFloatField
-      FieldName = 'CREDTM'
-      OnValidate = IcinvCREDTMValidate
-    end
     object IcinvINVDUE: TDateField
       FieldName = 'INVDUE'
     end
@@ -843,9 +839,6 @@ object FmDmic01: TFmDmic01
       FieldName = 'MEMO1'
       BlobType = ftMemo
       Size = 1
-    end
-    object IcinvTNOPAY: TFloatField
-      FieldName = 'TNOPAY'
     end
     object IcinvTAXDATE: TDateField
       FieldName = 'TAXDATE'
@@ -927,6 +920,15 @@ object FmDmic01: TFmDmic01
     object IcinvKITCODE: TStringField
       FieldName = 'KITCODE'
       FixedChar = True
+    end
+    object IcinvTNOPAY: TIntegerField
+      FieldName = 'TNOPAY'
+      Origin = 'TNOPAY'
+    end
+    object IcinvCREDTM: TFloatField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+      OnValidate = IcinvCREDTMValidate
     end
   end
   object SoIcinv: TDataSource
@@ -1408,7 +1410,7 @@ object FmDmic01: TFmDmic01
     BeforeCancel = RtinvBeforeCancel
     AfterCancel = RtinvAfterCancel
     BeforeDelete = RtinvBeforeDelete
-    AfterDelete = RtinvAfterPost
+    AfterDelete = RtinvAfterDelete
     OnCalcFields = RtinvCalcFields
     OnNewRecord = RtinvNewRecord
     CachedUpdates = True

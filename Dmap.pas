@@ -63,7 +63,6 @@ type
     QApinv3LOCAT: TStringField;
     QApinv3RECVDT: TDateField;
     QApinv3RECVNO: TStringField;
-    QApinv3CREDTM: TFloatField;
     QApinv3INVDUE: TDateField;
     QApinv3TAXDATE: TDateField;
     QApinv3OFFICCOD: TStringField;
@@ -82,7 +81,6 @@ type
     QApinv3KANG: TFloatField;
     QApinv3REDUAFT: TFloatField;
     QApinv3TAXREFNO: TStringField;
-    QApinv3TNOPAY: TFloatField;
     QApinv3FLAG: TStringField;
     QApinv3STAT: TStringField;
     QApinv3POST: TStringField;
@@ -285,6 +283,8 @@ type
     QApinv3POSTGL: TStringField;
     QApinv3BANKBOOKCOD: TStringField;
     QApinv3Updatestatus: TStringField;
+    QApinv3CREDTM: TIntegerField;
+    QApinv3TNOPAY: TIntegerField;
     procedure QApbillBDATEValidate(Sender: TField);
     procedure QApbillAfterPost(DataSet: TDataSet);
     procedure QApbillBeforePost(DataSet: TDataSet);

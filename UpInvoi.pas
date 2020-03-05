@@ -37,10 +37,8 @@ type
     procedure Edit1Change(Sender: TObject);
     procedure CloseBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Edit1PropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure Edit2PropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
+    procedure Edit1PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+    procedure Edit2PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -53,142 +51,136 @@ var
   Fupinvoi: TFupinvoi;
 
 implementation
-uses Dmar,Srchdlgar,uSrcDlgAR,uSoftfirm;
+
+uses
+  Dmar, Srchdlgar, uSrcDlgAR, uSoftfirm, DMSEC;
 {$R *.DFM}
 
-
-
-
 procedure TFupinvoi.PrnbtnClick(Sender: TObject);
-Var I,M,P : Longint;
-     smpa,dis :real;
+var
+  I, M, P: Longint;
+  smpa, dis: real;
 begin
 
-  with  query1 do
+  with query1 do
   begin
-  close;
-  Sql.Clear;
-  Sql.add('Select  INVNO,CUSCODE  FROM   ARINVOI  WHERE  CANDAT IS NULL AND LOCAT LIKE :0 AND INVNO LIKE:1 ');
-          Params[0].asstring := Edit1.Text+'%';
-          Params[1].asstring := Edit2.Text+'%';
-          Open;
-
+    close;
+    Sql.Clear;
+    Sql.add('Select  INVNO,CUSCODE  FROM   ARINVOI  WHERE  CANDAT IS NULL AND LOCAT LIKE :0 AND INVNO LIKE :1 ');
+    Params[0].asstring := Edit1.Text + '%';
+    Params[1].asstring := Edit2.Text + '%';
+    Open;
   end;
 
   Gauge1.Maxvalue := Query1.RecordCount;
-  P:=1;
+  P := 1;
   Query1.First;
-  
-  while Not( Query1.Eof) do
-  Begin
-  Gauge1.Progress := p;
 
-  with query2 do
+  while not (Query1.Eof) do
   begin
-  close;
-  Sql.Clear;
-  Sql.add(' SELECT  invno,cuscode,sum(total) as total,sum(disamt) as disamt from  arpaytrn where '+
-          ' invno =:0 and  cuscode =:1 and candat is null group by invno,cuscode ');
-            params[0].asstring := Query1.fieldbyname('invno').asstring;
-            params[1].asstring := Query1.fieldbyname('cuscode').asstring;
+    Gauge1.Progress := P;
 
-            open;
+    with query2 do
+    begin
+      close;
+      Sql.Clear;
+      Sql.add(' SELECT  invno,cuscode,sum(total) as total,sum(disamt) as disamt from  arpaytrn where ' +
+        ' invno = :0 and  cuscode = :1 and candat is null group by invno,cuscode ');
+      params[0].asstring := Query1.fieldbyname('invno').asstring;
+      params[1].asstring := Query1.fieldbyname('cuscode').asstring;
+
+      open;
+    end;
+
+    smpa := QUery2.fieldbyname('total').asfloat;
+    dis := QUery2.fieldbyname('disamt').asfloat;
+
+    with query2 do
+    begin
+      close;
+      Sql.Clear;
+      Sql.add(' SELECT  b.invno,a.cuscode,sum(b.payamt) as total  from  arbill a,arbiltr b  where ' +
+        ' a.arbilno = b.arbilno and b.invno = :0 and  a.cuscode = :1 and (a.refbil <> '''' and a.refbil is not null) group by invno,cuscode ');
+      params[0].asstring := Query1.fieldbyname('invno').asstring;
+      params[1].asstring := Query1.fieldbyname('cuscode').asstring;
+
+      open;
+    end;
+    smpa := smpa + QUery2.fieldbyname('total').asfloat;
+
+    with query2 do
+    begin
+      close;
+      Sql.Clear;
+      Sql.add('update  arinvoi set smpay = :0,reduaft = :1 where invno = :2 and cuscode = :3 ');
+      params[0].asfloat := smpa;
+      params[1].asfloat := dis;
+      params[2].asstring := Query1.fieldbyname('invno').asstring;
+      params[3].asstring := Query1.fieldbyname('cuscode').asstring;
+      execsql;
+    end;
+
+    P := P + 1;
+
+    QUery1.Next;
   end;
 
-  smpa := QUery2.fieldbyname('total').asfloat;
-  dis := QUery2.fieldbyname('disamt').asfloat;
-
-  with query2 do
+  with query1 do
   begin
-  close;
-  Sql.Clear;
-  Sql.add(' SELECT  b.invno,a.cuscode,sum(b.payamt) as total  from  arbill a,arbiltr b  where '+
-          ' a.arbilno = b.arbilno and b.invno =:0 and  a.cuscode =:1 and (a.refbil <> '''' and a.refbil is not null) group by invno,cuscode ');
-            params[0].asstring := Query1.fieldbyname('invno').asstring;
-            params[1].asstring := Query1.fieldbyname('cuscode').asstring;
-
-            open;
-  end;
-  smpa := smpa+ QUery2.fieldbyname('total').asfloat;
-
-  with  query2 do
-  begin
-  close;
-  Sql.Clear;
-  Sql.add('update  arinvoi set smpay =:0,reduaft =:1 where invno =:2 and cuscode =:3 ');
-           params[0].asfloat := smpa;
-           params[1].asfloat := dis;
-           params[2].asstring := Query1.fieldbyname('invno').asstring;
-           params[3].asstring := Query1.fieldbyname('cuscode').asstring;
-          execsql;
-
-  end;
-
-  p := p+1;
-
-  QUery1.Next;
-  end;
-
-
-  with  query1 do
-  begin
-  close;
-  Sql.Clear;
-  Sql.add('update  arinvoi set kang =nettotal-smpay-smchq-rtnamt  ');
-           execsql;
-
+    close;
+    Sql.Clear;
+    Sql.add('update  arinvoi set kang =nettotal-smpay-smchq-rtnamt  ');
+    execsql;
   end;
 
   Prnbtn.Enabled := True;
-  Gauge1.Progress :=0;
-  Label4.Visible :=True;
+  Gauge1.Progress := 0;
+  Label4.Visible := True;
 end;
 
 procedure TFupinvoi.Edit1Change(Sender: TObject);
 begin
-  Prnbtn.Enabled := Edit1.Text<>'';
+  Prnbtn.Enabled := Edit1.Text <> '';
 end;
-
 
 procedure TFupinvoi.CloseBtnClick(Sender: TObject);
 begin
- close;
+  close;
 end;
 
 procedure TFupinvoi.FormCreate(Sender: TObject);
 begin
-  sfmain.Check_right('HDFIN','HDFIN02_4');
+  sfmain.Check_right('HDFIN', 'HDFIN02_4');
 end;
 
-procedure TFupinvoi.Edit1PropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFupinvoi.Edit1PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
 begin
-  Application.Createform(TfSrcDlgAR,fSrcDlgAR);
-  If fSrcDlgAR.ShowModalLocat=Mrok Then
-  Edit1.Text := fSrcDlgAR.Keyno;
+  Application.Createform(TfSrcDlgAR, fSrcDlgAR);
+  if fSrcDlgAR.ShowModalLocat = Mrok then
+    Edit1.Text := fSrcDlgAR.Keyno;
 end;
 
-procedure TFupinvoi.Edit2PropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFupinvoi.Edit2PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
 begin
- Application.Createform(TfSrcDlgAR,fSrcDlgAR);
- If fSrcDlgAR.ShowModalArinv=Mrok Then
+  Application.Createform(TfSrcDlgAR, fSrcDlgAR);
+  if fSrcDlgAR.ShowModalArinv = Mrok then
     edit2.text := fSrcDlgAR.Keyno;
 end;
 
 procedure TFupinvoi.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- If (Key = #13) then
-  Begin
-   Perform(Wm_nextDlgctl,0,0);
-   Key := #0;
-  End;
+  if (Key = #13) then
+  begin
+    Perform(Wm_nextDlgctl, 0, 0);
+    Key := #0;
+  end;
 end;
 
 procedure TFupinvoi.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  action := caFree;
+  Action := caFree;
   Fupinvoi := nil;
 end;
 
 end.
+

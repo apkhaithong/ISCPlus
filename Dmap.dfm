@@ -488,10 +488,6 @@ object Dm_Ap1: TDm_Ap1
       OnChange = QApinv3RECVNOChange
       Size = 12
     end
-    object QApinv3CREDTM: TFloatField
-      FieldName = 'CREDTM'
-      OnValidate = QApinv3CREDTMValidate
-    end
     object QApinv3INVDUE: TDateField
       FieldName = 'INVDUE'
     end
@@ -566,9 +562,6 @@ object Dm_Ap1: TDm_Ap1
     object QApinv3TAXREFNO: TStringField
       FieldName = 'TAXREFNO'
       Size = 12
-    end
-    object QApinv3TNOPAY: TFloatField
-      FieldName = 'TNOPAY'
     end
     object QApinv3FLAG: TStringField
       FieldName = 'FLAG'
@@ -650,6 +643,15 @@ object Dm_Ap1: TDm_Ap1
       FieldKind = fkCalculated
       FieldName = 'Updatestatus'
       Calculated = True
+    end
+    object QApinv3CREDTM: TIntegerField
+      FieldName = 'CREDTM'
+      Origin = 'CREDTM'
+      OnValidate = QApinv3CREDTMValidate
+    end
+    object QApinv3TNOPAY: TIntegerField
+      FieldName = 'TNOPAY'
+      Origin = 'TNOPAY'
     end
   end
   object SoApinv3: TDataSource

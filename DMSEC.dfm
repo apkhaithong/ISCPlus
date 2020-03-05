@@ -15,7 +15,7 @@ object DM_SEC: TDM_SEC
     FormatOptions.OwnMapRules = True
     FormatOptions.MapRules = <
       item
-        PrecMax = 18
+        PrecMax = 32
         PrecMin = 1
         ScaleMax = 6
         ScaleMin = 2
@@ -50,6 +50,14 @@ object DM_SEC: TDM_SEC
         ScaleMax = 0
         ScaleMin = 0
         SourceDataType = dtBCD
+        TargetDataType = dtDouble
+      end
+      item
+        PrecMax = 32
+        PrecMin = 1
+        ScaleMax = 6
+        ScaleMin = 2
+        SourceDataType = dtFmtBCD
         TargetDataType = dtDouble
       end>
     FormatOptions.MaxBcdScale = 6

@@ -28,35 +28,53 @@ object Fupinvoi: TFupinvoi
     Width = 399
     Height = 222
     Align = alClient
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    BevelOuter = bvNone
+    Color = 16445929
+    Font.Charset = THAI_CHARSET
+    Font.Color = 7485192
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
-    Caption.Font.Charset = DEFAULT_CHARSET
-    Caption.Font.Color = clWindowText
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
+    Caption.Font.Charset = THAI_CHARSET
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
-    Caption.Font.Name = 'MS Sans Serif'
+    Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Gauge1: TGauge
-      Left = 1
-      Top = 204
-      Width = 397
+      Left = 0
+      Top = 205
+      Width = 399
       Height = 17
       Align = alBottom
       Color = 16766894
@@ -69,6 +87,9 @@ object Fupinvoi: TFupinvoi
       ParentColor = False
       ParentFont = False
       Progress = 0
+      ExplicitLeft = 1
+      ExplicitTop = 204
+      ExplicitWidth = 397
     end
     object Label4: TLabel
       Left = 137
@@ -169,13 +190,13 @@ object Fupinvoi: TFupinvoi
       Width = 121
     end
     object AdvPanel2: TAdvPanel
-      Left = 1
-      Top = 1
-      Width = 397
+      Left = 0
+      Top = 0
+      Width = 399
       Height = 51
       Align = alTop
       BevelOuter = bvNone
-      Color = 16645114
+      Color = 16445929
       Font.Charset = THAI_CHARSET
       Font.Color = 7485192
       Font.Height = -11
@@ -188,8 +209,8 @@ object Fupinvoi: TFupinvoi
       UseDockManager = True
       Version = '2.5.8.0'
       BorderColor = 16765615
-      Caption.Color = 16575452
-      Caption.ColorTo = 16571329
+      Caption.Color = 16773091
+      Caption.ColorTo = 16765615
       Caption.Font.Charset = THAI_CHARSET
       Caption.Font.Color = clBlack
       Caption.Font.Height = -11
@@ -200,22 +221,27 @@ object Fupinvoi: TFupinvoi
       Caption.ShadeLight = 255
       CollapsColor = clNone
       CollapsDelay = 0
-      ColorTo = 16643051
+      ColorTo = 15587527
+      ColorMirror = 15587527
+      ColorMirrorTo = 16773863
       DoubleBuffered = True
       ShadowColor = clBlack
       ShadowOffset = 0
-      StatusBar.BorderColor = 13542013
+      StatusBar.BorderColor = 16765615
       StatusBar.BorderStyle = bsSingle
       StatusBar.Font.Charset = DEFAULT_CHARSET
       StatusBar.Font.Color = 7485192
       StatusBar.Font.Height = -11
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
-      StatusBar.Color = 16575452
-      StatusBar.ColorTo = 16571329
+      StatusBar.Color = 16245715
+      StatusBar.ColorTo = 16109747
       StatusBar.GradientDirection = gdVertical
       Styler = SFMain.AdvPanelStyler1
       Text = ''
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 397
       FullHeight = 51
       object AdvToolBar2: TAdvToolBar
         Left = -6
@@ -387,17 +413,17 @@ object Fupinvoi: TFupinvoi
     end
   end
   object Query1: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     Left = 68
     Top = 52
   end
   object QRcinv: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     Left = 12
     Top = 52
   end
   object Query2: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     Left = 36
     Top = 48
   end

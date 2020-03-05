@@ -190,7 +190,6 @@ type
     QArbilTrDUEDATE: TDateField;
     QArbilTrBALANCE: TFloatField;
     QArbilTrPAYAMT: TFloatField;
-    QArbilTrNOPAY: TFloatField;
     QArbillUpdateStatus: TStringField;
     QArpaytrUpdateStatus: TStringField;
     TArinvoi: TFDTable;
@@ -324,6 +323,7 @@ type
     QArbillDEPOSIT_NO: TFloatField;
     QArbillDEPOSIT_AMNT: TFloatField;
     QArbillDEPOSIT_DOC: TStringField;
+    QArbilTrNOPAY: TIntegerField;
     procedure QArbillBeforePost(DataSet: TDataSet);
     procedure QArbillAfterPost(DataSet: TDataSet);
     procedure QArbillBDATEValidate(Sender: TField);
