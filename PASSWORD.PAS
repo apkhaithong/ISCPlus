@@ -37,6 +37,8 @@ type
     Image1: TImage;
     DB_passwd: TFDQuery;
     Query1: TFDQuery;
+    EdServer: TcxTextEdit;
+    Label7: TLabel;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
@@ -52,7 +54,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    XRemem, XSecurity, XDatabase, XSchema, XPassDB, XRegGL, XODBC, XDNAME: string;
+    XRemem, XSecurity, XDatabase, XSchema, XPassDB, XRegGL, XODBC, XDNAME,
+    XServer: string;
     function IsWOW64: Boolean;
   end;
 
@@ -106,6 +109,7 @@ begin
   SetWindowRgn(Handle, rgn, TRUE);
 
   TSVConfig := TiniFile.Create(ExtractFilePath(Application.ExeName) + 'SVConfig.ini');
+  XServer := TSVConfig.ReadString('Database Detail', 'Server', '');
   XSchema := TSVConfig.ReadString('Database Detail', 'Schema Name', '');
   XDatabase := TSVConfig.ReadString('Database Detail', 'Database Name', '');
   XRemem := TSVConfig.ReadString('Remember', 'Remember', '');
@@ -125,7 +129,9 @@ begin
   end;
 
   Password.Font.Charset := 2;
-
+  DM_SEC.Decode := XServer;
+  DM_SEC.EndCode(DM_SEC.Decode, 'SFADMIN', '1');
+  EdServer.Text := DM_SEC.Xtprd;
   DM_SEC.Decode := XDatabase;
   DM_SEC.EndCode(DM_SEC.Decode, 'SFADMIN', '1');
   Eddbms.Text := DM_SEC.Xtprd;
@@ -150,7 +156,9 @@ begin
     XRemem := 'Y'
   else
     XRemem := 'N';
-
+  DM_SEC.Decode := UpperCase(EdServer.text);
+  DM_SEC.EndCode(DM_SEC.Decode, 'SFADMIN', '0');
+  XServer := DM_SEC.Xtprd;
   DM_SEC.Decode := UpperCase(Eddbms.text);
   DM_SEC.EndCode(DM_SEC.Decode, 'SFADMIN', '0');
   XDatabase := DM_SEC.Xtprd;
@@ -162,6 +170,7 @@ begin
   XPassDB := DM_SEC.Xtprd;
 
   TSVConfig := TiniFile.Create(ExtractFilePath(Application.ExeName) + 'SVConfig.ini');
+  TSVConfig.WriteString('Database Detail', 'Server', UpperCase(XServer));
   TSVConfig.WriteString('Database Detail', 'Schema Name', UpperCase(XSchema));
   TSVConfig.WriteString('Database Detail', 'Database Name', UpperCase(XDatabase));
   TSVConfig.WriteString('Last Login', 'UserName', UpperCase(Userid.text));

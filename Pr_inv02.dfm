@@ -2140,8 +2140,9 @@ object FPr_inv02: TFPr_inv02
     object QPotypePODISC: TFloatField
       FieldName = 'PODISC'
     end
-    object QPotypeLASTPO: TFloatField
+    object QPotypeLASTPO: TIntegerField
       FieldName = 'LASTPO'
+      Origin = 'LASTPO'
     end
   end
   object SoPotype: TDataSource

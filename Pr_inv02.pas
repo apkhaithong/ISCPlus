@@ -127,7 +127,6 @@ type
     QPotypePOCODE: TStringField;
     QPotypePODESC: TStringField;
     QPotypePODISC: TFloatField;
-    QPotypeLASTPO: TFloatField;
     SoPotype: TDataSource;
     Query1: TFDQuery;
     QInvt: TFDQuery;
@@ -179,6 +178,7 @@ type
     frxXLSXExport1: TfrxXLSXExport;
     QPoinv1CREDTM: TIntegerField;
     QPoinv1NETCOST: TFloatField;
+    QPotypeLASTPO: TIntegerField;
     procedure InsBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure DataSource1StateChange(Sender: TObject);

@@ -29,8 +29,10 @@ object FRpPo10: TFRpPo10
     Width = 419
     Height = 285
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -38,20 +40,36 @@ object FRpPo10: TFRpPo10
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label12: TLabel
@@ -288,9 +306,9 @@ object FRpPo10: TFRpPo10
       Width = 121
     end
     object SortRadio: TAdvOfficeRadioGroup
-      Left = 1
-      Top = 230
-      Width = 417
+      Left = 0
+      Top = 231
+      Width = 419
       Height = 54
       Version = '1.6.1.0'
       Align = alBottom
@@ -312,11 +330,14 @@ object FRpPo10: TFRpPo10
         #3619#3627#3633#3626#3626#3634#3586#3634
         #3623#3633#3609#3607#3637#3656#3626#3633#3656#3591#3595#3639#3657#3629)
       Ellipsis = False
+      ExplicitLeft = 1
+      ExplicitTop = 230
+      ExplicitWidth = 417
     end
     object AdvOfficeRadioGroup1: TAdvOfficeRadioGroup
-      Left = 1
-      Top = 136
-      Width = 417
+      Left = 0
+      Top = 137
+      Width = 419
       Height = 94
       Version = '1.6.1.0'
       Align = alBottom
@@ -340,6 +361,9 @@ object FRpPo10: TFRpPo10
         #3592#3633#3604#3585#3621#3640#3656#3617#3605#3634#3617#3619#3627#3633#3626#3626#3636#3609#3588#3657#3634
         #3649#3626#3604#3591#3619#3634#3618#3621#3632#3648#3629#3637#3618#3604)
       Ellipsis = False
+      ExplicitLeft = 1
+      ExplicitTop = 136
+      ExplicitWidth = 417
     end
     object cxButtonEdit1: TcxButtonEdit
       Left = 89
@@ -377,7 +401,7 @@ object FRpPo10: TFRpPo10
     Height = 54
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -390,8 +414,8 @@ object FRpPo10: TFRpPo10
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -402,19 +426,21 @@ object FRpPo10: TFRpPo10
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
@@ -642,7 +668,7 @@ object FRpPo10: TFRpPo10
   end
   object qrLocatMaster: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'SELECT LOCATCD,LOCATNM FROM INVLOCAT')
     Left = 294

@@ -28,8 +28,10 @@ object FDlgcopy: TFDlgcopy
     Width = 463
     Height = 191
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -37,20 +39,36 @@ object FDlgcopy: TFDlgcopy
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label1: TLabel
@@ -82,14 +100,17 @@ object FDlgcopy: TFDlgcopy
       ParentFont = False
     end
     object Gauge1: TGauge
-      Left = 1
-      Top = 171
-      Width = 461
+      Left = 0
+      Top = 172
+      Width = 463
       Height = 19
       Align = alBottom
       ForeColor = clBlue
       Progress = 0
       Visible = False
+      ExplicitLeft = 1
+      ExplicitTop = 171
+      ExplicitWidth = 461
     end
     object Label3: TLabel
       Left = 24
@@ -120,8 +141,8 @@ object FDlgcopy: TFDlgcopy
       ParentFont = False
     end
     object RadioGroup1: TcxRadioGroup
-      Left = 1
-      Top = 1
+      Left = 0
+      Top = 0
       Align = alTop
       Caption = #3623#3636#3608#3637#3585#3634#3619#3626#3619#3657#3634#3591
       ParentFont = False
@@ -139,13 +160,17 @@ object FDlgcopy: TFDlgcopy
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
       Style.LookAndFeel.NativeStyle = False
-      Style.LookAndFeel.SkinName = 'McSkin'
+      Style.LookAndFeel.SkinName = ''
       Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.NativeStyle = False
-      StyleDisabled.LookAndFeel.SkinName = 'McSkin'
+      StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 0
+      Transparent = True
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 461
       Height = 80
-      Width = 461
+      Width = 463
     end
     object Edit1: TcxButtonEdit
       Left = 99
@@ -267,7 +292,7 @@ object FDlgcopy: TFDlgcopy
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -280,8 +305,8 @@ object FDlgcopy: TFDlgcopy
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -292,19 +317,21 @@ object FDlgcopy: TFDlgcopy
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''

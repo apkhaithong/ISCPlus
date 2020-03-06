@@ -29,8 +29,10 @@ object ArRp_50: TArRp_50
     Width = 456
     Height = 194
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -38,20 +40,36 @@ object ArRp_50: TArRp_50
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label6: TLabel
@@ -215,9 +233,9 @@ object ArRp_50: TArRp_50
       Width = 121
     end
     object RadioGroup1: TAdvOfficeRadioGroup
-      Left = 1
-      Top = 125
-      Width = 454
+      Left = 0
+      Top = 126
+      Width = 456
       Height = 68
       Version = '1.6.1.0'
       Align = alBottom
@@ -239,11 +257,14 @@ object ArRp_50: TArRp_50
         #3586#3634#3618#3626#3604'('#3652#3617#3656#3652#3604#3657#3605#3633#3657#3591#3621#3641#3585#3627#3609#3637#3657')'
         #3607#3633#3657#3591#3627#3617#3604)
       Ellipsis = False
+      ExplicitLeft = 1
+      ExplicitTop = 125
+      ExplicitWidth = 454
     end
     object FSortRadio: TAdvOfficeRadioGroup
-      Left = 1
-      Top = 81
-      Width = 454
+      Left = 0
+      Top = 82
+      Width = 456
       Height = 44
       Version = '1.6.1.0'
       Align = alBottom
@@ -264,6 +285,9 @@ object ArRp_50: TArRp_50
         #3648#3619#3637#3618#3591#3605#3634#3617#3619#3627#3633#3626#3621#3641#3585#3627#3609#3637#3657
         #3648#3619#3637#3618#3591#3605#3634#3617#3623#3633#3609#3607#3637#3656' Invoi')
       Ellipsis = False
+      ExplicitLeft = 1
+      ExplicitTop = 81
+      ExplicitWidth = 454
     end
   end
   object AdvPanel2: TAdvPanel
@@ -273,7 +297,7 @@ object ArRp_50: TArRp_50
     Height = 51
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -286,8 +310,8 @@ object ArRp_50: TArRp_50
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -298,19 +322,21 @@ object ArRp_50: TArRp_50
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''

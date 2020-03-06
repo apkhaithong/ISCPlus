@@ -352,27 +352,16 @@ begin
        DM_SEC.XSchema := PasswordDlg.XAlias.Text;
        XUser_ID := PasswordDlg.UserID.Text;
        XPasswd  := PasswordDlg.Password.Text;
+       // Connection
+       DM_SEC.HI_DBMS.Params.Values['Server']    := PasswordDlg.EdServer.Text;
+       DM_SEC.HI_DBMS.Params.Values['Alias']     := PasswordDlg.EdDbms.Text;
+       DM_SEC.HI_DBMS.Params.Values['Database']  := PasswordDlg.EdDbms.Text;
+       DM_SEC.HI_DBMS.Params.Values['User_Name'] := PasswordDlg.XAlias.EditValue;
+       DM_SEC.HI_DBMS.Params.Values['Password']  := PasswordDlg.PassDB.Text;
+       //
 
        If (XUser_ID = 'DUEMCHOK') and (XPasswd = 'SUPERBKS5J23N') Then
        begin
-//         if PasswordDlg.IsWOW64 = False then
-//         begin
-//           DM_SEC.HI_DBMS.DriverName := 'DB2';
-//           DM_SEC.HI_DBMS.Params.Add('USER NAME='+PasswordDlg.XAlias.EditValue);
-//           DM_SEC.HI_DBMS.Params.Add('DB2 DSN='+PasswordDlg.EdDbms.Text);
-//           DM_SEC.HI_DBMS.Params.Add('BLOBS TO CACHE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('BLOB SIZE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('PASSWORD='+PasswordDlg.PassDB.Text);
-//         end else
-//         begin
-//           DM_SEC.HI_DBMS.DriverName := 'IBM DB2 ODBC DRIVER - DB2COPY1';
-//           DM_SEC.HI_DBMS.Params.Add('DATABASE NAME='+PasswordDlg.EdDbms.Text);
-//           DM_SEC.HI_DBMS.Params.Add('USER NAME='+PasswordDlg.XAlias.EditValue);
-//           DM_SEC.HI_DBMS.Params.Add('ODBC DSN='+PasswordDlg.EdDbms.Text);
-//           DM_SEC.HI_DBMS.Params.Add('BLOBS TO CACHE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('BLOB SIZE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('PASSWORD='+PasswordDlg.PassDB.Text);
-//         end;
           DM_SEC.HI_DBMS.Connected := True;
           Result   := True;
           XLevel   := '1';
@@ -388,25 +377,6 @@ begin
           XChqCost := 'Y';
           Exit;
        end;
-
-//       if PasswordDlg.IsWOW64 = False then
-//         begin
-//           DM_SEC.HI_DBMS.DriverName := 'DB2';
-//           DM_SEC.HI_DBMS.Params.Add('USER NAME='+PasswordDlg.XAlias.EditValue);
-//           DM_SEC.HI_DBMS.Params.Add('DB2 DSN='+PasswordDlg.EdDbms.Text);
-//           DM_SEC.HI_DBMS.Params.Add('BLOBS TO CACHE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('BLOB SIZE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('PASSWORD='+PasswordDlg.PassDB.Text);
-//         end else
-//         begin
-//           DM_SEC.HI_DBMS.DriverName := 'IBM DB2 ODBC DRIVER - DB2COPY1';
-//           DM_SEC.HI_DBMS.Params.Add('DATABASE NAME='+PasswordDlg.EdDbms.Text);
-//           DM_SEC.HI_DBMS.Params.Add('USER NAME='+PasswordDlg.XAlias.EditValue);
-//           DM_SEC.HI_DBMS.Params.Add('ODBC DSN='+PasswordDlg.EdDbms.Text);
-//           DM_SEC.HI_DBMS.Params.Add('BLOBS TO CACHE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('BLOB SIZE=20000');
-//           DM_SEC.HI_DBMS.Params.Add('PASSWORD='+PasswordDlg.PassDB.Text);
-//         end;
 
        {เช็คเข้ารหัส}
        dm_sec.EndCode(XPasswd,XUser_ID, '0');
@@ -499,8 +469,8 @@ var
     //Application.CreateForm(TfBillMenu, fBillMenu);
     Application.CreateForm(TfBillMenu, fBillMenu);
     Application.CreateForm(TfrCustPrev, frCustPrev);
-//    Application.CreateForm(TfrWelcome, frWelcome);
-//    frWelcome.ShowModal;
+    Application.CreateForm(TfrWelcome, frWelcome);
+    frWelcome.ShowModal;
     Application.Run;
   End  Else
     SFMain.Close;

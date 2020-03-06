@@ -184,7 +184,7 @@ begin
   end
   else if MethodName = 'DATETHAI' then
   begin
-    SFMain.DateThai(Params[0], Params[1]);
+    Result := SFMain.DateThai(Params[0], Params[1]);
   end;
 
     //StringReplace('|'+Params[0]+#13+Params[1]+#13+Params[2]+#13+Params[3],#$A,'',[rfReplaceAll]);

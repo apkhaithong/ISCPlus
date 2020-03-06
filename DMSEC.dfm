@@ -5,10 +5,11 @@ object DM_SEC: TDM_SEC
   object HI_DBMS: TFDConnection
     ConnectionName = 'HI_DBMS'
     Params.Strings = (
+      'Server=119.59.112.76'
       'Database=DBISC'
+      'Alias=DBISC'
       'User_Name=mrp'
       'Password=Bks5j23N'
-      'Server=119.59.112.76'
       'Port=50000'
       'DriverID=DB2')
     FormatOptions.AssignedValues = [fvMapRules, fvMaxBcdScale, fvDefaultParamDataType]
@@ -23,7 +24,15 @@ object DM_SEC: TDM_SEC
         TargetDataType = dtDouble
       end
       item
-        PrecMax = 8
+        PrecMax = 32
+        PrecMin = 1
+        ScaleMax = 6
+        ScaleMin = 2
+        SourceDataType = dtFmtBCD
+        TargetDataType = dtDouble
+      end
+      item
+        PrecMax = 32
         PrecMin = 1
         ScaleMax = 0
         ScaleMin = 0
@@ -31,39 +40,27 @@ object DM_SEC: TDM_SEC
         TargetDataType = dtInt32
       end
       item
-        PrecMax = 0
-        PrecMin = 0
+        PrecMax = 32
+        PrecMin = 1
         ScaleMax = 0
         ScaleMin = 0
+        SourceDataType = dtFmtBCD
+        TargetDataType = dtInt32
+      end
+      item
         SizeMax = 1024
-        SizeMin = 512
+        SizeMin = 1024
         SourceDataType = dtAnsiString
         TargetDataType = dtMemo
       end
       item
         SourceDataType = dtDateTimeStamp
         TargetDataType = dtDateTime
-      end
-      item
-        PrecMax = 19
-        PrecMin = 9
-        ScaleMax = 0
-        ScaleMin = 0
-        SourceDataType = dtBCD
-        TargetDataType = dtDouble
-      end
-      item
-        PrecMax = 32
-        PrecMin = 1
-        ScaleMax = 6
-        ScaleMin = 2
-        SourceDataType = dtFmtBCD
-        TargetDataType = dtDouble
       end>
-    FormatOptions.MaxBcdScale = 6
-    FormatOptions.DefaultParamDataType = ftVariant
     TxOptions.DisconnectAction = xdRollback
     TxOptions.EnableNested = False
+    ConnectedStoredUsage = [auRunTime]
+    Connected = True
     LoginPrompt = False
     OnRecover = HI_DBMSRecover
     BeforeStartTransaction = HI_DBMSBeforeStartTransaction

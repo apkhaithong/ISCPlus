@@ -29,8 +29,10 @@ object FmSTRp40: TFmSTRp40
     Width = 483
     Height = 255
     Align = alClient
+    BevelOuter = bvNone
+    Color = 16445929
     Font.Charset = THAI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 7485192
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -38,20 +40,36 @@ object FmSTRp40: TFmSTRp40
     TabOrder = 0
     UseDockManager = True
     Version = '2.5.8.0'
-    Caption.Color = clHighlight
-    Caption.ColorTo = clNone
+    BorderColor = 16765615
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
-    Caption.Font.Color = clWindowText
+    Caption.Font.Color = clBlack
     Caption.Font.Height = -11
     Caption.Font.Name = 'Tahoma'
     Caption.Font.Style = []
-    Caption.Indent = 0
+    Caption.GradientDirection = gdVertical
+    Caption.Indent = 2
+    Caption.ShadeLight = 255
+    CollapsColor = clNone
+    CollapsDelay = 0
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = 16765615
+    StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
-    StatusBar.Font.Color = clWindowText
+    StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
+    StatusBar.GradientDirection = gdVertical
+    Styler = SFMain.AdvPanelStyler1
     Text = ''
     FullHeight = 200
     object Label8: TLabel
@@ -153,9 +171,9 @@ object FmSTRp40: TFmSTRp40
       ParentFont = False
     end
     object SortRadio: TAdvOfficeRadioGroup
-      Left = 1
-      Top = 174
-      Width = 481
+      Left = 0
+      Top = 175
+      Width = 483
       Height = 80
       Version = '1.6.1.0'
       Align = alBottom
@@ -176,6 +194,9 @@ object FmSTRp40: TFmSTRp40
         #3619#3634#3618#3591#3634#3609#3626#3619#3640#3611#3618#3629#3604#3619#3623#3617'('#3585#3621#3640#3656#3617#3626#3636#3609#3588#3657#3634')'
         #3619#3634#3618#3591#3634#3609#3605#3634#3617#3648#3588#3621#3639#3656#3629#3609#3652#3627#3623#3651#3609#3588#3621#3633#3591)
       Ellipsis = False
+      ExplicitLeft = 1
+      ExplicitTop = 174
+      ExplicitWidth = 481
     end
     object ChkStatus: TcxCheckBox
       Left = 88
@@ -392,7 +413,7 @@ object FmSTRp40: TFmSTRp40
     Height = 54
     Align = alTop
     BevelOuter = bvNone
-    Color = 16645114
+    Color = 16445929
     Font.Charset = THAI_CHARSET
     Font.Color = 7485192
     Font.Height = -11
@@ -405,8 +426,8 @@ object FmSTRp40: TFmSTRp40
     UseDockManager = True
     Version = '2.5.8.0'
     BorderColor = 16765615
-    Caption.Color = 16575452
-    Caption.ColorTo = 16571329
+    Caption.Color = 16773091
+    Caption.ColorTo = 16765615
     Caption.Font.Charset = THAI_CHARSET
     Caption.Font.Color = clBlack
     Caption.Font.Height = -11
@@ -417,19 +438,21 @@ object FmSTRp40: TFmSTRp40
     Caption.ShadeLight = 255
     CollapsColor = clNone
     CollapsDelay = 0
-    ColorTo = 16643051
+    ColorTo = 15587527
+    ColorMirror = 15587527
+    ColorMirrorTo = 16773863
     DoubleBuffered = True
     ShadowColor = clBlack
     ShadowOffset = 0
-    StatusBar.BorderColor = 13542013
+    StatusBar.BorderColor = 16765615
     StatusBar.BorderStyle = bsSingle
     StatusBar.Font.Charset = DEFAULT_CHARSET
     StatusBar.Font.Color = 7485192
     StatusBar.Font.Height = -11
     StatusBar.Font.Name = 'Tahoma'
     StatusBar.Font.Style = []
-    StatusBar.Color = 16575452
-    StatusBar.ColorTo = 16571329
+    StatusBar.Color = 16245715
+    StatusBar.ColorTo = 16109747
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''

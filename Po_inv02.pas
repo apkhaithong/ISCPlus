@@ -130,7 +130,6 @@ type
     QPotypePOCODE: TStringField;
     QPotypePODESC: TStringField;
     QPotypePODISC: TFloatField;
-    QPotypeLASTPO: TFloatField;
     SoPotype: TDataSource;
     Query1: TFDQuery;
     QInvt: TFDQuery;
@@ -199,6 +198,7 @@ type
     Bevel1: TBevel;
     QPoinv1CREDTM: TIntegerField;
     QPoinv1LOTNO: TStringField;
+    QPotypeLASTPO: TIntegerField;
     procedure InsBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure DataSource1StateChange(Sender: TObject);
