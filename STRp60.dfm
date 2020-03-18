@@ -336,6 +336,7 @@ object FmSTRp60: TFmSTRp60
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 6
+      Transparent = True
     end
     object CheckBox1: TcxCheckBox
       Left = 99
@@ -357,6 +358,7 @@ object FmSTRp60: TFmSTRp60
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 7
+      Transparent = True
     end
     object RadioGp1: TAdvOfficeRadioGroup
       Left = 81

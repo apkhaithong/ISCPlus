@@ -88,6 +88,7 @@ type
     function ShowModalPaycode: Integer;
     function ShowModalNParts :Integer;
     function ShowModalPR: Integer;
+    function ShowModalCanPO: integer;
   end;
 
 var
@@ -436,6 +437,12 @@ begin
   Result := ShowModal;
 end;
 
+
+function TfFindPO.ShowModalCanPO: integer;
+begin
+//
+  Result := ShowModal;
+end;
 
 function TfFindPO.ShowModalCHANGRAT: Integer;
 begin

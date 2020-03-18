@@ -2738,8 +2738,9 @@ object FmDmic01: TFmDmic01
     object TmpajtrTIME1: TDateTimeField
       FieldName = 'TIME1'
     end
-    object TmpajtrITEMNO: TFloatField
+    object TmpajtrITEMNO: TIntegerField
       FieldName = 'ITEMNO'
+      Origin = 'ITEMNO'
     end
   end
   object Qtmpicinv: TFDQuery

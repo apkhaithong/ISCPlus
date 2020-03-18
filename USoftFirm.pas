@@ -257,6 +257,7 @@ type
     bsCompressedSkinList1: TbsCompressedSkinList;
     bsSelectSkinDialog1: TbsSelectSkinDialog;
     bsResourceStrData1: TbsResourceStrData;
+    HDSTK02_2_3: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -810,6 +811,7 @@ type
     procedure AdvGlowButton3Click(Sender: TObject);
     procedure AdvGlowButton20Click(Sender: TObject);
     procedure qrReportAfterPost(DataSet: TDataSet);
+    procedure HDSTK02_2_3Click(Sender: TObject);
   private
     { Private declarations }
     procedure HandleMessage(var Msg: TMessage);
@@ -863,7 +865,7 @@ type
     function Do_Ref_frxReport1(AfrxReport: TfrxReport): TfrxReport;
     procedure Do_Prev_Edit_FastReport4(nFrxReport: TfrxReport; nFrxName, Action: string);
     function Do_Call_Reports(FTable, FField, FValue: string): string;
-    function Do_Show_frReports(FReport: string): string;
+    function Do_Show_frReports(FReport: string; AFrStream: TMemoryStream): string;
   end;
 
 var
@@ -915,7 +917,7 @@ uses
   uUpdConfig, uClose, uEngineer, ChgGroup, chgmodel, Chgstrno, ChgOwner,
   uLostSale, RpAp_04, U_RepCustmast, uRepTaxDaily, uWelcome, uDataflow,
   uRpPartProf, RecvHistory, uRpReChkServ, Password, Pr_inv02, STin02_1Pos,
-  Stin01, Editshlf, uPos, uRpStkBal; //,unCalcDaySv,unCalAfterSale,unCalFirstSv,unCalAfterSv,uCalNextService;
+  Stin01, Editshlf, uPos, uRpStkBal, CanPo_inv02, Stin15; //,unCalcDaySv,unCalAfterSale,unCalFirstSv,unCalAfterSv,uCalNextService;
 
 {$R *.dfm}
 
@@ -1044,13 +1046,12 @@ begin
   Result := VTable + '' + VValue;
 end;
 
-function TSFMain.Do_Show_frReports(FReport: string): string;
-var
-  VTable, VField, VValue: string;
+function TSFMain.Do_Show_frReports(FReport: string; AFrStream: TMemoryStream): string;
 begin
-  Do_Call_Reports('FRREPORTS', 'FRNAME', FReport);
-  mStream := TMemoryStream.Create;
-  mStream.LoadFromStream(qrReport.CreateBlobStream(qrReport.FieldByName('PATHFR'), bmRead));
+  Do_Call_Reports('FRREPORTS','FRNAME',FReport);
+  if qrReport.IsEmpty then
+    raise Exception.Create('ไม่มี Report ' + FReport );
+  AFrStream.LoadFromStream(qrReport.CreateBlobStream(qrReport.FieldByName('PATHFR'), bmRead));
 end;
 
 function TSFMain.Do_Ref_frxReport1(AfrxReport: TfrxReport): TfrxReport;
@@ -1060,57 +1061,50 @@ end;
 
 procedure TSFMain.Do_Prev_Edit_FastReport4(nFrxReport: TfrxReport; nFrxName, Action: string);
 var
-  FfrxReport: TfrxReport;
-  FPreviewButtons: TfrxPreviewButtons;
+  AFrStream: TMemoryStream;
 begin
+  AFrStream := TMemoryStream.Create;
   try
-    FfrxReport := TfrxReport.Create(nil);
-    FfrxReport := nFrxReport;
-
-    Do_Ref_frxReport1(FfrxReport).AddFunction('function BAHTTEXT(nAmount:Double):String', 'User Function', '');
-    Do_Ref_frxReport1(FfrxReport).AddFunction('function DATEFORMAT(Num:Int;nDate:DateTime):String', 'User Function', '');
-
-    FPreviewButtons := [pbPrint, pbLoad, pbExport, pbZoom, pbFind, pbOutline,
-      pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick];
-    Do_Ref_frxReport1(FfrxReport).PreviewOptions.Buttons := FPreviewButtons;
-
-    Do_Show_frReports(nFrxName);
-    Do_Ref_frxReport1(FfrxReport).LoadFromStream(mStream);
-
-    if Action = '1' then {Preview Report}
+    Do_Show_frReports(nFrxName, AFrStream);
+    nFrxReport.LoadFromStream(AFrStream);
+    nFrxReport.PreviewOptions.AllowEdit := False;
+    nFrxReport.PreviewOptions.AllowPreviewEdit := False;
+    nFrxReport.FileName := nFrxName;
+    //
+    if (Action = '1') then {Preview Report}
     begin
-      Do_Ref_frxReport1(FfrxReport).PreviewOptions.Zoom := 1.25;
-      Do_Ref_frxReport1(FfrxReport).ShowReport;
+      nFrxReport.ShowReport;
     end
     else if Action = '2' then {Design Report}
     begin
-      Do_Call_Reports('FRREPORTS', 'FRNAME', nFrxName);
-      Do_Ref_frxReport1(FfrxReport).FileName := qrReport.FieldByName('FRNAME').AsString;
-      if not qrReport.FieldByName('PATHFR').IsNull then
-        Do_Ref_frxReport1(FfrxReport).LoadFromStream(qrReport.CreateBlobStream(qrReport.FieldByName('PATHFR'), bmRead));
-      Do_Ref_frxReport1(FfrxReport).DesignReport;
-
-      if Do_Ref_frxReport1(FfrxReport).Modified then
-      begin
-        AdvSmoothMessageDialog6.HTMLText.Text := 'Edited form or report by User : ' + Xuser_ID + '<br/>Do you want to save changes?';
-        case AdvSmoothMessageDialog6.ExecuteDialog of
-          mrOk:
-            begin
-              qrReport.Edit;
-              Do_Ref_frxReport1(FfrxReport).SaveToStream(qrReport.CreateBlobStream(qrReport.FieldByName('PATHFR'), bmRead));
-              qrReport.FieldByName('USERID').AsString := Xuser_ID;
-              qrReport.FieldByName('INPUTDT').AsDateTime := Now;
-              qrReport.Post;
-            end;
-          mrCancel:
-            begin
-              DeleteFile(Do_Ref_frxReport1(FfrxReport).FileName);
-            end;
-        end;
+      nFrxReport.DesignReport;
+      //
+      SFMain.AdvSmoothMessageDialog6.HTMLText.Text := 'Edited by User : ' + SFMain.Xuser_ID + '<br/>Do you want to save changes?';
+      case SFMain.AdvSmoothMessageDialog6.ExecuteDialog of
+        mrOk:
+          begin
+            qrReport.Edit;
+            AFrStream.Clear;
+            nFrxReport.SaveToStream(AFrStream);
+            AFrStream.Position := 0;
+            (qrReport.FieldByName('PATHFR') as TBlobField).LoadFromStream(AFrStream);
+            qrReport.FieldByName('USERID').AsString := SFMain.Xuser_ID;
+            qrReport.FieldByName('INPUTDT').AsDateTime := Now;
+            qrReport.Post;
+          end;
+        mrCancel:
+          begin
+            DeleteFile(nFrxName);
+          end;
       end;
+    end
+    else if Action = '3' then {Print Report}
+    begin
+      nFrxReport.PrepareReport;
+      nFrxReport.Print;
     end;
   finally
-    FfrxReport := nil;
+    AFrStream.Free;
   end;
 end;
 
@@ -2360,9 +2354,12 @@ end;
 
 procedure TSFMain.HDSTK02_8Click(Sender: TObject);
 begin
-  if not Assigned(FCanorder) then
-    FCanorder := TFCanorder.Create(Application);
-  FCanorder.Show;
+  if not Assigned(FCanPo_inv02) then
+    FCanPo_inv02 := TFCanPo_inv02.Create(Application);
+  FCanPo_inv02.Show;
+//  if not Assigned(FCanorder) then
+//    FCanorder := TFCanorder.Create(Application);
+//  FCanorder.Show;
 end;
 
 procedure TSFMain.HDSET01_5Click(Sender: TObject);
@@ -2511,6 +2508,13 @@ begin
   if not Assigned(FmSTMvRecv) then
     FmSTMvRecv := TFmSTMvRecv.Create(Application);
   FmSTMvRecv.Show;
+end;
+
+procedure TSFMain.HDSTK02_2_3Click(Sender: TObject);
+begin
+  if not Assigned(FmSTIn15) then
+    FmSTIn15 := TFmSTIn15.Create(Application);
+  FmSTIn15.Show;
 end;
 
 procedure TSFMain.HDSTK02_B_1Click(Sender: TObject);

@@ -118,6 +118,7 @@ type
     function ShowModalSetPromotion: Integer;
     function ShowModalQueue: Integer;
     function ShowModalPktrnSV: Integer;
+    function ShowModalWhInvoi: integer;
   end;
 
 var
@@ -1685,6 +1686,12 @@ begin
   CalcMax;
   //
   OrderComboPropertiesChange(nil);
+  Result := ShowModal;
+end;
+
+function TfSrcDLG.ShowModalWhInvoi: integer;
+begin
+//
   Result := ShowModal;
 end;
 

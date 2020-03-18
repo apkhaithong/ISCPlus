@@ -522,10 +522,6 @@ object frApmaster: TfrApmaster
       Style.BorderStyle = ebsNone
       TabOrder = 0
       Transparent = True
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 565
-      ExplicitHeight = 537
       Height = 539
       Width = 567
       object Label7: TLabel
@@ -888,8 +884,6 @@ object frApmaster: TfrApmaster
         Font.Style = []
         ShowHint = False
         ParentShowHint = False
-        ExplicitTop = 515
-        ExplicitWidth = 561
       end
       object cxDBTextEdit1: TcxDBTextEdit
         Left = 135
@@ -1573,10 +1567,6 @@ object frApmaster: TfrApmaster
     object qrApmasterINPDATE: TDateTimeField
       FieldName = 'INPDATE'
     end
-    object qrApmasterVATRATE: TFloatField
-      Alignment = taLeftJustify
-      FieldName = 'VATRATE'
-    end
     object qrApmasterAPFLAG: TStringField
       FieldName = 'APFLAG'
       FixedChar = True
@@ -1641,6 +1631,10 @@ object frApmaster: TfrApmaster
     object qrApmasterCREDTM: TIntegerField
       FieldName = 'CREDTM'
       Origin = 'CREDTM'
+    end
+    object qrApmasterVATRATE: TIntegerField
+      FieldName = 'VATRATE'
+      Origin = 'VATRATE'
     end
   end
   object DBkbd1: TDBkbd

@@ -189,7 +189,7 @@ begin
     else
       Ed3 := FmSTRp60.Edit3.text;
     if FmSTRp60.Edit4.Text = '' then
-      Ed4 := 'ттттт'
+      Ed4 := 'ттт'
     else
       Ed4 := FmSTRp60.Edit4.text;
 

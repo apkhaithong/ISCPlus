@@ -37,13 +37,11 @@ type
     procedure ComboBox1Change(Sender: TObject);
     procedure cxDBGridTranDblClick(Sender: TObject);
     procedure cxDBGridTranKeyPress(Sender: TObject; var Key: Char);
-    procedure cxDBGridTranCustomDrawIndicatorCell(Sender: TcxGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo;
-      var ADone: Boolean);
+    procedure cxDBGridTranCustomDrawIndicatorCell(Sender: TcxGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
     procedure Edit1KeyPress(Sender: TObject; var Key: Char);
     procedure Edit1PropertiesChange(Sender: TObject);
   private
-     procedure SQLHelp1;
+    procedure SQLHelp1;
     { Private declarations }
   public
     { Public declarations }
@@ -54,59 +52,61 @@ var
 
 implementation
 
-uses USoftFirm;
+uses
+  USoftFirm, DMSEC;
 
 {$R *.DFM}
 
 procedure TFmSTHpIn10.FormShow(Sender: TObject);
 begin
-   ComboBox1.ItemIndex := 0;
-   edit1.SetFocus;
-   Query1.close;
+  ComboBox1.ItemIndex := 0;
+  edit1.SetFocus;
+  Query1.close;
 end;
 
 procedure TFmSTHpIn10.SQLHelp1;
-Var ed1 : string;
+var
+  ed1: string;
 begin
-   if ComboBox1.ItemIndex = 0 then
-   begin
-      WITH Query1 DO
-      BEGIN
-         close;
-         sql.clear;
-         sql.add('select * from TMPAJIV '+
-                 'WHERE (Adjno LIKE:EDIT1) and (Flag =:XFlag) '+
-                 'ORDER BY Adjno ');
-         If Edit1.Text <> '' Then
-            ED1 := EDIT1.TEXT+'%'
-         ELSE
-            Ed1 := '%';
+  if ComboBox1.ItemIndex = 0 then
+  begin
+    with Query1 do
+    begin
+      close;
+      sql.clear;
+      sql.add('select * from TMPAJIV ' +
+        'WHERE (Adjno LIKE :XEDIT1) and (Flag = :XFlag) ' +
+        'ORDER BY Adjno ');
+      if Edit1.Text <> '' then
+        ed1 := EDIT1.TEXT + '%'
+      else
+        ed1 := '%';
 
-         Params[0].AsString    := Ed1;
-         Params[1].AsString    := 'B';
-         OPEN;
-      END;
-   END;
+      Params[0].AsString := ed1;
+      Params[1].AsString := 'B';
+      OPEN;
+    end;
+  end;
 
-   if ComboBox1.ItemIndex = 1 then
-   begin
-      WITH Query1 DO
-      BEGIN
-         close;
-         sql.clear;
-         sql.add('select * from TMPAJIV '+
-                 'WHERE (Adjno LIKE:EDIT1) and (Flag =:XFlag) '+
-                 'ORDER BY Adjloc ');
-         If Edit1.Text <> '' Then
-            ED1 := EDIT1.TEXT+'%'
-         ELSE
-            Ed1 := '%';
+  if ComboBox1.ItemIndex = 1 then
+  begin
+    with Query1 do
+    begin
+      close;
+      sql.clear;
+      sql.add('select * from TMPAJIV ' +
+        'WHERE (Adjno LIKE :XEDIT1) and (Flag = :XFlag) ' +
+        'ORDER BY Adjloc ');
+      if Edit1.Text <> '' then
+        ed1 := EDIT1.TEXT + '%'
+      else
+        ed1 := '%';
 
-         Params[0].AsString    := Ed1;
-         Params[1].AsString    := 'B';
-         OPEN;
-      END;
-   END;
+      Params[0].AsString := ed1;
+      Params[1].AsString := 'B';
+      OPEN;
+    end;
+  end;
 end;
 
 procedure TFmSTHpIn10.BitBtn3Click(Sender: TObject);
@@ -116,12 +116,12 @@ end;
 
 procedure TFmSTHpIn10.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-   Action := caFree;
+  Action := caFree;
 end;
 
 procedure TFmSTHpIn10.ComboBox1Change(Sender: TObject);
 begin
-   SQLHelp1;
+  SQLHelp1;
 end;
 
 procedure TFmSTHpIn10.cxDBGridTranDblClick(Sender: TObject);
@@ -141,19 +141,17 @@ end;
 procedure TFmSTHpIn10.cxDBGridTranKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
-   Begin
-     BitBtn1.Click;
-   End;
+  begin
+    BitBtn1.Click;
+  end;
 end;
 
-procedure TFmSTHpIn10.cxDBGridTranCustomDrawIndicatorCell(
-  Sender: TcxGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
+procedure TFmSTHpIn10.cxDBGridTranCustomDrawIndicatorCell(Sender: TcxGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxCustomGridIndicatorItemViewInfo; var ADone: Boolean);
 var
   AIndicatorViewInfo: TcxGridIndicatorRowItemViewInfo;
   ATextRect: TRect;
   AStyle: TcxStyle;
-  IndNo : String;
+  IndNo: string;
 begin
   if not (AViewInfo is TcxGridIndicatorRowItemViewInfo) then
     Exit;
@@ -166,8 +164,9 @@ begin
     AStyle := SFMain.styleNormal;
 
   if AIndicatorViewInfo.GridRecord.Index + 1 = 0 then
-  IndNo := '' else
-  IndNo := IntToStr(AIndicatorViewInfo.GridRecord.Index + 1);
+    IndNo := ''
+  else
+    IndNo := IntToStr(AIndicatorViewInfo.GridRecord.Index + 1);
 
   Sender.LookAndFeelPainter.DrawHeader(ACanvas, AViewInfo.ContentBounds,
     ATextRect, [], cxBordersAll, cxbsNormal, taCenter, vaCenter,
@@ -178,17 +177,18 @@ end;
 
 procedure TFmSTHpIn10.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
-   if Key = #13 then
-   Begin
-       BitBtn3Click(Sender);
-       DBGrid1.SetFocus;
-   End;
+  if Key = #13 then
+  begin
+    BitBtn3Click(Sender);
+    DBGrid1.SetFocus;
+  end;
 end;
 
 procedure TFmSTHpIn10.Edit1PropertiesChange(Sender: TObject);
 begin
-  If SFMain.Xsrch='Y' Then
-  BitBtn3Click(Sender);
+  if SFMain.Xsrch = 'Y' then
+    BitBtn3Click(Sender);
 end;
 
 end.
+

@@ -16,7 +16,7 @@ uses
   Vcl.Menus, AdvMenus, BusinessSkinForm, AdvPanel, frxClass, frxExportXLSX,
   frxRich, frxDCtrl, frxTableObject, frxExportPDF, frxExportImage, frxGradient,
   frxFDComponents, frxBDEComponents, frxExportBaseDialog, frxExportCSV,
-  frxCross, frxChBox, frxChart, frxBarcode;
+  frxCross, frxChBox, frxChart, frxBarcode, DateUtils;
 
 type
   TFmSTRpc30 = class(TForm)
@@ -36,15 +36,6 @@ type
     SortRadio: TAdvOfficeRadioGroup;
     Condition: TAdvOfficeRadioGroup;
     qrExportStk: TFDQuery;
-    qrExportStkLOCAT: TStringField;
-    qrExportStkPARTNO: TStringField;
-    qrExportStkDESC1: TStringField;
-    qrExportStkGROUP1: TStringField;
-    qrExportStkPRICE1: TFloatField;
-    qrExportStkCOST: TFloatField;
-    qrExportStkONHN: TFloatField;
-    qrExportStkTOTCOST: TFloatField;
-    qrExportStkMOVDATE: TDateField;
     AdvPanel3: TAdvPanel;
     AdvToolBar1: TAdvToolBar;
     AdvToolBarSeparator5: TAdvToolBarSeparator;
@@ -84,6 +75,15 @@ type
     frxRichObject1: TfrxRichObject;
     frxXLSXExport1: TfrxXLSXExport;
     frxReport1: TfrxReport;
+    qrExportStkLOCAT: TStringField;
+    qrExportStkPARTNO: TStringField;
+    qrExportStkDESC1: TStringField;
+    qrExportStkGROUP1: TStringField;
+    qrExportStkPRICE1: TFloatField;
+    qrExportStkCOST: TFloatField;
+    qrExportStkONHN: TFloatField;
+    qrExportStkTOTCOST: TFMTBCDField;
+    qrExportStkMOVDATE: TDateField;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -250,7 +250,9 @@ procedure TFmSTRpc30.frxReport1GetValue(const VarName: string;
   var Value: Variant);
 var
   XSort, XCondi: string;
+  AMonths: integer;
 begin
+  AMonths := StrToInt(Edit8.Text);
   if Edit4.Text = '' then
     Edit4.Text := 'тттт';
   if UpperCase(VarName) = 'PLOCAT' then
@@ -263,7 +265,10 @@ begin
     Value := Edit4.Text;
   if UpperCase(VarName) = 'PGROUP' then
     Value := Edit2.Text + '%';
-
+  if UpperCase(VarName) = 'PNDATE' then
+    Value := IncMonth(Date, -AMonths);
+  if UpperCase(VarName) = 'PYEAR' then
+    Value := YearOf(Date);
   case SortRadio.ItemIndex of
     0:
       XSort := '0';

@@ -16,7 +16,7 @@ uses
   dxCore, cxDateUtils, cxNavigator, frxBarcode, frxFDComponents, frxTableObject,
   frxChBox, frxGradient, frxRich, frxExportXLSX, frxExportImage, frxCross,
   frxExportCSV, frxClass, frxExportBaseDialog, frxExportPDF, frxBDEComponents,
-  frxDCtrl, frxChart;
+  frxDCtrl, frxChart, frxDBSet;
 
 type
   TFenqpkinv = class(TForm)
@@ -75,6 +75,7 @@ type
     frxReportTableObject1: TfrxReportTableObject;
     frxFDComponents1: TfrxFDComponents;
     frxBarCodeObject1: TfrxBarCodeObject;
+    frxDBDataset1: TfrxDBDataset;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

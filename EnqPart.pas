@@ -16,7 +16,8 @@ uses
   FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxNavigator, cxPC,
   frxBarcode, frxFDComponents, frxTableObject, frxChBox, frxGradient, frxRich,
   frxExportXLSX, frxExportImage, frxCross, frxExportCSV, frxClass,
-  frxExportBaseDialog, frxExportPDF, frxBDEComponents, frxDCtrl, frxChart;
+  frxExportBaseDialog, frxExportPDF, frxBDEComponents, frxDCtrl, frxChart,
+  frxDBSet;
 
 type
   TFmEnqpart = class(TForm)
@@ -97,6 +98,7 @@ type
     frxReportTableObject1: TfrxReportTableObject;
     frxFDComponents1: TfrxFDComponents;
     frxBarCodeObject1: TfrxBarCodeObject;
+    frxDBDataset1: TfrxDBDataset;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure CloseBtnClick(Sender: TObject);

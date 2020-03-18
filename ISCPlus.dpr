@@ -330,7 +330,9 @@ uses
   STRp40 in 'STRp40.pas' {FmSTRp40},
   USoftFirm in 'USoftFirm.pas' {SFMain},
   myfunctions in 'myfunctions.pas',
-  PaymntPos in 'PaymntPos.pas' {FPaymntPos};
+  PaymntPos in 'PaymntPos.pas' {FPaymntPos},
+  CanPo_inv02 in 'CanPo_inv02.pas' {FCanPo_inv02},
+  Stin15 in 'Stin15.pas' {FmSTIn15};
 
 {$R *.res}
 function AllowAccess: Boolean;

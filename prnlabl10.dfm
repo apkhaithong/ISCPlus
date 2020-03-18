@@ -4,7 +4,7 @@ object FPrnLabl10: TFPrnLabl10
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = #3614#3636#3617#3614#3660#3626#3605#3636#3585#3648#3585#3629#3619#3660#3607#3637#3656#3629#3618#3641#3656#3621#3641#3585#3588#3657#3634
-  ClientHeight = 415
+  ClientHeight = 304
   ClientWidth = 480
   Color = clBtnFace
   Font.Charset = THAI_CHARSET
@@ -27,7 +27,7 @@ object FPrnLabl10: TFPrnLabl10
     Left = 0
     Top = 54
     Width = 480
-    Height = 361
+    Height = 250
     Align = alClient
     BevelOuter = bvNone
     Color = 16445929
@@ -71,6 +71,7 @@ object FPrnLabl10: TFPrnLabl10
     StatusBar.GradientDirection = gdVertical
     Styler = SFMain.AdvPanelStyler1
     Text = ''
+    ExplicitHeight = 361
     FullHeight = 200
     object Bevel3: TBevel
       Left = 11
@@ -329,7 +330,7 @@ object FPrnLabl10: TFPrnLabl10
     end
     object RadioGroup1: TAdvOfficeRadioGroup
       Left = 0
-      Top = 308
+      Top = 197
       Width = 480
       Height = 53
       ImageIndex = 0
@@ -345,6 +346,7 @@ object FPrnLabl10: TFPrnLabl10
       ParentCtl3D = True
       ParentFont = False
       TabOrder = 0
+      Visible = False
       OnClick = RadioGroup1Click
       Columns = 3
       ItemIndex = 0
@@ -353,13 +355,11 @@ object FPrnLabl10: TFPrnLabl10
         #3626#3605#3636#3585#3648#3585#3629#3619#3660
         #3585#3634#3619#3660#3604#3623#3633#3609#3648#3585#3636#3604)
       Ellipsis = False
-      ExplicitLeft = 1
-      ExplicitTop = 307
-      ExplicitWidth = 478
+      ExplicitTop = 308
     end
     object RadioGroup2: TAdvOfficeRadioGroup
       Left = 0
-      Top = 261
+      Top = 150
       Width = 480
       Height = 47
       ImageIndex = 0
@@ -375,6 +375,7 @@ object FPrnLabl10: TFPrnLabl10
       ParentCtl3D = True
       ParentFont = False
       TabOrder = 1
+      Visible = False
       OnClick = RadioGroup2Click
       Columns = 2
       ItemIndex = 0
@@ -382,9 +383,7 @@ object FPrnLabl10: TFPrnLabl10
         #3649#3615#3657#3617#3611#3619#3632#3623#3633#3605#3636
         #3621#3641#3585#3588#3657#3634#3607#3637#3656#3595#3639#3657#3629#3619#3606)
       Ellipsis = False
-      ExplicitLeft = 1
-      ExplicitTop = 260
-      ExplicitWidth = 478
+      ExplicitTop = 261
     end
     object Edit1: TcxButtonEdit
       Left = 86
@@ -1324,6 +1323,7 @@ object FPrnLabl10: TFPrnLabl10
         ParentShowHint = False
         ShowHint = True
         TabOrder = 3
+        Visible = False
         OnClick = ExportBtnClick
         Appearance.BorderColor = 14727579
         Appearance.BorderColorHot = 10079963

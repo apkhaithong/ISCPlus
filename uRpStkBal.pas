@@ -133,7 +133,6 @@ begin
     params[5].AsString := Edit2.Text + '%';
     open;
   end;
-
   sfmain.Do_Prev_Edit_FastReport4(frxReport1, 'fr_RepStkItemBal.fr3', '1');
 end;
 

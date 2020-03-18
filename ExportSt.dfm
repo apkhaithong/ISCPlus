@@ -1669,39 +1669,41 @@ object FExpStock: TFExpStock
         '.LOCAT AND A.YEAR1=B.YEAR1')
     Left = 232
     Top = 64
-    object Query2LOCAT: TStringField
-      DisplayLabel = #3619#3627#3633#3626#3626#3634#3586#3634
-      FieldName = 'LOCAT'
-      FixedChar = True
-      Size = 5
-    end
     object Query2PARTNO: TStringField
-      DisplayLabel = #3619#3627#3633#3626#3626#3636#3609#3588#3657#3634
       FieldName = 'PARTNO'
+      Origin = 'PARTNO'
+      Required = True
       FixedChar = True
     end
     object Query2DESC1: TStringField
-      DisplayLabel = #3594#3639#3656#3629'/'#3619#3634#3618#3621#3632#3648#3629#3637#3618#3604#3626#3636#3609#3588#3657#3634
       FieldName = 'DESC1'
+      Origin = 'DESC1'
       FixedChar = True
       Size = 45
     end
     object Query2GROUP1: TStringField
-      DisplayLabel = #3585#3621#3640#3656#3617#3626#3636#3609#3588#3657#3634
       FieldName = 'GROUP1'
+      Origin = 'GROUP1'
+      Required = True
+      FixedChar = True
+      Size = 5
+    end
+    object Query2LOCAT: TStringField
+      FieldName = 'LOCAT'
+      Origin = 'LOCAT'
+      Required = True
       FixedChar = True
       Size = 5
     end
     object Query2SHELF: TStringField
-      DisplayLabel = #3594#3633#3657#3609#3648#3585#3655#3610
       FieldName = 'SHELF'
+      Origin = 'SHELF'
       FixedChar = True
       Size = 15
     end
     object Query2ALLO_TOT: TFloatField
-      DefaultExpression = '##,##0'
-      DisplayLabel = #3618#3629#3604#3651#3609#3648#3588#3619#3639#3656#3629#3591
       FieldName = 'ALLO_TOT'
+      Origin = 'ALLO_TOT'
     end
   end
   object frxChartObject1: TfrxChartObject

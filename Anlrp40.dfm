@@ -213,6 +213,7 @@ object FAnlrp40: TFAnlrp40
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'McSkin'
       TabOrder = 3
+      Transparent = True
     end
     object RadioGroup2: TAdvOfficeRadioGroup
       Left = 61
@@ -968,83 +969,105 @@ object FAnlrp40: TFAnlrp40
     object Query2BALANCE: TFloatField
       DisplayLabel = #3592#3635#3609#3623#3609#3648#3591#3636#3609
       FieldName = 'BALANCE'
+      Origin = 'BALANCE'
+      DisplayFormat = '#,##0.00'
     end
     object Query2VAT: TFloatField
       DisplayLabel = #3616#3634#3625#3637
       FieldName = 'VAT'
+      Origin = 'VAT'
+      DisplayFormat = '#,##0.00'
     end
     object Query2TOTTAX: TFloatField
       DisplayLabel = #3619#3623#3617#3618#3629#3604#3648#3591#3636#3609
       FieldName = 'TOTTAX'
+      Origin = 'TOTTAX'
+      DisplayFormat = '#,##0.00'
     end
     object Query2PAYTYP: TStringField
       DisplayLabel = #3611#3619#3632#3648#3616#3607
       FieldName = 'PAYTYP'
+      Origin = 'PAYTYP'
       FixedChar = True
       Size = 1
     end
     object Query2CANCELID: TStringField
       DisplayLabel = #3626#3606#3634#3609#3632#3618#3585#3648#3621#3636#3585
       FieldName = 'CANCELID'
+      Origin = 'CANCELID'
       FixedChar = True
       Size = 8
     end
     object Query2FLAG: TStringField
       DisplayLabel = #3626#3606#3634#3609#3632
       FieldName = 'FLAG'
+      Origin = 'FLAG'
       FixedChar = True
       Size = 1
     end
     object Query2CREDIT: TFloatField
       DisplayLabel = #3648#3588#3619#3604#3636#3605
       FieldName = 'CREDIT'
-      DisplayFormat = '##,##0.00'
+      Origin = 'CREDIT'
+      DisplayFormat = '#,##0.00'
     end
     object Query2CASH: TFloatField
       DisplayLabel = #3648#3591#3636#3609#3626#3604
       FieldName = 'CASH'
-      DisplayFormat = '##,##0.00'
+      Origin = 'CASH'
+      DisplayFormat = '#,##0.00'
     end
     object Query2DATAFRM: TStringField
       DisplayLabel = #3592#3634#3585#3619#3632#3610#3610
       FieldName = 'DATAFRM'
+      Origin = 'DATAFRM'
+      Required = True
       Size = 2
     end
     object Query2PARTTOT: TFloatField
       DisplayLabel = #3588#3656#3634#3629#3632#3652#3627#3621#3656
       FieldName = 'PARTTOT'
-      DisplayFormat = '##,##0.00'
+      Origin = 'PARTTOT'
+      DisplayFormat = '#,##0.00'
     end
     object Query2SERVTOT: TFloatField
       DisplayLabel = #3588#3656#3634#3610#3619#3636#3585#3634#3619
       FieldName = 'SERVTOT'
-      DisplayFormat = '##,##0.00'
+      Origin = 'SERVTOT'
+      DisplayFormat = '#,##0.00'
     end
-    object Query2OTHTOT: TFloatField
+    object Query2OTHTOT: TIntegerField
       DisplayLabel = #3591#3634#3609#3609#3629#3585
       FieldName = 'OTHTOT'
-      DisplayFormat = '##,##0.00'
+      Origin = 'OTHTOT'
+      Required = True
+      DisplayFormat = '#,##0.00'
     end
     object Query2PART_ONLY: TFloatField
       DisplayLabel = #3605#3657#3609#3607#3640#3609#3629#3632#3652#3627#3621#3656
       FieldName = 'PART_ONLY'
-      DisplayFormat = '##,##0.00'
+      Origin = 'PART_ONLY'
+      DisplayFormat = '#,##0.00'
     end
     object Query2SNAM: TStringField
       DisplayLabel = #3588#3635#3609#3635#3627#3609#3657#3634
       FieldName = 'SNAM'
+      Origin = 'SNAM'
       FixedChar = True
       Size = 8
     end
     object Query2NAME1: TStringField
       DisplayLabel = #3594#3639#3656#3629
       FieldName = 'NAME1'
+      Origin = 'NAME1'
+      Required = True
       FixedChar = True
       Size = 50
     end
     object Query2NAME2: TStringField
       DisplayLabel = #3626#3585#3640#3621
       FieldName = 'NAME2'
+      Origin = 'NAME2'
       FixedChar = True
       Size = 50
     end

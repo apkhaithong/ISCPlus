@@ -17,7 +17,8 @@ uses
   cxNavigator, bsSkinShellCtrls, QExport4, QExport4Xlsx, frxBarcode,
   frxFDComponents, frxTableObject, frxChBox, frxGradient, frxRich,
   frxExportXLSX, frxExportImage, frxCross, frxExportCSV, frxClass,
-  frxExportBaseDialog, frxExportPDF, frxBDEComponents, frxDCtrl, frxChart;
+  frxExportBaseDialog, frxExportPDF, frxBDEComponents, frxDCtrl, frxChart,
+  frxDBSet;
 
 type
   TFmEnqpart1 = class(TForm)
@@ -103,6 +104,7 @@ type
     frxReportTableObject1: TfrxReportTableObject;
     frxFDComponents1: TfrxFDComponents;
     frxBarCodeObject1: TfrxBarCodeObject;
+    frxDBDataset1: TfrxDBDataset;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure CloseBtnClick(Sender: TObject);

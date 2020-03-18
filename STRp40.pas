@@ -83,7 +83,6 @@ type
     procedure CloseBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Edit_DateToChange(Sender: TObject);
-    procedure frReport1GetValue(const ParName: string; var ParValue: Variant);
     procedure Edit_LocatPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure Edit2PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure Edit3PropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
@@ -129,8 +128,8 @@ begin
       'FROM VIEW_STKCARD_MAYO ' +
       'WHERE ' +
       '(DOCDT BETWEEN :VSTARTYEAR AND :VFDATE1) ' +
-      'AND (PARTNO BETWEEN :VJOURCOD AND :VJOURCOD1) ' +
-      'AND (LOCAT LIKE :VLOCAT) AND (GROUP1 LIKE :VGROUP) ' +
+      'AND (PARTNO BETWEEN :VJOURCOD1 AND :VJOURCOD2) ' +
+      'AND (LOCAT LIKE :VLOCAT1) AND (GROUP1 LIKE :VGROUP1) ' +
       'GROUP BY PARTNO,PARTDESC ' +
 
 
@@ -140,8 +139,8 @@ begin
       'CASE WHEN XSORT = 2 THEN QTY ELSE 0 END QTYOUT,UNIT ' +
       'FROM VIEW_STKCARD_MAYO ' +
       'WHERE (DOCDT BETWEEN :VFDATE AND :VTDATE) ' +
-      'AND (PARTNO BETWEEN :VJOURCOD AND :VJOURCOD1) ' +
-      'AND (LOCAT LIKE :VLOCAT) AND (GROUP1 LIKE :VGROUP) ORDER BY PARTNO,DOCDT,ID_NO ');
+      'AND (PARTNO BETWEEN :VJOURCOD3 AND :VJOURCOD4) ' +
+      'AND (LOCAT LIKE :VLOCAT2) AND (GROUP1 LIKE :VGROUP2) ORDER BY PARTNO,DOCDT,ID_NO ');
     params[0].AsDateTime := cxDateEdit1.Date;
     params[1].AsDateTime := Edit_dateFrom.Date - 1;
     params[2].AsString := Edit3.Text;
@@ -222,59 +221,6 @@ begin
   Edit_DateFrom.Date := StrToDate('1/' + IntTostr(month1) + '/' + IntTostr(year1));
 end;
 
-procedure TFmSTRp40.frReport1GetValue(const ParName: string; var ParValue: Variant);
-var
-  XSort, XChk: string;
-begin
-  if Edit4.Text = '' then
-    Edit4.Text := 'тттт';
-  if UpperCase(ParName) = 'PLOCAT' then
-    ParValue := Edit_Locat.Text + '%';
-       { If UpperCase(ParName)='PTYPE' then
-           ParValue:=Edit5.Text+'%'; }
-  if UpperCase(ParName) = 'PFDATE' then
-    ParValue := Edit_DateFrom.Date;
-  if UpperCase(ParName) = 'PTDATE' then
-    ParValue := Edit_DateTo.Date;
-
-  if UpperCase(ParName) = 'PSTARTYEAR' then
-    ParValue := cxDateEdit1.Date;
-  if Uppercase(ParName) = 'PYESTERDAY' then
-    ParValue := Edit_dateFrom.Date - 1;
-
-  if UpperCase(ParName) = 'PPARTFM' then
-    ParValue := Edit3.Text;
-  if UpperCase(ParName) = 'PPARTTO' then
-    ParValue := Edit4.Text;
-  if UpperCase(ParName) = 'PGROUP' then
-    ParValue := Edit2.Text + '%';
-
-  case SortRadio.ItemIndex of
-    0:
-      XSort := '0';
-    1:
-      XSort := '1';
-    2:
-      XSort := '2';
-    3:
-      XSort := '3';
-  end;
-  if UpperCase(ParName) = 'PSORT' then
-    ParValue := XSort;
-  if ChkStatus.Checked = True then
-    XChk := 'Y'
-  else
-    XChk := 'N';
-  if UpperCase(ParName) = 'PCHK' then
-    ParValue := XChk;
-
-  if UpperCase(ParName) = 'PMONTH' then
-    ParValue := month1;
-
-  if UpperCase(ParName) = 'PLOCAT1' then
-    ParValue := Edit_Locat.Text;
-end;
-
 procedure TFmSTRp40.Edit_LocatPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
 begin
   Application.Createform(TfSrcDlg, fSrcDlg);
@@ -311,14 +257,18 @@ begin
     Edit4.Text := 'тттт';
   if UpperCase(VarName) = 'PLOCAT' then
     Value := Edit_Locat.Text + '%';
-       { If UpperCase(VARName)='PTYPE' then
+       { If UpperCase(VarName)='PTYPE' then
            Value:=Edit5.Text+'%'; }
   if UpperCase(VarName) = 'PFDATE' then
     Value := Edit_DateFrom.Date;
   if UpperCase(VarName) = 'PTDATE' then
     Value := Edit_DateTo.Date;
+
   if UpperCase(VarName) = 'PSTARTYEAR' then
     Value := cxDateEdit1.Date;
+  if Uppercase(VarName) = 'PYESTERDAY' then
+    Value := Edit_dateFrom.Date - 1;
+
   if UpperCase(VarName) = 'PPARTFM' then
     Value := Edit3.Text;
   if UpperCase(VarName) = 'PPARTTO' then
@@ -347,6 +297,9 @@ begin
 
   if UpperCase(VarName) = 'PMONTH' then
     Value := month1;
+
+  if UpperCase(VarName) = 'PLOCAT1' then
+    Value := Edit_Locat.Text;
 end;
 
 procedure TFmSTRp40.Edit3PropertiesChange(Sender: TObject);

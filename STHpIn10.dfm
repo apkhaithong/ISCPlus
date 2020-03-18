@@ -4,8 +4,8 @@ object FmSTHpIn10: TFmSTHpIn10
   ActiveControl = Edit1
   BorderIcons = [biSystemMenu]
   Caption = #3588#3657#3609#3627#3634#3648#3621#3586#3607#3637#3656#3611#3619#3633#3610#3611#3619#3640#3591#3626#3636#3609#3588#3657#3634
-  ClientHeight = 0
-  ClientWidth = 120
+  ClientHeight = 556
+  ClientWidth = 860
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object FmSTHpIn10: TFmSTHpIn10
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 120
+    Width = 860
     Height = 55
     Align = alTop
     Shape = bsFrame
@@ -347,8 +347,8 @@ object FmSTHpIn10: TFmSTHpIn10
   object DBGrid1: TcxGrid
     Left = 0
     Top = 55
-    Width = 120
-    Height = 393
+    Width = 860
+    Height = 501
     Align = alClient
     Font.Charset = THAI_CHARSET
     Font.Color = clWindowText
@@ -360,6 +360,8 @@ object FmSTHpIn10: TFmSTHpIn10
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'LiquidSky'
+    ExplicitWidth = 120
+    ExplicitHeight = 393
     object cxDBGridTran: TcxGridDBTableView
       OnDblClick = cxDBGridTranDblClick
       OnKeyPress = cxDBGridTranKeyPress
@@ -511,7 +513,7 @@ object FmSTHpIn10: TFmSTHpIn10
     end
   end
   object Query1: TFDQuery
-    ConnectionName = 'HI_DBMS'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'select * from TMPAJIV')
     Left = 504

@@ -36,7 +36,6 @@ type
     qrApmasterMEMO1: TMemoField;
     qrApmasterUSERID: TStringField;
     qrApmasterINPDATE: TDateTimeField;
-    qrApmasterVATRATE: TFloatField;
     qrApmasterAPFLAG: TStringField;
     qrApmasterAPADDR1: TStringField;
     qrApmasterAPADDR2: TStringField;
@@ -120,6 +119,7 @@ type
     cxDBTextEdit16: TcxDBTextEdit;
     Label19: TLabel;
     qrApmasterCREDTM: TIntegerField;
+    qrApmasterVATRATE: TIntegerField;
 
     procedure DataSource1StateChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

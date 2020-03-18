@@ -17,7 +17,7 @@ uses
   cxCalendar, AdvGlowButton, frxClass, frxExportXLSX, frxRich, frxDCtrl,
   frxTableObject, frxExportPDF, frxExportImage, frxGradient, frxFDComponents,
   frxBDEComponents, frxExportBaseDialog, frxExportCSV, frxCross, frxChBox,
-  frxChart, frxBarcode;
+  frxChart, frxBarcode, frxDBSet;
 
 type
   TFQuerySale = class(TForm)
@@ -104,6 +104,7 @@ type
     frxRichObject1: TfrxRichObject;
     frxXLSXExport1: TfrxXLSXExport;
     frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

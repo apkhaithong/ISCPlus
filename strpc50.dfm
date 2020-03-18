@@ -1044,7 +1044,7 @@ object StRp_C50: TStRp_C50
   end
   object qrExportStk: TFDQuery
     CachedUpdates = True
-    ConnectionName = 'Hi_dbms'
+    Connection = DM_SEC.HI_DBMS
     SQL.Strings = (
       'select * from View_CostProduct')
     Left = 403
@@ -1100,29 +1100,39 @@ object StRp_C50: TStRp_C50
       FieldName = 'VATRT'
       DisplayFormat = '##,##0.00'
     end
-    object qrExportStkUPRICE: TFloatField
+    object qrExportStkUPRICE: TFMTBCDField
       DisplayLabel = #3619#3634#3588#3634#3605#3656#3629#3627#3609#3656#3623#3618
       FieldName = 'UPRICE'
-      DisplayFormat = '##,##0.00'
+      Origin = 'UPRICE'
+      Precision = 31
+      Size = 10
     end
-    object qrExportStkTOTPRC: TFloatField
+    object qrExportStkTOTPRC: TFMTBCDField
       DisplayLabel = #3619#3634#3588#3634#3619#3623#3617
       FieldName = 'TOTPRC'
-      DisplayFormat = '##,##0.00'
+      Origin = 'TOTPRC'
+      Precision = 31
+      Size = 14
     end
-    object qrExportStkAVGCOST: TFloatField
+    object qrExportStkAVGCOST: TFMTBCDField
       DisplayLabel = #3605#3657#3609#3607#3640#3609#3648#3593#3621#3637#3656#3618
       FieldName = 'AVGCOST'
-      DisplayFormat = '##,##0.00'
+      Origin = 'AVGCOST'
+      Precision = 31
     end
-    object qrExportStkTOTCOST: TFloatField
+    object qrExportStkTOTCOST: TFMTBCDField
       DisplayLabel = #3605#3657#3609#3607#3640#3609#3619#3623#3617
       FieldName = 'TOTCOST'
-      DisplayFormat = '##,##0.00'
+      Origin = 'TOTCOST'
+      Precision = 31
+      Size = 12
     end
-    object qrExportStkREDUE: TFloatField
+    object qrExportStkREDUE: TFMTBCDField
       DisplayLabel = #3626#3656#3623#3609#3621#3604
       FieldName = 'REDUE'
+      Origin = 'REDUE'
+      Precision = 31
+      Size = 14
     end
     object qrExportStkPKNO: TStringField
       DisplayLabel = #3648#3621#3586#3607#3637#3656#3651#3610#3648#3610#3636#3585'/'#3592#3656#3634#3618

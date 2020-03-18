@@ -49,7 +49,7 @@ object DM_SEC: TDM_SEC
       end
       item
         SizeMax = 1024
-        SizeMin = 1024
+        SizeMin = 512
         SourceDataType = dtAnsiString
         TargetDataType = dtMemo
       end
@@ -60,7 +60,6 @@ object DM_SEC: TDM_SEC
     TxOptions.DisconnectAction = xdRollback
     TxOptions.EnableNested = False
     ConnectedStoredUsage = [auRunTime]
-    Connected = True
     LoginPrompt = False
     OnRecover = HI_DBMSRecover
     BeforeStartTransaction = HI_DBMSBeforeStartTransaction

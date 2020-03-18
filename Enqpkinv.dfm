@@ -804,6 +804,8 @@ object Fenqpkinv: TFenqpkinv
   end
   object frxReport1: TfrxReport
     Version = '6.5.2'
+    DataSet = frxDBDataset1
+    DataSetName = 'qrPkNoTax'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.AllowEdit = False
@@ -924,5 +926,13 @@ object Fenqpkinv: TFenqpkinv
   object frxBarCodeObject1: TfrxBarCodeObject
     Left = 404
     Top = 304
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'qrPkNoTax'
+    CloseDataSource = False
+    DataSet = qrPkNoTax
+    BCDToCurrency = False
+    Left = 601
+    Top = 357
   end
 end

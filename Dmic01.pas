@@ -584,7 +584,6 @@ type
     PkTranCAMFLG: TStringField;
     Rctrn1DISCAMT: TFloatField;
     Rctrn1VATCOST: TFloatField;
-    TmpajtrITEMNO: TFloatField;
     RcinvPOSTGLDT: TDateTimeField;
     RcinvPAYTYP: TStringField;
     RcinvREFNO: TStringField;
@@ -818,6 +817,7 @@ type
     Rcinv1TNOPAY: TIntegerField;
     IcinvTNOPAY: TIntegerField;
     IcinvCREDTM: TFloatField;
+    TmpajtrITEMNO: TIntegerField;
     procedure RctranNewRecord(DataSet: TDataSet);
     procedure RcinvNewRecord(DataSet: TDataSet);
     procedure RcinvRECVDTValidate(Sender: TField);

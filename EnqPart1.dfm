@@ -1099,6 +1099,8 @@ object FmEnqpart1: TFmEnqpart1
   end
   object frxReport1: TfrxReport
     Version = '6.5.2'
+    DataSet = frxDBDataset1
+    DataSetName = 'qrEnqPart'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.AllowEdit = False
@@ -1219,5 +1221,13 @@ object FmEnqpart1: TFmEnqpart1
   object frxBarCodeObject1: TfrxBarCodeObject
     Left = 404
     Top = 304
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'qrEnqPart'
+    CloseDataSource = False
+    DataSet = qrEnqPart
+    BCDToCurrency = False
+    Left = 589
+    Top = 385
   end
 end

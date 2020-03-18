@@ -69,11 +69,6 @@ type
     qrExportStkQTYOUT: TFloatField;
     qrExportStkVATTYPE: TStringField;
     qrExportStkVATRT: TFloatField;
-    qrExportStkUPRICE: TFloatField;
-    qrExportStkTOTPRC: TFloatField;
-    qrExportStkAVGCOST: TFloatField;
-    qrExportStkTOTCOST: TFloatField;
-    qrExportStkREDUE: TFloatField;
     qrExportStkDESCP: TStringField;
     qrExportStkPKNO: TStringField;
     qrExportStkFREE: TStringField;
@@ -94,6 +89,11 @@ type
     frxRichObject1: TfrxRichObject;
     frxXLSXExport1: TfrxXLSXExport;
     frxReport1: TfrxReport;
+    qrExportStkUPRICE: TFMTBCDField;
+    qrExportStkTOTPRC: TFMTBCDField;
+    qrExportStkAVGCOST: TFMTBCDField;
+    qrExportStkTOTCOST: TFMTBCDField;
+    qrExportStkREDUE: TFMTBCDField;
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -136,9 +136,9 @@ var
   CHKDT, CKSL, CKFR, CKORD: string;
 begin
   if RadioGroup2.ItemIndex = 0 then
-    CHKDT := ' AND TAXDATE>=:PFDATE AND TAXDATE<=:PTDATE '
+    CHKDT := ' AND TAXDATE >= :PFDATE AND TAXDATE <= :PTDATE '
   else
-    CHKDT := ' AND INVDATE>=:PFDATE AND INVDATE<=:PTDATE ';
+    CHKDT := ' AND INVDATE >= :PFDATE AND INVDATE <= :PTDATE ';
 
   if OptRadio.ItemIndex = 0 then
     CKSL := ' AND TYPESALE = ''FS'' '

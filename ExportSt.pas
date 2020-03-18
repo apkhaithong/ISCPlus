@@ -114,12 +114,6 @@ type
     QExport4XLS1: TQExport4XLS;
     SaveDialog1: TbsSkinSaveDialog;
     Query2: TFDQuery;
-    Query2PARTNO: TStringField;
-    Query2GROUP1: TStringField;
-    Query2LOCAT: TStringField;
-    Query2SHELF: TStringField;
-    Query2ALLO_TOT: TFloatField;
-    Query2DESC1: TStringField;
     frxChartObject1: TfrxChartObject;
     frxReport1: TfrxReport;
     frxDialogControls1: TfrxDialogControls;
@@ -135,6 +129,12 @@ type
     frxReportTableObject1: TfrxReportTableObject;
     frxFDComponents1: TfrxFDComponents;
     frxBarCodeObject1: TfrxBarCodeObject;
+    Query2PARTNO: TStringField;
+    Query2DESC1: TStringField;
+    Query2GROUP1: TStringField;
+    Query2LOCAT: TStringField;
+    Query2SHELF: TStringField;
+    Query2ALLO_TOT: TFloatField;
     procedure insBtnClick(Sender: TObject);
     procedure CancBtnClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -191,7 +191,7 @@ begin
     Sql.Clear;
     Sql.Add('SELECT A.PARTNO,B.DESC1,B.GROUP1,A.ADJLOC LOCAT,B.SHELF,A.QTYORD ALLO_TOT ' +
       'FROM TMPAJTR A,INVENTOR B WHERE A.PARTNO=B.PARTNO AND A.ADJLOC=B.LOCAT AND A.YEAR1=B.YEAR1 ' +
-      'AND A.ADJNO=:EDIT1');
+      'AND A.ADJNO = :XEDIT1');
     params[0].AsString := DBEdit2.Text;
     Open;
     if Query2.bof and Query2.Eof then

@@ -380,9 +380,6 @@ object frmRpStkBal: TfrmRpStkBal
       StyleDisabled.LookAndFeel.SkinName = ''
       TabOrder = 7
       Transparent = True
-      ExplicitLeft = 1
-      ExplicitTop = 133
-      ExplicitWidth = 481
       Height = 84
       Width = 483
     end

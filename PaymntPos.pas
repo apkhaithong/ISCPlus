@@ -12,7 +12,10 @@ uses
   cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator,
   cxDBData, cxImageComboBox, cxCurrencyEdit, BusinessSkinForm, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxGridCustomView, cxGrid, dxStatusBar;
+  cxGridCustomView, cxGrid, dxStatusBar, frxExportXLSX, frxRich, frxTableObject,
+  frxClass, frxDCtrl, frxFDComponents, frxGradient, frxExportImage,
+  frxExportPDF, frxBDEComponents, frxExportBaseDialog, frxExportCSV, frxCross,
+  frxChBox, frxChart, frxBarcode;
 
 type
   TFPaymntPos = class(TForm)
@@ -90,6 +93,21 @@ type
     cxGrid2DBTableView1DESCRIPTION: TcxGridDBColumn;
     cxGrid2DBTableView1AMOUNT: TcxGridDBColumn;
     cxGridLevel3: TcxGridLevel;
+    frxBarCodeObject1: TfrxBarCodeObject;
+    frxChartObject1: TfrxChartObject;
+    frxCheckBoxObject1: TfrxCheckBoxObject;
+    frxCrossObject1: TfrxCrossObject;
+    frxCSVExport1: TfrxCSVExport;
+    frxBDEComponents1: TfrxBDEComponents;
+    frxPDFExport1: TfrxPDFExport;
+    frxJPEGExport1: TfrxJPEGExport;
+    frxGradientObject1: TfrxGradientObject;
+    frxFDComponents1: TfrxFDComponents;
+    frxDialogControls1: TfrxDialogControls;
+    frxReport1: TfrxReport;
+    frxReportTableObject1: TfrxReportTableObject;
+    frxRichObject1: TfrxRichObject;
+    frxXLSXExport1: TfrxXLSXExport;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DataSource1StateChange(Sender: TObject);
     procedure DBEdit7Change(Sender: TObject);
@@ -97,7 +115,6 @@ type
     procedure DelBtnClick(Sender: TObject);
     procedure CancBtnClick(Sender: TObject);
     procedure CloseBtnClick(Sender: TObject);
-    procedure frReport1GetValue(const ParName: string; var ParValue: Variant);
     procedure frReport1UserFunction(const Name: string; p1, p2, p3: Variant; var Val: Variant);
     procedure PrnBtnClick(Sender: TObject);
     procedure actEditPrnExecute(Sender: TObject);
@@ -107,6 +124,7 @@ type
     procedure cxDBGridTranBKCODEPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure cxGrid3DBTableView2PAYCODEPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure cxGrid3DBTableView2BANKBOOKCODPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+    procedure frxReport1GetValue(const VarName: string; var Value: Variant);
   private
     { Private declarations }
   public
@@ -361,12 +379,6 @@ begin
   Close;
 end;
 
-procedure TFPaymntPos.frReport1GetValue(const ParName: string; var ParValue: Variant);
-begin
-  if UpperCase(ParName) = 'PBILLNO' then
-    ParValue := DBEdit17.Text;
-end;
-
 procedure TFPaymntPos.frReport1UserFunction(const Name: string; p1, p2, p3: Variant; var Val: Variant);
 begin
 //  if UPPERCASE(Name) = 'BAHTTEXT' then
@@ -380,23 +392,30 @@ begin
 //  end;
 end;
 
+procedure TFPaymntPos.frxReport1GetValue(const VarName: string;
+  var Value: Variant);
+begin
+  if UpperCase(VarName) = 'PBILLNO' then
+    Value := DBEdit17.Text;
+end;
+
 procedure TFPaymntPos.PrnBtnClick(Sender: TObject);
 begin
   if DBEdit17.Text = '' then
     sfmain.RaiseException('กรุณาเลือกเลขที่เอกสารก่อนพิมพ์..!');
 
   if cxRadioGroup1.ItemIndex = 0 then
-//    DM_SEC.Do_Prev_Edit_FastReport(frReport1, 'fr_Billicinv3.frf', '1')
+    DM_SEC.Do_Prev_Edit_FastReport(frxReport1, 'fr_Billicinv3.fr3', '1')
   else
-//    DM_SEC.Do_Prev_Edit_FastReport(frReport1, 'fr_Billicinv4.frf', '1');
+    DM_SEC.Do_Prev_Edit_FastReport(frxReport1, 'fr_Billicinv4.fr3', '1');
 end;
 
 procedure TFPaymntPos.actEditPrnExecute(Sender: TObject);
 begin
   if cxRadioGroup1.ItemIndex = 0 then
-//    DM_SEC.Do_Prev_Edit_FastReport(frReport1, 'fr_Billicinv3.frf', '2')
+    DM_SEC.Do_Prev_Edit_FastReport(frxReport1, 'fr_Billicinv3.fr3', '2')
   else
-//    DM_SEC.Do_Prev_Edit_FastReport(frReport1, 'fr_Billicinv4.frf', '2');
+    DM_SEC.Do_Prev_Edit_FastReport(frxReport1, 'fr_Billicinv4.fr3', '2');
 end;
 
 procedure TFPaymntPos.FormShow(Sender: TObject);

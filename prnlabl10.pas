@@ -557,7 +557,7 @@ end;
 
 procedure TFPrnLabl10.RadioGroup2Click(Sender: TObject);
 begin
-  ExportBtn.Visible := (RadioGroup1.ItemIndex = 0);
+//  ExportBtn.Visible := (RadioGroup1.ItemIndex = 0);
   if RadioGroup2.ItemIndex = 0 then
   begin
     QExport4Xlsx1.DataSet := Query2;

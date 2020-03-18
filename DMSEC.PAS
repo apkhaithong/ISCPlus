@@ -94,7 +94,7 @@ end;
 
 function TDM_SEC.Do_Show_frReports(FReport: string; AFrStream: TMemoryStream): string;
 begin
-  Do_Call_Reports('SVSLFRREPORTS_BAK_FR3','FRNAME',FReport);
+  Do_Call_Reports('SVSLFRREPORTS','FRNAME',FReport);
   if qrReport.IsEmpty then
     raise Exception.Create('ไม่มี Report ' + FReport );
   AFrStream.LoadFromStream(qrReport.CreateBlobStream(qrReport.FieldByName('PATHFR'), bmRead));
